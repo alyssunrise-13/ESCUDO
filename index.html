@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="En ESCUDO aprende ciberseguridad, frontend, backend, inteligencia artificial y más, creando soluciones para el mundo digital.">
+    <meta name="theme-color" content="#030503">
+    <title>ESCUDO | Tecnología para defender el futuro</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co ws://127.0.0.1:* ws://localhost:* http://127.0.0.1:* http://localhost:*; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    <link rel="icon" type="image/png" href="imagenes/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20261012R">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="main.js?v=20261012R" defer></script>
+    <script>
+        window.autoEscalar = function() {
+            var base = 1300;
+            var w = window.innerWidth;
+            var zoom = (w > base) ? Math.min(w / base, 1.85) : 1;
+            if (document.body) {
+                document.body.style.zoom = zoom;
+            }
+            var header = document.querySelector('.barra');
+            var headerH = header ? header.offsetHeight : 76;
+            var targetH = Math.max((window.innerHeight / zoom) - headerH + 2, 440);
+            document.documentElement.style.setProperty('--hero-min-height', targetH + 'px');
+            var hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.setProperty('min-height', targetH + 'px', 'important');
+            }
+        };
+        window.addEventListener('resize', window.autoEscalar);
+        window.addEventListener('DOMContentLoaded', window.autoEscalar);
+        window.autoEscalar();
+    </script>
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="barra">
+        <nav class="navegacion contenedor" aria-label="Navegación principal">
+            <a class="marca" href="#inicio" aria-label="ESCUDO, ir al inicio">
+                <img class="logo" src="imagenes/logo.png" alt="">
+                <span class="marca-nombre">ESCUDO</span>
+            </a>
+            <button class="menu-boton" type="button" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="menu-principal">
+                <span class="solo-lectores">Abrir menú</span>
+                <span></span><span></span>
+            </button>
+            <div class="menu" id="menu-principal">
+                <a class="menu-enlace activo" href="#inicio">Inicio</a>
+                <a class="menu-enlace" href="#carreras">Carreras</a>
+                <a class="menu-enlace" href="#admision">Admisión</a>
+                <a class="menu-enlace" href="#resenas">Reseñas</a>
+                <a class="menu-enlace" href="#nosotros">Conócenos</a>
+                <a class="boton boton-pequeno" href="#admision">Postula <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="hero seccion" id="inicio">
+            <div class="hero-fondo" aria-hidden="true"></div>
+            <div class="contenedor hero-contenido">
+                <div class="hero-texto revelar">
+                    <div class="hero-texto-cuerpo">
+                        <div class="etiqueta"><span class="punto-vivo"></span> ESCUELA DE SEGURIDAD CIBERNÉTICA Y UNIDAD DE DEFENSA OPERATIVA</div>
+                        <h1 class="hero-titulo">
+                            <span class="hero-linea hero-linea-1">Aprende a crear.</span>
+                            <span class="hero-linea hero-linea-2">Prepárate para defender.</span>
+                        </h1>
+                        <p class="hero-descripcion">No vienes solo a mirar pantallas: vienes a entender la infraestructura digital, auditar sistemas reales, entrenar en nuestro Cyber Range táctico y dominar las herramientas que protegen a las organizaciones frente a amenazas digitales globales.</p>
+                    </div>
+                    <div class="hero-texto-pie">
+                        <div class="hero-acciones">
+                            <a class="boton" href="#carreras">Explora las carreras <span aria-hidden="true">↗</span></a>
+                            <a class="enlace-flecha" href="#nosotros">Conoce ESCUDO <span aria-hidden="true">↓</span></a>
+                        </div>
+                        <div class="hero-nota"><span aria-hidden="true">⌁</span> Aprende haciendo. Piensa como quien construye el futuro.</div>
+                    </div>
+                </div>
+                <div class="hero-visual revelar">
+                    <div class="soc-terminal-contenedor" role="region" aria-label="Consola de Operaciones de Ciberseguridad ESCUDO">
+                        <div class="soc-barra-superior">
+                            <div class="soc-botones-ventana" aria-hidden="true">
+                                <span class="soc-dot soc-dot-rojo"></span>
+                                <span class="soc-dot soc-dot-amarillo"></span>
+                                <span class="soc-dot soc-dot-verde"></span>
+                            </div>
+                            <div class="soc-titulo">
+                                <span class="punto-vivo"></span>
+                                <span class="soc-titulo-texto">ESCUDO-SOC // CONSOLA OPERATIVA v2.6.4</span>
+                            </div>
+                            <div class="soc-badges-estado">
+                                <span class="soc-badge"><i class="soc-badge-luz"></i> FIREWALL: ACTIVO</span>
+                                <span class="soc-badge soc-badge-sec"><i class="soc-badge-luz"></i> IDS/IPS: DEFCON 4</span>
+                                <span class="soc-badge soc-badge-ping">LATENCIA: <b id="soc-latencia">12ms</b></span>
+                            </div>
+                        </div>
+
+                        <div class="soc-cuerpo">
+                            <div class="soc-panel-terminal">
+                                <div class="soc-terminal-cabecera">
+                                    <span class="soc-sesion-tag">TERMINAL_ROOT@ESCUDO-DEFENSE:~#</span>
+                                    <span class="soc-cifrado-tag">[TLS 1.3 · AES-256-GCM]</span>
+                                </div>
+                                <div class="soc-log-ventana" id="soc-log-ventana" role="log" aria-live="polite">
+                                    <div class="soc-log-linea soc-log-sys">
+                                        <span class="soc-prompt">[SYS-BOOT]</span>
+                                        <span class="soc-msg">Protocolos de defensa perimetral ESCUDO inicializados... [OK]</span>
+                                    </div>
+                                    <div class="soc-log-linea soc-log-net">
+                                        <span class="soc-prompt">[SEC-SCAN]</span>
+                                        <span class="soc-msg">Inspección heurística activa: 0 amenazas | 6 especialidades protegidas.</span>
+                                    </div>
+                                    <div class="soc-log-linea soc-log-sec">
+                                        <span class="soc-prompt">[IPS-RULE]</span>
+                                        <span class="soc-msg">Sondeo no autorizado neutralizado en puerto 443 [198.51.100.24] -&gt; MITIGADO.</span>
+                                    </div>
+                                    <div class="soc-log-linea soc-log-info">
+                                        <span class="soc-prompt">[ESCUDO@DEFENSA]</span>
+                                        <span class="soc-msg">Consola lista. Elige una acción rápida o escribe un comando:</span>
+                                    </div>
+                                </div>
+
+                                <div class="soc-acciones-rapidas" aria-label="Comandos rápidos de orientación al estudiante">
+                                    <button type="button" class="soc-chip" data-cmd="que_aprendere"><span class="soc-chip-icono" aria-hidden="true">🎓</span> que_aprendere</button>
+                                    <button type="button" class="soc-chip" data-cmd="retos_practicos"><span class="soc-chip-icono" aria-hidden="true">💻</span> retos_practicos</button>
+                                    <button type="button" class="soc-chip" data-cmd="carreras"><span class="soc-chip-icono" aria-hidden="true">🛡️</span> especialidades</button>
+                                    <button type="button" class="soc-chip" data-cmd="admision"><span class="soc-chip-icono" aria-hidden="true">⚡</span> admision_2026</button>
+                                    <button type="button" class="soc-chip" data-cmd="limpiar"><span class="soc-chip-icono" aria-hidden="true">🧹</span> limpiar</button>
+                                </div>
+
+                                <form class="soc-input-form" id="soc-terminal-form" autocomplete="off">
+                                    <label for="soc-cli-input" class="soc-cli-prompt">escudo@soc:~$</label>
+                                    <input type="text" id="soc-cli-input" class="soc-cli-input" placeholder="Escribe 'que_aprendere', 'carreras' o prueba 'hack'..." maxlength="40" spellcheck="false" autocomplete="off" aria-label="Línea de comandos interactiva de ESCUDO SOC">
+                                    <button type="submit" class="soc-cli-submit" aria-label="Ejecutar comando">EJECUTAR ↵</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="soc-barra-inferior">
+                            <div class="soc-pie-izq">
+                                <span class="soc-pie-punto"></span>
+                                <span>DEFENSA DIGITAL OPERATIVA · RED ESCUDO MONITOREADA</span>
+                            </div>
+                            <div class="soc-pie-centro">
+                                <span>HORA LOCAL:</span>
+                                <span class="reloj" id="reloj-neon" aria-label="Hora local">00:00:00</span>
+                            </div>
+                            <div class="soc-pie-der">
+                                <a href="#admision" class="soc-pie-enlace">POSTULA AL SOC <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="red-particulas seccion" id="red">
+            <div id="particulas-escudo" aria-hidden="true"></div>
+            <div class="contenedor red-unificada">
+                <div class="red-contenido revelar">
+                    <div class="red-pilares" role="list" aria-label="Pilares de aprendizaje en ESCUDO">
+                        <article class="red-pilar" role="listitem">
+                            <span>01 / APRENDER:</span>
+                            <p>Pregunta, explora y comprende cómo funciona la tecnología.</p>
+                        </article>
+                        <article class="red-pilar" role="listitem">
+                            <span>02 / CREAR:</span>
+                            <p>Transforma tus ideas en proyectos que puedes poner a prueba.</p>
+                        </article>
+                        <article class="red-pilar" role="listitem">
+                            <span>03 / PROTEGER:</span>
+                            <p>Construye con criterio, ética y cuidado por las personas.</p>
+                        </article>
+                    </div>
+                    <div class="red-intro">
+                        <p class="sobrelinea">01 / UNA COMUNIDAD QUE SE CONSTRUYE EN EQUIPO</p>
+                        <h2>El futuro digital<br><span>se construye en red.</span></h2>
+                        <p>En ESCUDO las ideas se comparten, se ponen a prueba y se convierten en soluciones que protegen y conectan.</p>
+                    </div>
+                </div>
+
+                <div class="impacto-grid revelar" id="impacto">
+                    <div class="impacto-foto">
+                        <img src="imagenes/Artz Now _ 2051157434631143582.jpg" alt="Especialista analizando líneas de código en una pantalla" loading="lazy">
+                        <span class="foto-etiqueta">APRENDER · CREAR · PROTEGER</span>
+                    </div>
+                    <div class="impacto-texto">
+                        <p class="sobrelinea">EL PRÓXIMO TALENTO PODRÍAS SER TÚ</p>
+                        <h2>Un futuro digital se construye <span>persona por persona.</span></h2>
+                        <div class="impacto-cifras">
+                            <article class="cifra">
+                                <strong data-scramble="1865" aria-label="1865 estudiantes matriculados">0000</strong>
+                                <span>ESTUDIANTES MATRICULADOS</span>
+                            </article>
+                            <article class="cifra">
+                                <strong data-scramble="96%" aria-label="Meta formativa de 96 por ciento">00%</strong>
+                                <span>META DE PREPARACIÓN PROFESIONAL</span>
+                            </article>
+                        </div>
+                        <p class="dato-aclaracion">La meta expresa una aspiración formativa y de excelencia técnica, no una tasa histórica de egreso o empleo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="admision seccion" id="admision">
+            <div class="contenedor admision-grid">
+                <div class="admision-intro revelar">
+                    <p class="sobrelinea">TU SIGUIENTE PASO</p>
+                    <h2>Tu futuro en tecnología <span>empieza aquí.</span></h2>
+                    <p>¿Te apasiona la ciberseguridad, el desarrollo de software o la inteligencia artificial? Inicia tu proceso de postulación para ingresar a los laboratorios de ESCUDO. Nuestro equipo de admisión te guiará paso a paso en la convalidación, modalidades de estudio y becas de especialización técnica.</p>
+                    <div class="admision-dato">
+                        <span class="dato-icono">01</span>
+                        <span>
+                            <strong>Elige tu camino profesional</strong>
+                            <small>Explora el plan de estudios, especialidades tácticas y certificaciones internacionales disponibles.</small>
+                        </span>
+                    </div>
+                    <div class="admision-dato">
+                        <span class="dato-icono">02</span>
+                        <span>
+                            <strong>Déjanos tus datos de contacto</strong>
+                            <small>Completa el formulario en 60 segundos y un asesor académico coordinará tu entrevista de ingreso.</small>
+                        </span>
+                    </div>
+                </div>
+                <div class="formulario-caja revelar">
+                    <div class="formulario-titulo">
+                        <span class="estado"><i></i> ADMISIONES ABIERTAS</span>
+                        <h3>Solicita información</h3>
+                        <p>Completa tus datos para recibir la malla curricular, costos y fechas de inicio de clases.</p>
+                    </div>
+                    <form id="formulario-escudo" method="post" accept-charset="UTF-8" aria-describedby="mensaje-sistema">
+                        <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
+                            <label for="campo-seguridad-escudo">No llenar este campo</label>
+                            <input type="text" id="campo-seguridad-escudo" name="_hp_security_check" tabindex="-1" autocomplete="off">
+                        </div>
+                        <div class="campos-dobles">
+                            <div class="campo">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" minlength="2" maxlength="120" pattern="^[A-Za-zÀ-ÿ\s'.]{2,120}$" title="Ingresa un nombre válido sin caracteres especiales." required>
+                            </div>
+                            <div class="campo">
+                                <label for="correo">Correo electrónico</label>
+                                <input type="email" id="correo" name="correo" placeholder="tu@correo.com" autocomplete="email" maxlength="254" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" required>
+                            </div>
+                        </div>
+                        <div class="campos-dobles">
+                            <div class="campo">
+                                <label for="celular">Celular</label>
+                                <input type="tel" id="celular" name="celular" placeholder="Tu número de contacto" autocomplete="tel" inputmode="tel" maxlength="20" pattern="^\+?[0-9 ()-]{7,20}$" title="Ingresa un número telefónico válido (entre 7 y 15 dígitos)." required>
+                            </div>
+                            <div class="campo">
+                                <label for="carrera">Carrera de interés</label>
+                                <select id="carrera" name="carrera" required>
+                                    <option value="">Selecciona una carrera</option>
+                                    <option value="ciberseguridad">Ciberseguridad y Defensa Digital</option>
+                                    <option value="software">Desarrollo de Software</option>
+                                    <option value="redes-datos">Redes y Bases de Datos</option>
+                                    <option value="frontend">Desarrollo Frontend</option>
+                                    <option value="backend">Desarrollo Backend</option>
+                                    <option value="ia">Inteligencia Artificial</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="campos-dobles">
+                            <div class="campo">
+                                <label for="dni">DNI</label>
+                                <input type="text" id="dni" name="dni" placeholder="8 dígitos" inputmode="numeric" autocomplete="off" pattern="[0-9]{8}" minlength="8" maxlength="8" title="Escribe los 8 dígitos de tu DNI." required>
+                            </div>
+                            <div class="campo">
+                                <label for="modalidad">Modalidad de estudio</label>
+                                <select id="modalidad" name="modalidad" required>
+                                    <option value="">Selecciona una modalidad</option>
+                                    <option value="presencial">Presencial</option>
+                                    <option value="virtual">Virtual</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="aceptacion" for="acepto-privacidad">
+                            <input type="checkbox" id="acepto-privacidad" name="acepto_privacidad" value="true" required>
+                            <span>Acepto que ESCUDO use estos datos para responder a mi consulta.</span>
+                        </label>
+                        <p class="formulario-aviso" id="mensaje-sistema" role="status" aria-live="polite"></p>
+                        <button class="boton boton-ancho" type="submit">Enviar solicitud <span aria-hidden="true">↗</span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="carreras seccion" id="carreras">
+            <div class="contenedor">
+                <div class="encabezado-seccion revelar">
+                    <div>
+                        <p class="sobrelinea">ENCUENTRA TU ESPECIALIDAD</p>
+                        <h2>El futuro tiene <span>varios caminos.</span></h2>
+                    </div>
+                    <p>Cada ruta empieza con una pregunta y se convierte en proyectos reales, código de alto nivel y habilidades técnicas certificadas para el mercado tecnológico.</p>
+                </div>
+                <div class="carreras-grid">
+                    <article class="carrera-card revelar">
+                        <div class="carrera-imagen">
+                            <img src="imagenes/cybersecurity.jpg" alt="Visual de seguridad digital y sistemas protegidos" loading="lazy">
+                            <span class="carrera-numero">01 / PROTECCIÓN</span>
+                        </div>
+                        <div class="carrera-info">
+                            <span class="carrera-tag">CIBERSEGURIDAD</span>
+                            <h3>Ciberseguridad y Defensa Digital</h3>
+                            <p>Piensa como defensor de élite: identifica vulnerabilidades, audita arquitecturas críticas y responde a incidentes en tiempo real con criterio táctico y ético.</p>
+                            <a class="enlace-flecha" href="#admision" data-programa="ciberseguridad">Me interesa <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+                    <article class="carrera-card revelar">
+                        <div class="carrera-imagen">
+                            <img src="imagenes/desarrollo de software.jpg" alt="Interfaz y código de un proyecto de software" loading="lazy">
+                            <span class="carrera-numero">02 / SISTEMAS</span>
+                        </div>
+                        <div class="carrera-info">
+                            <span class="carrera-tag">DESARROLLO</span>
+                            <h3>Desarrollo de Software</h3>
+                            <p>Domina el ciclo completo de desarrollo de software moderno: diseña, programa y despliega aplicaciones escalables que resuelven problemas reales de negocio.</p>
+                            <a class="enlace-flecha" href="#admision" data-programa="software">Me interesa <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+                    <article class="carrera-card revelar">
+                        <div class="carrera-imagen">
+                            <img src="imagenes/redes y bases de datos.jpg" alt="Infraestructura digital para redes y administración de bases de datos" loading="lazy">
+                            <span class="carrera-numero">03 / CONEXIÓN Y DATOS</span>
+                        </div>
+                        <div class="carrera-info">
+                            <span class="carrera-tag">INFRAESTRUCTURA</span>
+                            <h3>Redes y Bases de Datos</h3>
+                            <p>Construye y administra infraestructura de redes empresariales seguras, conectividad en la nube y motores de bases de datos que soportan servicios digitales masivos.</p>
+                            <a class="enlace-flecha" href="#admision" data-programa="redes-datos">Me interesa <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+                    <article class="carrera-card revelar">
+                        <div class="carrera-imagen">
+                            <img src="imagenes/frotnend.jpg" alt="Diseño visual de una interfaz digital para desarrollo frontend" loading="lazy">
+                            <span class="carrera-numero">04 / INTERFAZ</span>
+                        </div>
+                        <div class="carrera-info">
+                            <span class="carrera-tag">FRONTEND</span>
+                            <h3>Desarrollo Frontend</h3>
+                            <p>Diseña y programa interfaces web de alto rendimiento: arquitectura modular, animaciones fluidas, sistemas de diseño y cumplimiento estricto de accesibilidad universal.</p>
+                            <a class="enlace-flecha" href="#admision" data-programa="frontend">Me interesa <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+                    <article class="carrera-card revelar">
+                        <div class="carrera-imagen">
+                            <img src="imagenes/backend.jpg" alt="Código de servidor y lógica para desarrollo backend" loading="lazy">
+                            <span class="carrera-numero">05 / LÓGICA</span>
+                        </div>
+                        <div class="carrera-info">
+                            <span class="carrera-tag">BACKEND</span>
+                            <h3>Desarrollo Backend</h3>
+                            <p>Construye la lógica central detrás de cada plataforma: microservicios seguros, APIs RESTful, autenticación robusta y procesamiento asíncrono de alto volumen.</p>
+                            <a class="enlace-flecha" href="#admision" data-programa="backend">Me interesa <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+                    <article class="carrera-card revelar">
+                        <div class="carrera-imagen">
+                            <img src="imagenes/Machine Learning.jpg" alt="Visualización de aprendizaje automático e inteligencia artificial" loading="lazy">
+                            <span class="carrera-numero">06 / APRENDIZAJE</span>
+                        </div>
+                        <div class="carrera-info">
+                            <span class="carrera-tag">INTELIGENCIA ARTIFICIAL</span>
+                            <h3>Inteligencia Artificial</h3>
+                            <p>Entrena modelos predictivos, redes neuronales y algoritmos de machine learning aplicados a la automatización inteligente y la detección temprana de anomalías.</p>
+                            <a class="enlace-flecha" href="#admision" data-programa="ia">Me interesa <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="metodo seccion" id="nosotros">
+            <div class="contenedor metodo-grid">
+                <div class="metodo-texto revelar">
+                    <p class="sobrelinea">CONÓCENOS</p>
+                    <h2>No formamos espectadores.<br><span>Formamos quienes toman el control.</span></h2>
+                    <p>En ESCUDO no esperamos a que el futuro llegue: lo ponemos a prueba. Aprendes creando, colaborando y cuidando la tecnología que conecta a las personas.</p>
+                    <a class="boton boton-secundario" href="#admision">Conoce la propuesta <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="metodo-visual revelar">
+                    <img src="imagenes/decoracion 3.jpg" alt="Estudiante aprendiendo frente a una computadora" loading="lazy">
+                    <div class="visual-etiqueta"><span class="punto-vivo"></span> MISIÓN: APRENDER HACIENDO</div>
+                    <div class="visual-codigo" aria-hidden="true"><span>01</span> entender el sistema<br><span>02</span> construir una solución<br><span>03</span> proteger su impacto</div>
+                </div>
+            </div>
+            <div class="contenedor valores-grid">
+                <article class="valor revelar">
+                    <span>01</span>
+                    <h3>Aprendizaje práctico</h3>
+                    <p>Proyectos y ejercicios que conectan lo que estudias con su uso real.</p>
+                </article>
+                <article class="valor revelar">
+                    <span>02</span>
+                    <h3>Curiosidad constante</h3>
+                    <p>Investiga, prueba nuevas ideas y mantente al día en un sector que cambia.</p>
+                </article>
+                <article class="valor revelar">
+                    <span>03</span>
+                    <h3>Ética digital</h3>
+                    <p>Usa tus conocimientos con responsabilidad y respeto por las personas.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="resenas seccion" id="resenas">
+            <div class="contenedor">
+                <div class="encabezado-seccion revelar">
+                    <div>
+                        <p class="sobrelinea">VOCES DE LA COMUNIDAD</p>
+                        <h2>Aprender también es <span>compartir.</span></h2>
+                    </div>
+                    <p>Una comunidad que aprende, practica y crece en equipo.</p>
+                </div>
+                <div class="resenas-carrusel revelar" aria-live="polite">
+                    <button class="resena-flecha" type="button" data-direccion="-1" aria-label="Reseña anterior">‹</button>
+                    <article class="resena tarjeta-resena">
+                        <img class="resena-foto" src="imagenes/reseñas.jpg" alt="" loading="lazy">
+                        <div class="resena-estrellas" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <blockquote id="texto-resena">“En ESCUDO aprendes haciendo: cada proyecto te ayuda a convertir tus ideas en habilidades para el mundo digital.”</blockquote>
+                        <p class="resena-autor" id="autor-resena">Comunidad ESCUDO</p>
+                    </article>
+                    <button class="resena-flecha" type="button" data-direccion="1" aria-label="Siguiente reseña">›</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor pie-principal">
+            <div class="pie-identidad">
+                <a class="marca" href="#inicio" aria-label="ESCUDO, volver al inicio">
+                    <img class="logo" src="imagenes/logo.png" alt="">
+                    <span class="marca-nombre">ESCUDO</span>
+                </a>
+                <p>La tecnología también necesita quien la construya y quien sepa protegerla.</p>
+            </div>
+            <div class="pie-contacto" id="contacto">
+                <h2>Hablemos de tu futuro</h2>
+                <p>Sede académica · Lima, Perú</p>
+                <p>Central: +51 1 700 2040</p>
+                <p>Atención: lunes a viernes, 9:00 a. m. – 6:00 p. m.</p>
+                <div class="contacto-botones">
+                    <a class="boton contacto-boton" href="mailto:lucero.morales.1331@gmail.com">
+                        Escríbenos <span aria-hidden="true">↗</span>
+                    </a>
+                    <a class="boton boton-secundario contacto-boton" href="https://wa.me/52924290825" target="_blank" rel="noopener noreferrer">
+                        WhatsApp <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+            <div class="pie-redes">
+                <h2>Conecta</h2>
+                <ul class="redes-sociales" aria-label="Símbolos de redes sociales">
+                    <li>
+                        <span class="red-social" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="punto-social" cx="18" cy="6" r="1"></circle></svg>
+                        </span>
+                        <span class="solo-lectores">Instagram</span>
+                    </li>
+                    <li>
+                        <span class="red-social" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M14 8h4V4h-4a6 6 0 0 0-6 6v2H5v4h3v5h4v-5h4l1-4h-5v-2a2 2 0 0 1 2-2Z"></path></svg>
+                        </span>
+                        <span class="solo-lectores">Facebook</span>
+                    </li>
+                    <li>
+                        <span class="red-social" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M15 3h-3v12a3 3 0 1 1-3-3 3.2 3.2 0 0 1 1 .16V9a6.5 6.5 0 1 0 5 6V8.7a8 8 0 0 0 5 1.8V7.4A5 5 0 0 1 15 3Z"></path></svg>
+                        </span>
+                        <span class="solo-lectores">TikTok</span>
+                    </li>
+                    <li>
+                        <span class="red-social" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2 10h6v12H2zM12 10h5v2c.8-1.4 2-2.3 4-2.3V15c-2.7 0-4 1.3-4 3.6V22h-5z"></path></svg>
+                        </span>
+                        <span class="solo-lectores">LinkedIn</span>
+                    </li>
+                </ul>
+                <span class="redes-nota">REDES · CONOCIMIENTO · COMUNIDAD</span>
+            </div>
+            <div class="pie-enlaces">
+                <a href="#inicio">Mapa del sitio</a>
+                <a href="#privacidad">Privacidad y datos</a>
+                <a href="#condiciones">Información institucional</a>
+                <a href="#nosotros">Principios ESCUDO</a>
+                <a href="#inicio">Volver arriba ↑</a>
+            </div>
+        </div>
+        <div class="contenedor pie-legal">
+            <details id="privacidad">
+                <summary>Privacidad y datos</summary>
+                <p>Usamos tus datos para responder a tu consulta de admisión. Para solicitar acceso, rectificación o eliminación, escríbenos a <a href="mailto:lucero.morales.1331@gmail.com">lucero.morales.1331@gmail.com</a>.</p>
+            </details>
+            <details id="condiciones">
+                <summary>Información institucional</summary>
+                <p>Para conocer los programas, requisitos y fechas de admisión vigentes, comunícate con nuestro equipo.</p>
+            </details>
+        </div>
+        <div class="contenedor pie-final">
+            <span>© <span id="anio">2026</span> ESCUDO. Aprende a crear. Prepárate para defender.</span>
+            <span>© ESCUDO · Formación con propósito · Lima, Perú</span>
+        </div>
+    </footer>
+</body>
+</html>

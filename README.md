@@ -17,9 +17,3 @@ Un micrositio institucional moderno y completamente funcional, diseñado bajo la
 * **CSS3:** Variables globales, animaciones personalizadas (`@keyframes`), selectores avanzados y diseño responsivo sin depender en exceso de frameworks.
 * **JavaScript (ES6+):** Lógica de control, manipulación del DOM, asincronía (`async/await`) y manejo de excepciones (`try/catch`).
 * **Supabase:** Backend as a Service para la persistencia de datos.
-
-## ⚙️ Instalación y Pruebas Locales
-
-1. Clona este repositorio: `git clone https://github.com/TuUsuario/Escudo.git`
-2. Abre el archivo `index.html` en tu navegador preferido o utiliza una extensión como *Live Server* en VS Code.
-3. Para probar el envío del formulario, asegúrate de configurar tus credenciales públicas de Supabase en el archivo `supabase-config.js`.

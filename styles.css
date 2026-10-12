@@ -1846,20 +1846,13 @@ h2 span {
     }
 }
 
-
-
-/* ==========================================================================
-   ESTRUCTURA Y TIPOGRAFÍA DESKTOPS UNIFICADA (min-width: 769px)
-   Diseño centrado con escala visual idéntica a VS Code (perfecto, limpio, sin huecos).
-   ========================================================================== */
 @media (min-width: 769px) {
-    /* Contenedor estándar centrado: se adapta limpiamente sin expandirse desproporcionadamente */
+    
     .contenedor {
         width: min(calc(100% - 40px), 1300px) !important;
         margin-inline: auto !important;
     }
 
-    /* Header & Navegación */
     .marca-nombre {
         font-size: 20px !important;
         font-weight: 700 !important;
@@ -1883,7 +1876,6 @@ h2 span {
         font-weight: 700 !important;
     }
 
-    /* Hero (Inicio) - Ocupa la pantalla completa inicial con espacio armónico arriba y abajo */
     .hero {
         min-height: var(--hero-min-height, calc(100vh - 76px)) !important;
         padding-top: clamp(28px, 4vh, 48px) !important;
@@ -1915,7 +1907,6 @@ h2 span {
         max-width: 100% !important;
     }
 
-    /* Hero Title (H1) domina claramente la jerarquía visual */
     .hero h1,
     .hero-titulo,
     .hero h1.hero-titulo {
@@ -1966,7 +1957,6 @@ h2 span {
         line-height: 1.5 !important;
     }
 
-    /* Terminal SOC táctica */
     .soc-terminal-contenedor {
         min-height: 410px !important;
         height: auto !important;
@@ -2093,7 +2083,6 @@ h2 span {
         white-space: nowrap !important;
     }
 
-    /* --- RED DE APRENDIZAJE E IMPACTO UNIFICADOS: 3 cajas a la izquierda sobre la foto (mismo ancho), texto a la derecha, sin línea divisoria intermedia --- */
     .red-particulas {
         margin-top: 0 !important;
         padding-block: clamp(24px, 3.2vh, 40px) !important;
@@ -2153,7 +2142,6 @@ h2 span {
         line-height: 1.5 !important;
     }
 
-    /* Padding de secciones general: equilibrado y uniforme */
     .admision,
     .carreras,
     .metodo,
@@ -2162,7 +2150,6 @@ h2 span {
         padding-block: clamp(34px, 4vh, 48px) !important;
     }
 
-    /* Encabezados y títulos de secciones (H2) */
     .admision-intro h2,
     .encabezado-seccion h2,
     .metodo h2,
@@ -2188,7 +2175,6 @@ h2 span {
         line-height: 1.55 !important;
     }
 
-    /* --- ADMISIÓN & FORMULARIO --- */
     .admision-grid {
         gap: clamp(20px, 2.5vw, 36px) !important;
     }
@@ -2246,7 +2232,6 @@ h2 span {
         font-weight: 700 !important;
     }
 
-    /* --- CARRERAS --- */
     .carreras-grid {
         gap: clamp(14px, 1.5vw, 20px) !important;
     }
@@ -2273,7 +2258,6 @@ h2 span {
         font-size: 13px !important;
     }
 
-    /* --- CIFRAS, VALORES Y RESEÑAS --- */
     .cifra strong {
         font-size: 42px !important;
     }
@@ -2314,7 +2298,6 @@ h2 span {
         font-size: 13.5px !important;
     }
 
-    /* --- PIE DE PÁGINA --- */
     .pie-identidad > p,
     .pie-contacto > p {
         font-size: 13.5px !important;
@@ -2349,9 +2332,6 @@ h2 span {
         font-size: 12.5px !important;
     }
 }
-
-
-
 
 @media (max-width: 768px) {
     .contenedor {
@@ -2825,10 +2805,6 @@ h2 span {
     }
 }
 
-/* ==========================================================================
-   SECCI?N DE FONDO Y PIE DE P?GINA (ESTILOS BASE DEL FOOTER)
-   Dise?ado para mantener contraste y elegancia t?cnica.
-   ========================================================================== */
 .resenas {
     background-image:
         linear-gradient(rgba(2, 18, 7, .72), rgba(2, 18, 7, .78)),
@@ -3001,9 +2977,6 @@ h2 span {
     color: #8ab990;
 }
 
-/* ==========================================================================
-   ALINEACI?N RESPONSIVE DE SECCIONES (DESKTOP INTERMEDIO: min-width: 900px)
-   ========================================================================== */
 @media (min-width: 900px) {
     .admision-grid,
     .impacto-grid {
@@ -3018,9 +2991,6 @@ h2 span {
     }
 }
 
-/* ==========================================================================
-   RESPONSIVE DEL PIE DE P?GINA (TABLET Y M?VIL)
-   ========================================================================== */
 @media (max-width: 760px) {
     .pie-principal {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3052,14 +3022,6 @@ h2 span {
     }
 }
 
-/* Las reglas responsivas fluidas de escritorio ahora se gestionan armónicamente en el bloque desktop (min-width: 769px). */
-
-/* ==========================================================================
-   ACCESIBILIDAD UNIVERSAL Y PREFERENCIAS DE USUARIO
-   - Blindness (Ceguera): Total compatibilidad sem?ntica y live regions
-   - Motor (Movilidad reducida): Target t?ctil >= 44px y :focus-visible visible
-   - Cognitive / ADHD (Distracciones): prefers-reduced-motion apaga luces/destellos
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -3070,7 +3032,6 @@ h2 span {
         transition-duration: .01ms !important;
     }
 
-    /* Neutraliza animaciones parpadeantes que causan distracci?n o sobrecarga visual */
     .punto-vivo,
     .estado i,
     .soc-badge-luz,

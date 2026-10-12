@@ -1,24 +1,5 @@
-/**
- * ============================================================================
- * ESCUDO - LÓGICA PRINCIPAL Y CONSOLA DE OPERACIONES (SOC)
- * ============================================================================
- * Este archivo orquesta la experiencia interactiva, la seguridad defensiva y
- * la accesibilidad del sitio web. Está estructurado en módulos independientes
- * fáciles de explicar:
- * 1. Accesibilidad y preferencias de movimiento (prefers-reduced-motion)
- * 2. Animaciones de entrada (GSAP) y red de partículas (particles.js)
- * 3. Reloj del SOC en tiempo real y menú responsive
- * 4. Navegación activa y revelación con IntersectionObserver
- * 5. Carrusel de testimonios y selector de carreras
- * 6. Formulario seguro: Honeypot, sanitización XSS y cliente Supabase
- * 7. Terminal táctica interactiva: comandos CLI, accesibilidad ARIA y Easter Egg
- * ============================================================================
- */
-
-// 1. Accesibilidad: Respeta si el usuario prefiere movimiento reducido (TDAH/vértigo)
 const movimientoReducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// 2. Animación de entrada inicial con GSAP
 function animarInicio() {
     if (!window.gsap || movimientoReducido) return;
 
@@ -128,7 +109,6 @@ function iniciarMenu() {
         enlace.addEventListener("click", cerrarMenu);
     });
 
-    // Accesibilidad WCAG 2.1: Permitir cerrar el menú con tecla Escape y devolver foco al botón
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && menu.classList.contains("abierto")) {
             cerrarMenu();
@@ -136,7 +116,6 @@ function iniciarMenu() {
         }
     });
 
-    // Cerrar al hacer clic fuera del menú
     document.addEventListener("click", (e) => {
         if (menu.classList.contains("abierto") && !menu.contains(e.target) && !botonMenu.contains(e.target)) {
             cerrarMenu();
@@ -259,7 +238,6 @@ function validarFormulario() {
 
     const botonEnviar = formulario.querySelector('button[type="submit"]');
 
-    // Función de saneamiento preventivo (Defensa en profundidad)
     function sanitizarEntrada(texto, maxLen = 120) {
         if (typeof texto !== "string") return "";
         return texto
@@ -346,7 +324,6 @@ function validarFormulario() {
             mensaje.classList.add("visible", "error");
             return;
         }
-
 
         const configuracion = window.ESCUDO_SUPABASE;
         const urlProyecto = configuracion?.url?.trim();
@@ -617,7 +594,6 @@ function iniciarTerminalSOC() {
             return;
         }
 
-
         if (cmd === "queaprendere" || cmd === "aprendere" || cmd === "plan" || cmd === "temario" || cmd === "estudio") {
             agregarLinea("[PLAN FORMATIVO]", "Aprenderás: Hacking Ético, Defensa de Redes, Criptografía, Cloud Security e IA.", "soc-log-sys");
             setTimeout(() => {
@@ -663,7 +639,7 @@ function iniciarTerminalSOC() {
             }, 400);
         } else if (cmd === "ayuda" || cmd === "help") {
             agregarLinea("[COMANDOS FORMATIVOS]", "'que_aprendere', 'retos_practicos', 'carreras', 'admision', 'limpiar'.", "soc-log-sys");
-            agregarLinea("[PISTA SECRETA]", "Prueba comandos de desarrollador como 'hack', 'matrix' o 'sudo' para sorpresas. 🕶️", "soc-log-sec");
+            agregarLinea("[PISTA SECRETA]", "Prueba comandos de desarrollador como 'hack', 'matrix' o 'sudo' para sorpresas. 🕶️", "soc-log-sec")
         } else {
             agregarLinea("[AVISO]", `Comando no reconocido: "${comandoLimpio}". Escribe 'ayuda' o pulsa un botón arriba.`, "soc-log-err");
         }
@@ -726,4 +702,3 @@ validarFormulario();
 iniciarContadores();
 iniciarTerminalSOC();
 actualizarAnio();
-

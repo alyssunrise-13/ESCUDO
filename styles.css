@@ -2335,8 +2335,19 @@ h2 span {
 
 @media (max-width: 768px) {
     .contenedor {
-        width: calc(100% - 28px);
-        max-width: 100%;
+        width: min(calc(100% - 36px), 640px) !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
+        padding-inline: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .red-particulas,
+    .admision,
+    .carreras,
+    .metodo,
+    .resenas {
+        padding-block: 64px !important;
     }
 
     .hero {
@@ -2351,12 +2362,6 @@ h2 span {
         padding-block: 0;
         width: 100%;
         max-width: 100%;
-    }
-
-    .red-contenido,
-    .admision-grid,
-    .metodo-grid {
-        grid-template-columns: 1fr;
     }
 
     .hero-texto,
@@ -2393,25 +2398,28 @@ h2 span {
     .hero h1.hero-titulo {
         align-items: center;
         text-align: center;
-        font-size: clamp(24px, 6.8vw, 36px) !important;
+        font-size: clamp(23px, 6.5vw, 34px) !important;
         line-height: 1.15;
         margin-bottom: 16px;
         width: 100%;
+        overflow-wrap: break-word !important;
     }
 
     .hero-linea {
         text-align: center;
         white-space: normal;
         word-break: normal;
+        overflow-wrap: break-word !important;
         width: 100%;
     }
 
     .hero-descripcion {
         text-align: center;
-        font-size: clamp(14px, 3.8vw, 16px);
+        font-size: clamp(14px, 3.8vw, 15.5px);
         max-width: 480px;
         margin-inline: auto;
         line-height: 1.6;
+        overflow-wrap: break-word !important;
     }
 
     .hero-acciones {
@@ -2451,13 +2459,410 @@ h2 span {
         line-height: 1.55;
     }
 
-    .red-contenido {
-        gap: 24px;
+    .red-unificada {
+        gap: 52px !important;
     }
 
-    .admision-grid,
+    .red-contenido {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .red-intro {
+        order: -1;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .red-intro .sobrelinea {
+        text-align: center !important;
+        margin-inline: auto !important;
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .red-intro h2 {
+        text-align: center !important;
+        font-size: clamp(23px, 6.2vw, 29px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 12px !important;
+        width: 100% !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .red-intro > p:last-child {
+        text-align: center !important;
+        font-size: clamp(14px, 3.8vw, 15.5px) !important;
+        line-height: 1.6 !important;
+        max-width: 480px !important;
+        margin-inline: auto !important;
+        color: var(--texto-suave) !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .red-pilares {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .red-pilar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 8px !important;
+        padding: 16px 18px !important;
+        border: 1px solid rgba(0, 255, 65, .28) !important;
+        border-radius: 3px !important;
+        background: rgba(3, 10, 4, .68) !important;
+        backdrop-filter: blur(4px) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .red-pilar span {
+        font-size: clamp(14px, 3.8vw, 16px) !important;
+        font-weight: 700 !important;
+        letter-spacing: .08em !important;
+        color: var(--verde) !important;
+        text-align: center !important;
+        white-space: normal !important;
+    }
+
+    .red-pilar p {
+        font-size: clamp(13px, 3.5vw, 14.5px) !important;
+        line-height: 1.55 !important;
+        color: #adffb5 !important;
+        text-align: center !important;
+        margin: 0 !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .impacto-grid {
+        grid-template-columns: 1fr !important;
+        gap: 26px !important;
+        align-items: center !important;
+    }
+
+    .impacto-foto {
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+        height: auto !important;
+        min-height: 200px !important;
+        max-height: 240px !important;
+        border-radius: 3px !important;
+        overflow: hidden !important;
+    }
+
+    .impacto-texto {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .impacto-texto .sobrelinea {
+        text-align: center !important;
+        margin-inline: auto !important;
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .impacto-texto h2 {
+        text-align: center !important;
+        font-size: clamp(23px, 6.2vw, 29px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 18px !important;
+        width: 100% !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .impacto-cifras {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+        margin-bottom: 16px !important;
+    }
+
+    .cifra {
+        text-align: center !important;
+        padding: 16px 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .cifra strong {
+        font-size: clamp(30px, 8vw, 40px) !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+    }
+
+    .cifra span {
+        font-size: clamp(10.5px, 2.7vw, 12px) !important;
+        text-align: center !important;
+        line-height: 1.4 !important;
+    }
+
+    .dato-aclaracion {
+        text-align: center !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+        font-size: clamp(12px, 3.2vw, 13px) !important;
+        line-height: 1.55 !important;
+        color: #8ab990 !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .admision-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+    }
+
+    .admision-intro {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .admision-intro .sobrelinea {
+        text-align: center !important;
+        margin-inline: auto !important;
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .admision-intro h2 {
+        text-align: center !important;
+        font-size: clamp(23px, 6.2vw, 29px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 14px !important;
+        width: 100% !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .admision-intro > p:not(.sobrelinea) {
+        text-align: center !important;
+        font-size: clamp(14px, 3.8vw, 15.5px) !important;
+        line-height: 1.6 !important;
+        max-width: 480px !important;
+        margin-inline: auto !important;
+        margin-bottom: 20px !important;
+        color: var(--texto-suave) !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .admision-dato {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 14px !important;
+        width: 100% !important;
+        max-width: 460px !important;
+        margin-inline: auto !important;
+        margin-top: 14px !important;
+        text-align: left !important;
+        padding: 12px 14px !important;
+        border: 1px solid rgba(0, 255, 65, .15) !important;
+        border-radius: 3px !important;
+        background: rgba(3, 8, 4, .5) !important;
+        box-sizing: border-box !important;
+    }
+
+    .admision-dato .dato-icono {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        flex-shrink: 0 !important;
+        font-size: 14px !important;
+    }
+
+    .admision-dato strong {
+        font-size: clamp(14px, 3.8vw, 16px) !important;
+    }
+
+    .admision-dato small {
+        font-size: clamp(12.5px, 3.4vw, 13.5px) !important;
+        line-height: 1.5 !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .formulario-caja {
+        padding: 22px 18px !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        margin-inline: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .campos-dobles {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .encabezado-seccion {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 10px !important;
+        margin-bottom: 28px !important;
+        width: 100% !important;
+    }
+
+    .encabezado-seccion .sobrelinea {
+        text-align: center !important;
+        margin-inline: auto !important;
+        font-size: 12px !important;
+    }
+
+    .encabezado-seccion h2,
+    .metodo h2 {
+        text-align: center !important;
+        font-size: clamp(23px, 6.2vw, 29px) !important;
+        line-height: 1.2 !important;
+        width: 100% !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .encabezado-seccion > p,
+    .metodo-texto > p:not(.sobrelinea) {
+        text-align: center !important;
+        font-size: clamp(14px, 3.8vw, 15.5px) !important;
+        line-height: 1.6 !important;
+        max-width: 480px !important;
+        margin-inline: auto !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .carreras-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+    }
+
+    .carrera-card {
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .carrera-imagen {
+        height: 210px !important;
+    }
+
     .metodo-grid {
-        gap: 30px;
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .metodo-visual {
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+        min-height: 230px !important;
+        box-sizing: border-box !important;
+    }
+
+    .metodo-texto {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .metodo-texto .sobrelinea {
+        text-align: center !important;
+        margin-inline: auto !important;
+    }
+
+    .valores-grid {
+        margin-top: 26px !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 440px !important;
+        margin-inline: auto !important;
+    }
+
+    .valor {
+        text-align: center !important;
+        padding: 14px 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .resenas-carrusel {
+        grid-template-columns: 36px minmax(0, 1fr) 36px !important;
+        gap: 8px !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        margin-inline: auto !important;
+    }
+
+    .resena-flecha {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    .resena {
+        padding: 18px 14px !important;
+        box-sizing: border-box !important;
+    }
+
+    .resena blockquote {
+        font-size: clamp(12.5px, 3.4vw, 13.5px) !important;
+        line-height: 1.6 !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .pie-principal {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 24px !important;
+        padding-block: 36px !important;
+    }
+
+    .pie-identidad,
+    .pie-contacto,
+    .pie-redes {
+        width: 100% !important;
+        max-width: 420px !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+    }
+
+    .pie-enlaces {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .pie-final {
+        align-items: center !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 6px !important;
+        padding-block: 14px !important;
     }
 }
 
@@ -2679,129 +3084,21 @@ h2 span {
     .soc-pie-der {
         justify-content: center;
     }
-
-    .red-pilar span {
-        white-space: normal !important;
-    }
-
-    .red-unificada {
-        gap: 28px;
-    }
-
-    .red-contenido {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .red-intro {
-        order: -1;
-    }
-
-    .red-intro h2 {
-        font-size: clamp(30px, 9vw, 44px);
-    }
-
-    .red-pilares {
-        grid-template-columns: 1fr;
-    }
-
-    .impacto-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .impacto-foto {
-        min-height: 220px;
-    }
-
-    .admision,
-    .carreras,
-    .metodo,
-    .resenas {
-        padding-block: 68px;
-    }
-
-    .admision-intro h2,
-    .encabezado-seccion h2,
-    .metodo h2 {
-        font-size: 30px;
-    }
-
-    .formulario-caja {
-        padding: 20px 16px;
-    }
-
-    .encabezado-seccion {
-        gap: 10px;
-        margin-bottom: 25px;
-    }
-
-    .carreras-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .carrera-imagen {
-        height: 230px;
-    }
-
-    .metodo-visual {
-        min-height: 270px;
-    }
-
-    .valores-grid {
-        margin-top: 35px;
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .resenas-carrusel {
-        grid-template-columns: 32px minmax(0, 1fr) 32px;
-        gap: 8px;
-    }
-
-    .resena-flecha {
-        width: 30px;
-        height: 30px;
-    }
-
-    .resena {
-        padding: 19px 13px;
-    }
-
-    .resena blockquote {
-        font-size: 12px;
-    }
-
-    .pie-principal {
-        min-height: 145px;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .pie-enlaces {
-        justify-content: flex-start;
-    }
-
-    .pie-final {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        padding-block: 12px;
-    }
 }
 
 @media (max-width: 390px) {
-    .campos-dobles,
-    .impacto-cifras {
-        grid-template-columns: 1fr;
-        gap: 0;
+    .hero-acciones {
+        flex-direction: column !important;
+        width: 100% !important;
     }
 
-    .hero-acciones {
-        flex-direction: column;
+    .hero-acciones .boton {
+        width: 100% !important;
+    }
+
+    .impacto-cifras {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
     }
 }
 

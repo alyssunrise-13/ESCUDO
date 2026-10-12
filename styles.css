@@ -911,6 +911,7 @@ h2 span {
 
 .reloj {
     color: var(--verde);
+    white-space: nowrap !important;
 }
 
 .red-particulas {

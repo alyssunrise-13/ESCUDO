@@ -4,7 +4,8 @@
 > **Estado del despliegue:** Operativo en producción  
 > **Versión:** v2.6.4  
 > **Enlace oficial:** [https://alyssunrise-13.github.io/ESCUDO/](https://alyssunrise-13.github.io/ESCUDO/)  
-> **Sede académica:** Ayacucho, Perú  
+> **Sede académica:** Ayacucho, Perú
+> > **Consejo:** Se recomienda usar Ctrl + "-" si desea reducir los márgenes, ya que la web se muestra grande por temas de accesibilidad para personas con dificultades visuales.
 
 ---
 

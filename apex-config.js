@@ -1,10 +1,4 @@
-// ====================================================================
-// ESCUDO - CONFIGURACIÓN DE CONEXIÓN EN VIVO A ORACLE APEX (ORDS REST API)
-// Configuración extraída directamente de Oracle Database Actions
-// ====================================================================
-
 window.ESCUDO_APEX = Object.freeze({
-    // Base URL oficial de ORDS para el esquema escudo
     baseUrl: "https://oracleapex.com/ords/escudo/",
     schemaAlias: "escudo",
     endpoints: {

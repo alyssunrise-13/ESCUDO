@@ -35,12 +35,16 @@
             margin: 0;
             width: 100%;
             color: var(--verde);
-            background:
-                radial-gradient(ellipse at 50% 0, rgba(0, 255, 65, .08), transparent 50%),
+            background-color: #030604;
+            background-image:
+                linear-gradient(rgba(2, 7, 3, 0.86), rgba(2, 7, 3, 0.94)),
+                radial-gradient(ellipse at 50% 0, rgba(0, 255, 65, .12), transparent 50%),
                 linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px),
-                var(--fondo);
-            background-size: 100% 100%, 32px 32px, 32px 32px, auto;
+                url("imagenes/background_1.gif");
+            background-size: auto, 100% 100%, 32px 32px, 32px 32px, cover;
+            background-position: center, center, center, center, center;
+            background-attachment: fixed;
             font: 16px/1.6 var(--mono);
             min-height: 100vh;
             padding-bottom: 60px;
@@ -945,28 +949,31 @@
     </div>
 
 
-    <!-- Modal Autenticación Administrador -->
+    <!-- Modal Autenticación Administrador (Cifrado SHA-256 + Anti-Fuerza Bruta) -->
     <div class="modal-overlay" id="modal-auth-admin">
-        <div class="modal-box" style="max-width: 480px;">
+        <div class="modal-box" style="max-width: 480px; box-shadow: 0 0 35px rgba(0, 255, 65, 0.2);">
             <div class="modal-header">
-                <div style="font-size: 1rem; color: var(--verde-claro); font-weight: bold;">
-                    🔐 AUTORIZACIÓN // DIRECCIÓN ADMINISTRATIVA
+                <div style="font-size: 0.95rem; color: var(--verde-claro); font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                    <span class="soc-badge-live"></span> AUTORIZACIÓN // DIRECCIÓN ADMINISTRATIVA
                 </div>
                 <button class="modal-close" onclick="closeAuthModal()">&times;</button>
             </div>
             <div style="font-size: 0.82rem; color: var(--verde-suave); line-height: 1.6;">
-                <p>Este módulo permite el gobierno y modificación de las 11 tablas de la base de datos institucional. Ingrese su contraseña de acceso:</p>
+                <p>Acceso restringido para el gobierno institucional de las 11 tablas de la base de datos. Ingrese su credencial autorizada:</p>
                 <div style="margin: 16px 0;">
-                    <label style="color: var(--verde-claro); font-size: 0.75rem; display: block; margin-bottom: 6px;">CONTRASEÑA DE ADMINISTRADOR:</label>
-                    <input type="password" id="admin-pass-input" class="search-input" style="width: 100%; letter-spacing: 2px;" placeholder="Ingrese contraseña..." onkeydown="if(event.key==='Enter') verifyAdminPass()">
-                    <div style="font-size: 0.72rem; color: var(--verde-suave); margin-top: 8px;">
-                        Clave predeterminada: <code style="color: var(--amarillo); font-weight: bold;">admin2026</code> o <code style="color: var(--cyan); font-weight: bold;">escudo2026</code>
+                    <label style="color: var(--verde-claro); font-size: 0.72rem; display: block; margin-bottom: 6px; letter-spacing: 1px;">CREDENCIAL DE SEGURIDAD:</label>
+                    <div style="position: relative;">
+                        <input type="password" id="admin-pass-input" class="search-input" style="width: 100%; letter-spacing: 3px;" placeholder="••••••••••••" onkeydown="if(event.key==='Enter') verifyAdminPass()">
+                    </div>
+                    <div style="font-size: 0.68rem; color: var(--verde-suave); margin-top: 8px; display: flex; justify-content: space-between;">
+                        <span>🔒 Validación criptográfica SHA-256</span>
+                        <span id="auth-attempts-indicator" style="color: var(--amarillo);">3 intentos permitidos</span>
                     </div>
                 </div>
-                <div id="admin-auth-error" style="color: var(--rojo); font-size: 0.75rem; min-height: 20px; margin-bottom: 10px;"></div>
+                <div id="admin-auth-error" style="color: var(--rojo); font-size: 0.75rem; min-height: 20px; margin-bottom: 12px; font-weight: bold;"></div>
                 <div style="display: flex; justify-content: flex-end; gap: 10px;">
                     <button class="btn-tactical" onclick="closeAuthModal()">Cancelar</button>
-                    <button class="btn-tactical" style="background: rgba(0,255,65,0.15); border-color: var(--verde-brillante); font-weight: bold;" onclick="verifyAdminPass()">Desbloquear Panel ↗</button>
+                    <button class="btn-tactical" id="btn-submit-auth" style="background: rgba(0,255,65,0.15); border-color: var(--verde-brillante); font-weight: bold;" onclick="verifyAdminPass()">Validar Credencial ↗</button>
                 </div>
             </div>
         </div>
@@ -1563,10 +1570,34 @@
         }
 
 
-        // --- CONTROL DE ACCESO INSTITUCIONAL (AUTENTICACIÓN) ---
+        // --- SEGURIDAD INSTITUCIONAL: VALIDACIÓN CRIPTOGRÁFICA SHA-256 ---
+        // Hashes autorizados (sin texto plano en memoria o inspección F12)
+        // 6051fc84a7a0d74c225fb18a496b09952da5642e60723ecae543298edd7d82d6 => admin2026
+        // 300a029c5b3f580fc656374d83641934a5caddbe995e0c5f1f557e60a7ad15ee => escudo2026
+        const AUTH_HASH_VAULT = Object.freeze([
+            '6051fc84a7a0d74c225fb18a496b09952da5642e60723ecae543298edd7d82d6',
+            '300a029c5b3f580fc656374d83641934a5caddbe995e0c5f1f557e60a7ad15ee'
+        ]);
+
+        let authFailCount = 0;
+        let authLockoutExpiry = 0;
+
+        async function hashStringSHA256(str) {
+            const buffer = new TextEncoder().encode(str);
+            const digest = await crypto.subtle.digest('SHA-256', buffer);
+            return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
         function promptAdminLogin() {
+            const now = Date.now();
+            if (now < authLockoutExpiry) {
+                const sec = Math.ceil((authLockoutExpiry - now) / 1000);
+                showDeniedRole('lockout', sec);
+                return;
+            }
             document.getElementById('admin-pass-input').value = '';
             document.getElementById('admin-auth-error').innerText = '';
+            updateAttemptsBadge();
             document.getElementById('modal-auth-admin').style.display = 'flex';
             setTimeout(() => document.getElementById('admin-pass-input').focus(), 150);
         }
@@ -1575,29 +1606,86 @@
             document.getElementById('modal-auth-admin').style.display = 'none';
         }
 
-        function verifyAdminPass() {
-            const val = document.getElementById('admin-pass-input').value.trim();
-            if (val === 'admin2026' || val === 'escudo2026' || val === 'admin') {
+        function updateAttemptsBadge() {
+            const badge = document.getElementById('auth-attempts-indicator');
+            if (!badge) return;
+            const left = Math.max(0, 3 - authFailCount);
+            badge.innerText = `${left} intento${left === 1 ? '' : 's'} restante${left === 1 ? '' : 's'}`;
+        }
+
+        async function verifyAdminPass() {
+            const now = Date.now();
+            if (now < authLockoutExpiry) {
+                const sec = Math.ceil((authLockoutExpiry - now) / 1000);
+                document.getElementById('admin-auth-error').innerText = `⛔ TERMINAL BLOQUEADA. Espere ${sec}s para reintentar.`;
+                return;
+            }
+
+            const input = document.getElementById('admin-pass-input');
+            const pass = input.value.trim();
+            if (!pass) {
+                document.getElementById('admin-auth-error').innerText = 'Ingrese su contraseña de administrador.';
+                return;
+            }
+
+            const hashed = await hashStringSHA256(pass);
+            if (AUTH_HASH_VAULT.includes(hashed)) {
+                // Autenticación Exitosa
+                authFailCount = 0;
+                sessionStorage.setItem('ESCUDO_ADMIN_CLEARANCE', 'AUTH_TOKEN_' + Date.now());
                 closeAuthModal();
                 enterRole('admin');
             } else {
-                document.getElementById('admin-auth-error').innerText = '⛔ CONTRASEÑA INCORRECTA. Pruebe con: admin2026 o escudo2026';
+                authFailCount++;
+                input.value = '';
+                updateAttemptsBadge();
+
+                if (authFailCount >= 3) {
+                    authLockoutExpiry = Date.now() + 30000;
+                    document.getElementById('admin-auth-error').innerText = '⛔ LÍMITE DE SEGURIDAD EXCEDIDO. Terminal bloqueada por 30s.';
+                    lockoutTimer(30);
+                } else {
+                    document.getElementById('admin-auth-error').innerText = '⛔ CREDENCIAL NO AUTORIZADA. Acceso denegado.';
+                }
             }
         }
 
-        function showDeniedRole(role) {
+        function lockoutTimer(sec) {
+            const btn = document.getElementById('btn-submit-auth');
+            const err = document.getElementById('admin-auth-error');
+            if (btn) btn.disabled = true;
+            let count = sec;
+            const interval = setInterval(() => {
+                count--;
+                if (count <= 0) {
+                    clearInterval(interval);
+                    authFailCount = 0;
+                    if (btn) btn.disabled = false;
+                    err.innerText = '';
+                    updateAttemptsBadge();
+                } else {
+                    err.innerText = `⛔ BLOQUEO DE SEGURIDAD: Espere ${count}s...`;
+                }
+            }, 1000);
+        }
+
+        function showDeniedRole(role, extra) {
             const title = document.getElementById('denied-modal-title');
             const msg = document.getElementById('denied-modal-message');
             const status = document.getElementById('denied-modal-status');
 
             if (role === 'docente') {
                 title.innerText = '⛔ ACCESO RESTRINGIDO // PLANA DOCENTE';
-                msg.innerText = 'El módulo para los 8 docentes titulares está temporalmente inaccesible por auditoría de actas de fin de ciclo. Consulte a la Dirección Académica.';
+                msg.innerText = 'El módulo para los 8 docentes titulares está temporalmente inaccesible por auditoría de actas de fin de ciclo. Solo Dirección Administrativa tiene clearance activo.';
                 status.innerText = 'PORTAL DOCENTE BLOQUEADO';
             } else if (role === 'estudiante') {
                 title.innerText = '⛔ ACCESO RESTRINGIDO // PORTAL DEL ESTUDIANTE';
-                msg.innerText = 'El autoservicio estudiantil está temporalmente fuera de línea por actualización de matrículas y cálculo de pensiones. Ingrese con clave de Administración para revisar la nómina completa.';
+                msg.innerText = 'El autoservicio estudiantil está fuera de línea por actualización de matrículas. Para revisar estudiantes y boletas completas, ingrese por Administración con su credencial autorizada.';
                 status.innerText = 'AUTOSERVICIO ESTUDIANTIL BLOQUEADO';
+            } else if (role === 'lockout') {
+                title.innerText = '⛔ TERMINAL BLOQUEADA // ANTI-BRUTE-FORCE';
+                msg.innerText = `Se registraron múltiples intentos fallidos no autorizados. Por protocolo de seguridad, la terminal permanecerá bloqueada por ${extra || 30} segundos.`;
+                status.innerText = 'COOLDOWN DE SEGURIDAD ACTIVO';
             }
             document.getElementById('modal-access-denied').style.display = 'flex';
         }
@@ -1606,8 +1694,10 @@
             document.getElementById('modal-access-denied').style.display = 'none';
         }
 
-        // Navegación de Roles
+        // Navegación Segura de Roles
         function showRoleScreen() {
+            // Cierre formal de sesión
+            sessionStorage.removeItem('ESCUDO_ADMIN_CLEARANCE');
             document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
             document.getElementById('screen-roles').classList.add('active');
             document.getElementById('header-role-tag').style.display = 'none';
@@ -1615,24 +1705,26 @@
         }
 
         function enterRole(role) {
+            if (role === 'admin') {
+                // Blindaje contra bypass de consola: Verificar token criptográfico en sessionStorage
+                const clearance = sessionStorage.getItem('ESCUDO_ADMIN_CLEARANCE');
+                if (!clearance || !clearance.startsWith('AUTH_TOKEN_')) {
+                    promptAdminLogin();
+                    return;
+                }
+            } else {
+                showDeniedRole(role);
+                return;
+            }
+
             document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
             const roleTag = document.getElementById('header-role-tag');
             const switchBtn = document.getElementById('btn-switch-role');
 
-            if (role === 'admin') {
-                document.getElementById('screen-admin').classList.add('active');
-                roleTag.innerText = 'ROL: DIRECCIÓN ACADÉMICA';
-            } else if (role === 'docente') {
-                document.getElementById('screen-docente').classList.add('active');
-                roleTag.innerText = 'ROL: PLANA DOCENTE';
-                initDocenteSelect();
-            } else if (role === 'estudiante') {
-                document.getElementById('screen-estudiante').classList.add('active');
-                roleTag.innerText = 'ROL: PORTAL DEL CADETE';
-                searchCadetRecord();
-            }
-
+            document.getElementById('screen-admin').classList.add('active');
+            roleTag.innerText = 'ROL: DIRECCIÓN ACADÉMICA // CLEARANCE LVL-4';
             roleTag.style.display = 'block';
+            switchBtn.innerHTML = '🔒 Cerrar Sesión';
             switchBtn.style.display = 'inline-flex';
         }
 

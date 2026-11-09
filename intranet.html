@@ -37,7 +37,7 @@
             color: var(--verde);
             background-color: #030604;
             background-image:
-                linear-gradient(rgba(2, 7, 3, 0.86), rgba(2, 7, 3, 0.94)),
+                linear-gradient(rgba(2, 7, 3, 0.88), rgba(2, 7, 3, 0.94)),
                 radial-gradient(ellipse at 50% 0, rgba(0, 255, 65, .12), transparent 50%),
                 linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px),
@@ -49,6 +49,25 @@
             min-height: 100vh;
             padding-bottom: 60px;
             position: relative;
+            transition: background 0.3s ease;
+        }
+
+        /* FONDO FIJO Y ESTÁTICO DENTRO DEL DASHBOARD PARA EVITAR MAREOS AL LEER TABLAS */
+        body.in-dashboard {
+            background-image:
+                radial-gradient(ellipse at 50% 0, rgba(0, 255, 65, .05), transparent 55%),
+                linear-gradient(rgba(0, 255, 65, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.015) 1px, transparent 1px) !important;
+            background-color: #030503 !important;
+            background-size: 100% 100%, 30px 30px, 30px 30px !important;
+        }
+
+        .btn-header-compact {
+            padding: 5px 12px;
+            font-size: 0.74rem;
+            white-space: nowrap;
+            letter-spacing: 1px;
+            cursor: pointer;
         }
 
         body::after {
@@ -628,22 +647,21 @@
 </head>
 <body>
 
-    <!-- Header Táctico -->
-    <header class="soc-header">
-        <a href="index.html" class="soc-brand">
-            <img src="imagenes/logo.png" alt="ESCUDO">
-            <div class="soc-title-wrap">
-                <h1><span class="soc-badge-live"></span> ESCUDO // INTRANET INSTITUCIONAL</h1>
-                <p>SISTEMA TÁCTICO DE GESTIÓN EDUCATIVA // ORACLE DATABASE 23ai</p>
-            </div>
+    <!-- Header Táctico Limpio y Alineado -->
+    <header class="soc-header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; min-height: 56px;">
+        <a href="index.html" class="soc-brand" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="imagenes/logo.png" alt="ESCUDO" style="height: 32px; filter: drop-shadow(0 0 6px var(--verde));">
+            <h1 style="font-size: 1.15rem; letter-spacing: 2px; color: var(--verde-claro); margin: 0; font-weight: 700;">
+                <span class="soc-badge-live"></span> ESCUDO // INTRANET
+            </h1>
         </a>
-        <div class="soc-header-right">
-            <div class="apex-status-pill" id="apex-status-indicator" onclick="openApexModal()">
-                <span style="color: var(--verde-brillante);">●</span> ORDS REST: ENLACE VIVO
+        <div class="soc-header-right" style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap;">
+            <div class="apex-status-pill" id="apex-status-indicator" onclick="openApexModal()" title="Configuración ORDS" style="white-space: nowrap;">
+                <span style="color: var(--verde-brillante);">●</span> ORDS VIVO
             </div>
-            <div class="active-role-tag" id="header-role-tag">ROL: ADMINISTRACIÓN</div>
-            <button class="btn-tactical" id="btn-switch-role" style="display: none;" onclick="showRoleScreen()">⇄ Cambiar Rol</button>
-            <a href="index.html" class="btn-tactical">← Volver al Sitio</a>
+            <div class="active-role-tag" id="header-role-tag" style="white-space: nowrap;">DIRECCIÓN</div>
+            <button class="btn-tactical btn-header-compact" id="btn-switch-role" style="display: none;" onclick="showRoleScreen()">🔒 Cerrar Sesión</button>
+            <a href="index.html" class="btn-tactical btn-header-compact">← Volver</a>
         </div>
     </header>
 
@@ -654,7 +672,7 @@
             <div>
                 <span class="live-tag">ORACLE REST DATA SERVICES</span>
                 <span style="color: var(--verde-claro); margin-left: 8px;">MOTOR RELACIONAL VINCULADO:</span>
-                <code style="color: var(--cyan); margin-left: 4px;" id="current-endpoint-display">https://apex.oracle.com/pls/apex/escudo/</code>
+                <code style="color: var(--cyan); margin-left: 4px;" id="current-endpoint-display">https://oracleapex.com/ords/escudo/</code>
             </div>
             <div>
                 <span style="color: var(--verde-suave);">Tablas del Modelo:</span>
@@ -810,7 +828,7 @@
                         <thead>
                             <tr>
                                 <th>CÓDIGO</th>
-                                <th>ESTUDIANTE / CADETE</th>
+                                <th>ESTUDIANTE</th>
                                 <th>DNI</th>
                                 <th>CARRERA</th>
                                 <th>N° MATRÍCULA</th>
@@ -900,7 +918,7 @@
                         <thead>
                             <tr>
                                 <th>CÓDIGO</th>
-                                <th>CADETE</th>
+                                <th>ESTUDIANTE</th>
                                 <th>FOR1 (5%)</th>
                                 <th>TA1 (10%)</th>
                                 <th>TA2 (10%)</th>
@@ -927,7 +945,7 @@
         <div class="screen-view" id="screen-estudiante">
             <div style="background: var(--panel); border: 1px solid var(--panel-borde); padding: 20px; margin-bottom: 20px;">
                 <label style="font-size: 0.8rem; color: var(--verde-claro); display: block; margin-bottom: 8px;">
-                    CONSULTA DE BOLETA // INGRESE SU DNI O CÓDIGO DE CADETE:
+                    CONSULTA DE BOLETA // INGRESE SU DNI O CÓDIGO DE ESTUDIANTE:
                 </label>
                 <div style="display: flex; gap: 10px; max-width: 500px;">
                     <input type="text" id="student-search-input" class="search-input" placeholder="Ej. 71829301 o EST-001" value="71829301">
@@ -1015,7 +1033,7 @@
                 <p>Este frontend no usa archivos inventados: realiza peticiones HTTP directas a los endpoints REST de Oracle APEX (ORDS).</p>
                 <div style="margin: 14px 0;">
                     <label style="color: var(--verde-claro); font-size: 0.75rem; display: block; margin-bottom: 4px;">URL BASE ORDS (RESTFUL SERVICES):</label>
-                    <input type="text" id="apex-url-input" class="search-input" style="width: 100%;" value="https://apex.oracle.com/pls/apex/escudo/">
+                    <input type="text" id="apex-url-input" class="search-input" style="width: 100%;" value="https://oracleapex.com/ords/escudo/">
                 </div>
                 <div style="background: #020402; border: 1px solid rgba(0,255,65,0.15); padding: 12px; margin-bottom: 14px; font-size: 0.75rem;">
                     <strong style="color: var(--verde-brillante);">11 Endpoints REST Disponibles:</strong><br>
@@ -1422,7 +1440,7 @@
                     <td>${c.aula}</td>
                     <td style="color: var(--verde-brillante); font-weight: 700;">${c.promedio.toFixed(2)}</td>
                     <td><span class="badge-status ${badgeClass}">${c.condicion}</span></td>
-                    <td><button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="openCadetDossier(${c.id})">Ver Dossier</button></td>
+                    <td><button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="openCadetDossier(${c.id})">Ver Ficha</button></td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -1698,6 +1716,7 @@
         function showRoleScreen() {
             // Cierre formal de sesión
             sessionStorage.removeItem('ESCUDO_ADMIN_CLEARANCE');
+            document.body.classList.remove('in-dashboard');
             document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
             document.getElementById('screen-roles').classList.add('active');
             document.getElementById('header-role-tag').style.display = 'none';
@@ -1721,6 +1740,7 @@
             const roleTag = document.getElementById('header-role-tag');
             const switchBtn = document.getElementById('btn-switch-role');
 
+            document.body.classList.add('in-dashboard');
             document.getElementById('screen-admin').classList.add('active');
             roleTag.innerText = 'ROL: DIRECCIÓN ACADÉMICA // CLEARANCE LVL-4';
             roleTag.style.display = 'block';
@@ -1804,7 +1824,7 @@
             if (!cadet) {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 40px; color: var(--rojo);">
-                        <h3>NO SE ENCONTRÓ NINGÚN CADETE CON ESE IDENTIFICADOR</h3>
+                        <h3>NO SE ENCONTRÓ NINGÚN ESTUDIANTE CON ESE IDENTIFICADOR</h3>
                         <p style="color: var(--verde-suave); font-size: 0.8rem; margin-top: 6px;">Prueba ingresando: 71829301 o EST-001</p>
                     </div>
                 `;
@@ -1891,7 +1911,7 @@
             `;
         }
 
-        // Modal Dossier 360
+        // Modal Ficha Académica 360
         function openCadetDossier(id) {
             const cadet = ESTUDIANTES_JOIN.find(c => c.id === id);
             if (!cadet) return;

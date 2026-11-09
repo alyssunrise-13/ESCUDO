@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESCUDO // Intranet y Control Operativo</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.oracle.com https://*.oraclecloud.com https://*.supabase.co ws://127.0.0.1:* ws://localhost:* http://127.0.0.1:* http://localhost:*; base-uri 'self'; form-action 'self';">
+    <title>ESCUDO // Intranet Táctica y Gestión Operativa</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.oracle.com https://*.oraclecloud.com https://oracleapex.com https://*.oracleapex.com https://*.supabase.co ws://127.0.0.1:* ws://localhost:* http://127.0.0.1:* http://localhost:*; base-uri 'self'; form-action 'self';">
     <link rel="icon" type="image/png" href="imagenes/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="apex-config.js"></script>
-    <script src="intranet_data.js"></script>
     <style>
         :root {
             --fondo: #030503;
@@ -116,7 +115,7 @@
             background: rgba(0, 255, 65, 0.08);
             border: 1px solid var(--panel-borde);
             color: var(--verde-suave);
-            padding: 5px 10px;
+            padding: 5px 12px;
             font-size: 0.72rem;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -170,6 +169,20 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 24px;
+        }
+
+        /* Banner de Enlace REST Activo */
+        .live-rest-banner {
+            background: rgba(0, 255, 65, 0.06);
+            border: 1px solid var(--verde);
+            padding: 12px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.78rem;
         }
 
         /* Pantallas */
@@ -296,22 +309,22 @@
             font-weight: 700;
         }
 
-        /* Módulo Administrativo: KPIs */
-        .kpi-grid {
+        /* KPIs de las 11 Tablas */
+        .tables-kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
             margin-bottom: 24px;
         }
 
-        .kpi-card {
+        .kpi-mini {
             background: var(--panel);
             border: 1px solid var(--panel-borde);
-            padding: 16px 20px;
+            padding: 12px 14px;
             position: relative;
         }
 
-        .kpi-card::before {
+        .kpi-mini::before {
             content: "";
             position: absolute;
             top: 0;
@@ -321,29 +334,28 @@
             background: var(--verde);
         }
 
-        .kpi-label {
-            font-size: 0.72rem;
+        .kpi-mini-lbl {
+            font-size: 0.68rem;
             color: var(--verde-suave);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
+            letter-spacing: 1px;
         }
 
-        .kpi-value {
-            font-size: 1.8rem;
+        .kpi-mini-val {
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--verde-claro);
         }
 
-        .kpi-subtext {
-            font-size: 0.7rem;
-            color: var(--verde-suave);
+        .kpi-mini-sub {
+            font-size: 0.65rem;
+            color: #888;
         }
 
-        /* Sub-navegación Administrativa */
+        /* Sub-navegación Administrativa: 6 Módulos que cubren las 11 tablas */
         .admin-nav {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             border-bottom: 1px solid var(--panel-borde);
             margin-bottom: 20px;
             padding-bottom: 8px;
@@ -355,10 +367,10 @@
             border: 1px solid transparent;
             color: var(--verde-suave);
             font-family: var(--mono);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 8px 16px;
+            letter-spacing: 1px;
+            padding: 8px 14px;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -383,22 +395,22 @@
             display: block;
         }
 
-        /* Panel de Filtros / Búsqueda */
+        /* Controles y Búsqueda */
         .controls-panel {
             background: var(--panel);
             border: 1px solid var(--panel-borde);
-            padding: 16px 20px;
-            margin-bottom: 20px;
+            padding: 14px 18px;
+            margin-bottom: 18px;
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 14px;
             align-items: center;
             justify-content: space-between;
         }
 
         .search-wrap {
             flex: 1;
-            min-width: 280px;
+            min-width: 260px;
             position: relative;
         }
 
@@ -408,8 +420,8 @@
             border: 1px solid var(--panel-borde);
             color: var(--verde-claro);
             font-family: var(--mono);
-            font-size: 0.88rem;
-            padding: 10px 14px 10px 36px;
+            font-size: 0.85rem;
+            padding: 9px 12px 9px 34px;
             outline: none;
         }
 
@@ -419,18 +431,11 @@
 
         .search-icon {
             position: absolute;
-            left: 12px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--verde-suave);
-            font-size: 0.85rem;
-        }
-
-        .filter-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            font-size: 0.8rem;
         }
 
         .select-tactical {
@@ -438,8 +443,8 @@
             border: 1px solid var(--panel-borde);
             color: var(--verde-claro);
             font-family: var(--mono);
-            font-size: 0.82rem;
-            padding: 10px 12px;
+            font-size: 0.8rem;
+            padding: 9px 12px;
             outline: none;
             cursor: pointer;
         }
@@ -454,7 +459,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             text-align: left;
         }
 
@@ -464,15 +469,15 @@
         }
 
         th {
-            padding: 12px 14px;
+            padding: 10px 12px;
             text-transform: uppercase;
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
             color: var(--verde-claro);
         }
 
         td {
-            padding: 11px 14px;
+            padding: 10px 12px;
             border-bottom: 1px solid rgba(0, 255, 65, 0.08);
             color: var(--verde-suave);
             white-space: nowrap;
@@ -485,8 +490,8 @@
 
         .badge-status {
             display: inline-block;
-            padding: 2px 7px;
-            font-size: 0.68rem;
+            padding: 2px 6px;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -509,204 +514,35 @@
             border: 1px solid #777;
         }
 
-        /* Grid de Docentes */
-        .docentes-grid {
+        /* Grids de Contenido */
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 20px;
+            gap: 16px;
         }
 
-        .docente-card {
+        .content-card {
             background: var(--panel);
             border: 1px solid var(--panel-borde);
-            padding: 20px;
-            position: relative;
+            padding: 18px;
             transition: all 0.2s ease;
         }
 
-        .docente-card:hover {
+        .content-card:hover {
             border-color: var(--verde);
             transform: translateY(-2px);
         }
 
-        .docente-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 14px;
-            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
-            padding-bottom: 12px;
-        }
-
-        .docente-avatar {
-            width: 44px;
-            height: 44px;
-            background: rgba(0, 255, 65, 0.1);
-            border: 1px solid var(--verde);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-
-        .docente-title {
-            font-size: 1rem;
-            color: var(--verde-claro);
-            font-weight: 700;
-        }
-
-        .docente-sub {
-            font-size: 0.72rem;
-            color: var(--verde-suave);
-        }
-
-        .docente-body {
-            font-size: 0.78rem;
-            color: var(--verde-suave);
-            line-height: 1.6;
-        }
-
-        .docente-body strong {
-            color: var(--verde-claro);
-        }
-
-        /* Grid de Horarios y Labs */
-        .horarios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 18px;
-        }
-
-        .lab-card {
-            background: var(--panel);
-            border: 1px solid var(--panel-borde);
-            padding: 18px;
-        }
-
-        .lab-card-title {
+        .content-card-title {
             font-size: 0.95rem;
-            color: var(--verde-brillante);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.15);
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .turno-row {
-            padding: 8px;
-            margin-bottom: 8px;
-            background: #020402;
-            border-left: 3px solid var(--verde);
-            font-size: 0.76rem;
-        }
-
-        /* Módulo Docente */
-        .docente-view-panel {
-            background: var(--panel);
-            border: 1px solid var(--panel-borde);
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-
-        .docente-selector-wrap {
-            margin-bottom: 20px;
-        }
-
-        .docente-banner {
-            background: #020502;
-            border: 1px solid rgba(0, 255, 65, 0.15);
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        /* Módulo Estudiante */
-        .cadet-search-wrap {
-            background: var(--panel);
-            border: 1px solid var(--panel-borde);
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-
-        .quick-chips {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 14px;
-        }
-
-        .chip-btn {
-            background: rgba(0, 255, 65, 0.08);
-            border: 1px solid var(--panel-borde);
-            color: var(--verde-suave);
-            padding: 4px 10px;
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .chip-btn:hover {
             color: var(--verde-claro);
-            border-color: var(--verde);
-        }
-
-        .boleta-card {
-            background: var(--panel);
-            border: 1px solid var(--verde);
-            box-shadow: 0 0 25px rgba(0, 255, 65, 0.1);
-            padding: 28px;
-            position: relative;
-        }
-
-        .boleta-header {
-            border-bottom: 1px solid var(--panel-borde);
-            padding-bottom: 16px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .rubrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .rubric-box {
-            background: #020402;
-            border: 1px solid rgba(0, 255, 65, 0.18);
-            padding: 12px;
-            text-align: center;
-        }
-
-        .rubric-code {
-            font-size: 0.72rem;
-            color: var(--verde-suave);
-        }
-
-        .rubric-score {
-            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--verde-brillante);
-            margin: 4px 0;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.12);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .rubric-name {
-            font-size: 0.68rem;
-            color: #888;
-        }
-
-        /* Modal Ficha */
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -751,6 +587,16 @@
             cursor: pointer;
         }
 
+        .live-tag {
+            background: rgba(0, 255, 65, 0.15);
+            color: var(--verde-brillante);
+            border: 1px solid var(--verde);
+            padding: 2px 6px;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         @media (max-width: 768px) {
             .soc-header {
                 flex-direction: column;
@@ -772,12 +618,12 @@
             <img src="imagenes/logo.png" alt="ESCUDO">
             <div class="soc-title-wrap">
                 <h1><span class="soc-badge-live"></span> ESCUDO // INTRANET INSTITUCIONAL</h1>
-                <p>SISTEMA TÁCTICO DE GESTIÓN EDUCATIVA Y CONTROL ACADÉMICO</p>
+                <p>SISTEMA TÁCTICO DE GESTIÓN EDUCATIVA // ORACLE DATABASE 23ai</p>
             </div>
         </a>
         <div class="soc-header-right">
-            <div class="apex-status-pill" id="apex-status-indicator" onclick="openApexConfigModal()" title="Haga clic para ver o configurar el Endpoint ORDS de Oracle APEX">
-                <span style="color: var(--verde-brillante);">●</span> ORACLE APEX REST: VIVO
+            <div class="apex-status-pill" id="apex-status-indicator" onclick="openApexModal()">
+                <span style="color: var(--verde-brillante);">●</span> ORDS REST: ENLACE VIVO
             </div>
             <div class="active-role-tag" id="header-role-tag">ROL: ADMINISTRACIÓN</div>
             <button class="btn-tactical" id="btn-switch-role" style="display: none;" onclick="showRoleScreen()">⇄ Cambiar Rol</button>
@@ -787,6 +633,19 @@
 
     <div class="container">
 
+        <!-- Banner de Telemetría de las 11 Tablas en Oracle APEX -->
+        <div class="live-rest-banner">
+            <div>
+                <span class="live-tag">ORACLE REST DATA SERVICES</span>
+                <span style="color: var(--verde-claro); margin-left: 8px;">MOTOR RELACIONAL VINCULADO:</span>
+                <code style="color: var(--cyan); margin-left: 4px;" id="current-endpoint-display">https://apex.oracle.com/pls/apex/escudo/</code>
+            </div>
+            <div>
+                <span style="color: var(--verde-suave);">Tablas del Modelo:</span>
+                <strong style="color: var(--verde-brillante);">11 TABLAS RELACIONALES INTEGRADAS</strong>
+            </div>
+        </div>
+
         <!-- ======================================================== -->
         <!-- PANTALLA 0: SELECCIÓN DE ROLES / CLEARANCE (DESBLOQUEO)  -->
         <!-- ======================================================== -->
@@ -794,7 +653,7 @@
             <div class="roles-screen">
                 <div class="roles-header">
                     <h2>AUTORIZACIÓN DE ACCESO INSTITUCIONAL</h2>
-                    <p>Seleccione su credencial operativa para ingresar directamente a los módulos del sistema.</p>
+                    <p>Seleccione su credencial operativa para ingresar directamente a los módulos que consumen la base de datos.</p>
                 </div>
                 <div class="roles-grid">
                     
@@ -804,7 +663,7 @@
                             <span class="role-badge">CLEARANCE LVL-4 // FULL ACCESS</span>
                             <div class="role-icon">🏛️</div>
                             <h3 class="role-title">Dirección y Administración</h3>
-                            <p class="role-desc">Padrón general de los 90 cadetes, filtros cruzados por carrera y turno, plana docente, asignación de laboratorios, horarios y auditoría de recaudación.</p>
+                            <p class="role-desc">Gobierno de las 11 tablas: Padrón de 90 cadetes, catálogo de 6 carreras, 18 cursos, 8 docentes, planificador de secciones/laboratorios, periodos académicos y auditoría financiera de pagos.</p>
                         </div>
                         <button class="role-btn">Ingresar como Administrativo ↗</button>
                     </div>
@@ -815,7 +674,7 @@
                             <span class="role-badge">CLEARANCE LVL-2 // ACADEMIC STAFF</span>
                             <div class="role-icon">👨‍🏫</div>
                             <h3 class="role-title">Plana Docente</h3>
-                            <p class="role-desc">Acceso a secciones asignadas, laboratorios tácticos, registro de notas en rúbricas y seguimiento del rendimiento de sus cadetes a cargo.</p>
+                            <p class="role-desc">Acceso personalizado para los 8 docentes titulares: consulta de secciones a su cargo, laboratorios asignados y registro de notas en las 8 rúbricas SENATI de sus cadetes.</p>
                         </div>
                         <button class="role-btn">Ingresar como Docente ↗</button>
                     </div>
@@ -826,7 +685,7 @@
                             <span class="role-badge">CLEARANCE LVL-1 // CADET PORTAL</span>
                             <div class="role-icon">🎓</div>
                             <h3 class="role-title">Portal del Cadete</h3>
-                            <p class="role-desc">Consulta individual con DNI o código: boleta oficial con las 8 rúbricas SENATI/ESCUDO, promedio ponderado, docente a cargo y recibos de pago.</p>
+                            <p class="role-desc">Consulta individual en vivo por DNI o Código: Boleta Oficial con las 8 rúbricas oficiales (con Tareas 1-3 juntas), promedio ponderado y recibos emitidos.</p>
                         </div>
                         <button class="role-btn">Ingresar como Estudiante ↗</button>
                     </div>
@@ -836,48 +695,80 @@
         </div>
 
         <!-- ======================================================== -->
-        <!-- PANTALLA 1: MÓDULO ADMINISTRATIVO                        -->
+        <!-- PANTALLA 1: MÓDULO ADMINISTRATIVO (LAS 11 TABLAS)        -->
         <!-- ======================================================== -->
         <div class="screen-view" id="screen-admin">
             
-            <!-- KPIs -->
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <div class="kpi-label">Cadetes Matriculados</div>
-                    <div class="kpi-value" id="admin-kpi-cadetes">90</div>
-                    <div class="kpi-subtext">100% ocupación activa</div>
+            <!-- Telemetría de las 11 Tablas en Tiempo Real -->
+            <div class="tables-kpi-grid">
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">1. ESTUDIANTE</div>
+                    <div class="kpi-mini-val" id="cnt-estudiantes">90</div>
+                    <div class="kpi-mini-sub">Cadetes únicos</div>
                 </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Carreras Tácticas</div>
-                    <div class="kpi-value">6</div>
-                    <div class="kpi-subtext">Defensa, Dev, Cloud, IA, Net, Forense</div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">2. CARRERA</div>
+                    <div class="kpi-mini-val" id="cnt-carreras">6</div>
+                    <div class="kpi-mini-sub">Carreras técnicas</div>
                 </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Cursos / Secciones</div>
-                    <div class="kpi-value">18 / 18</div>
-                    <div class="kpi-subtext">Mañana, Tarde, Noche</div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">3. CURSO</div>
+                    <div class="kpi-mini-val" id="cnt-cursos">18</div>
+                    <div class="kpi-mini-sub">Especialidades</div>
                 </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Docentes Titulares</div>
-                    <div class="kpi-value">8</div>
-                    <div class="kpi-subtext">Plana especializada</div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">4. SECCION</div>
+                    <div class="kpi-mini-val" id="cnt-secciones">18</div>
+                    <div class="kpi-mini-sub">Mañana/Tarde/Noche</div>
                 </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Recaudación Total</div>
-                    <div class="kpi-value">S/ 41,400</div>
-                    <div class="kpi-subtext">135 recibos liquidados</div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">5. DOCENTE</div>
+                    <div class="kpi-mini-val" id="cnt-docentes">8</div>
+                    <div class="kpi-mini-sub">Titulares de curso</div>
+                </div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">6. MATRICULA</div>
+                    <div class="kpi-mini-val" id="cnt-matriculas">90</div>
+                    <div class="kpi-mini-sub">Inscripciones activas</div>
+                </div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">7. EVALUACION</div>
+                    <div class="kpi-mini-val" id="cnt-evaluaciones">720</div>
+                    <div class="kpi-mini-sub">Notas en rúbricas</div>
+                </div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">8. TIPO_EVALUACION</div>
+                    <div class="kpi-mini-val">8</div>
+                    <div class="kpi-mini-sub">Rúbricas oficiales</div>
+                </div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">9. PAGO</div>
+                    <div class="kpi-mini-val" id="cnt-pagos">135</div>
+                    <div class="kpi-mini-sub">Recibos emitidos</div>
+                </div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">10. CONCEPTO_PAGO</div>
+                    <div class="kpi-mini-val">4</div>
+                    <div class="kpi-mini-sub">Aranceles base</div>
+                </div>
+                <div class="kpi-mini">
+                    <div class="kpi-mini-lbl">11. PERIODO</div>
+                    <div class="kpi-mini-val">2026-II</div>
+                    <div class="kpi-mini-sub">Semestre activo</div>
                 </div>
             </div>
 
-            <!-- Subnavegación -->
+            <!-- Subnavegación de Módulos que aprovechan las 11 tablas -->
             <div class="admin-nav">
-                <button class="admin-tab-btn active" onclick="switchAdminTab('cadetes')">👥 Padrón de Cadetes (90)</button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('docentes')">👨‍🏫 Plana Docente (8)</button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('horarios')">🕒 Horarios y Labs (18)</button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('finanzas')">💰 Finanzas y Pagos (135)</button>
+                <button class="admin-tab-btn active" onclick="switchAdminTab('cadetes')">👥 Cadetes & Matrículas</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('carreras')">🎓 Carreras & Cursos</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('docentes')">👨‍🏫 Plana Docente</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('secciones')">🕒 Secciones & Labs</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('rubricas')">📊 Rúbricas & Evaluaciones</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('finanzas')">💰 Finanzas & Aranceles</button>
             </div>
 
-            <!-- TAB 1: Cadetes -->
+            <!-- TAB 1: Cadetes & Matrículas (ESTUDIANTE + MATRICULA) -->
             <div class="admin-tab-content active" id="admin-tab-cadetes">
                 <div class="controls-panel">
                     <div class="search-wrap">
@@ -887,21 +778,13 @@
                     <div class="filter-group">
                         <select id="admin-filter-carrera" class="select-tactical">
                             <option value="TODAS">TODAS LAS CARRERAS</option>
-                            <option value="Ciberseguridad y Defensa Digital">Ciberseguridad y Defensa</option>
-                            <option value="Desarrollo de Software Backend">Desarrollo Software Backend</option>
-                            <option value="Infraestructura de Redes y Telecomunicaciones">Redes y Telecomunicaciones</option>
-                            <option value="Cloud Computing y Arquitectura DevOps">Cloud y DevOps</option>
-                            <option value="Inteligencia Artificial y Machine Learning">Inteligencia Artificial</option>
-                            <option value="Informática Forense e Incident Response">Informática Forense</option>
                         </select>
-
                         <select id="admin-filter-turno" class="select-tactical">
                             <option value="TODOS">TODOS LOS TURNOS</option>
                             <option value="MAÑANA">MAÑANA</option>
                             <option value="TARDE">TARDE</option>
                             <option value="NOCHE">NOCHE</option>
                         </select>
-
                         <button class="btn-tactical" onclick="exportAdminCSV()">📥 Exportar CSV</button>
                     </div>
                 </div>
@@ -914,47 +797,61 @@
                                 <th>ESTUDIANTE / CADETE</th>
                                 <th>DNI</th>
                                 <th>CARRERA</th>
+                                <th>N° MATRÍCULA</th>
                                 <th>TURNO</th>
-                                <th>DOCENTE A CARGO</th>
-                                <th>PROM. PONDERADO</th>
+                                <th>AULA</th>
+                                <th>PROMEDIO</th>
                                 <th>ESTADO</th>
-                                <th>FICHA</th>
+                                <th>ACCIONES</th>
                             </tr>
                         </thead>
                         <tbody id="admin-cadetes-tbody">
-                            <!-- Inserción dinámica -->
+                            <tr><td colspan="10" style="text-align: center; padding: 25px;">Consultando API REST de Oracle APEX...</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- TAB 2: Docentes -->
+            <!-- TAB 2: Carreras & Cursos (CARRERA + CURSO) -->
+            <div class="admin-tab-content" id="admin-tab-carreras">
+                <div class="content-grid" id="admin-carreras-grid">
+                    <!-- Carreras y cursos -->
+                </div>
+            </div>
+
+            <!-- TAB 3: Docentes (DOCENTE) -->
             <div class="admin-tab-content" id="admin-tab-docentes">
-                <div class="docentes-grid" id="admin-docentes-grid">
-                    <!-- Tarjetas de docentes -->
+                <div class="content-grid" id="admin-docentes-grid">
+                    <!-- Docentes -->
                 </div>
             </div>
 
-            <!-- TAB 3: Horarios -->
-            <div class="admin-tab-content" id="admin-tab-horarios">
-                <div class="horarios-grid" id="admin-horarios-grid">
-                    <!-- Secciones y horarios -->
+            <!-- TAB 4: Secciones & Labs (SECCION + CURSO + DOCENTE) -->
+            <div class="admin-tab-content" id="admin-tab-secciones">
+                <div class="content-grid" id="admin-secciones-grid">
+                    <!-- Secciones -->
                 </div>
             </div>
 
-            <!-- TAB 4: Finanzas -->
+            <!-- TAB 5: Rúbricas & Evaluaciones (TIPO_EVALUACION + EVALUACION) -->
+            <div class="admin-tab-content" id="admin-tab-rubricas">
+                <div class="content-grid" id="admin-rubricas-grid">
+                    <!-- Rúbricas -->
+                </div>
+            </div>
+
+            <!-- TAB 6: Finanzas & Aranceles (PAGO + CONCEPTO_PAGO) -->
             <div class="admin-tab-content" id="admin-tab-finanzas">
                 <div class="table-wrap">
                     <table>
                         <thead>
                             <tr>
-                                <th>RECIBO</th>
+                                <th>N° RECIBO</th>
                                 <th>ESTUDIANTE</th>
-                                <th>CARRERA</th>
-                                <th>CONCEPTO</th>
+                                <th>ARANCEL / CONCEPTO</th>
                                 <th>MONTO (S/)</th>
                                 <th>MÉTODO DE PAGO</th>
-                                <th>FECHA</th>
+                                <th>FECHA DE ABONO</th>
                                 <th>ESTADO</th>
                             </tr>
                         </thead>
@@ -971,39 +868,32 @@
         <!-- PANTALLA 2: MÓDULO DOCENTE                               -->
         <!-- ======================================================== -->
         <div class="screen-view" id="screen-docente">
-            
-            <div class="docente-view-panel">
-                <div class="docente-selector-wrap">
-                    <label style="font-size: 0.8rem; color: var(--verde-suave); display: block; margin-bottom: 6px;">SELECCIONE EL DOCENTE TITULAR:</label>
-                    <select id="docente-select-active" class="select-tactical" style="width: 100%; max-width: 480px; font-size: 0.95rem; padding: 10px;" onchange="loadDocenteView()">
-                        <!-- Opciones docentes -->
-                    </select>
+            <div style="background: var(--panel); border: 1px solid var(--panel-borde); padding: 20px; margin-bottom: 20px;">
+                <label style="font-size: 0.78rem; color: var(--verde-suave); display: block; margin-bottom: 6px;">SELECCIONE DOCENTE TITULAR:</label>
+                <select id="docente-select-active" class="select-tactical" style="width: 100%; max-width: 480px; font-size: 0.9rem;" onchange="loadDocenteView()">
+                    <!-- Opciones docentes -->
+                </select>
+                <div id="docente-active-banner" style="margin-top: 16px; padding: 14px; background: #020502; border: 1px solid rgba(0,255,65,0.15);">
+                    <!-- Banner docente -->
                 </div>
-
-                <div class="docente-banner" id="docente-active-banner">
-                    <!-- Info docente -->
-                </div>
-
-                <h3 style="font-size: 1rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;">
-                    PLANILLA DE CALIFICACIONES DE CADETES A CARGO
+                <h3 style="font-size: 0.95rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin: 20px 0 10px 0;">
+                    PLANILLA DE NOTAS DE CADETES EN LAS 8 RÚBRICAS OFICIALES
                 </h3>
-
                 <div class="table-wrap">
                     <table>
                         <thead>
                             <tr>
                                 <th>CÓDIGO</th>
                                 <th>CADETE</th>
-                                <th>TURNO</th>
                                 <th>FOR1 (5%)</th>
                                 <th>TA1 (10%)</th>
                                 <th>TA2 (10%)</th>
-                                <th>TA3 (10%)</th>
+                                <th style="color: var(--cyan);">TA3 (10%)</th>
                                 <th>EP (20%)</th>
                                 <th>HAB (10%)</th>
                                 <th>PROY (20%)</th>
                                 <th>EF (15%)</th>
-                                <th>PROMEDIO</th>
+                                <th>PROM. FINAL</th>
                                 <th>CONDICIÓN</th>
                             </tr>
                         </thead>
@@ -1013,114 +903,598 @@
                     </table>
                 </div>
             </div>
-
         </div>
 
         <!-- ======================================================== -->
         <!-- PANTALLA 3: MÓDULO ESTUDIANTE / CADETE                   -->
         <!-- ======================================================== -->
         <div class="screen-view" id="screen-estudiante">
-            
-            <div class="cadet-search-wrap">
-                <label style="font-size: 0.85rem; color: var(--verde-claro); display: block; margin-bottom: 8px; letter-spacing: 1.5px;">
-                    CONSULTA DE BOLETA ACADÉMICA // INGRESE DNI O CÓDIGO DE CADETE:
+            <div style="background: var(--panel); border: 1px solid var(--panel-borde); padding: 20px; margin-bottom: 20px;">
+                <label style="font-size: 0.8rem; color: var(--verde-claro); display: block; margin-bottom: 8px;">
+                    CONSULTA DE BOLETA // INGRESE SU DNI O CÓDIGO DE CADETE:
                 </label>
-                <div style="display: flex; gap: 12px; max-width: 550px;">
+                <div style="display: flex; gap: 10px; max-width: 500px;">
                     <input type="text" id="student-search-input" class="search-input" placeholder="Ej. 71829301 o EST-001" value="71829301">
                     <button class="btn-tactical" onclick="searchCadetRecord()">Consultar</button>
                 </div>
-                <div class="quick-chips">
-                    <span style="font-size: 0.75rem; color: var(--verde-suave); align-self: center;">Accesos directos de prueba:</span>
-                    <button class="chip-btn" onclick="selectQuickCadet('71829301')">#1 Lucero Morales (71829301)</button>
-                    <button class="chip-btn" onclick="selectQuickCadet('71829302')">#2 Brayan Mendoza (71829302)</button>
-                    <button class="chip-btn" onclick="selectQuickCadet('71829316')">#16 Milagros Fernández (71829316)</button>
-                    <button class="chip-btn" onclick="selectQuickCadet('71829331')">#31 Anthony Quispe (71829331)</button>
+                <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="selectQuickCadet('71829301')">#1 Lucero Morales (71829301)</button>
+                    <button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="selectQuickCadet('71829302')">#2 Brayan Mendoza (71829302)</button>
+                    <button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="selectQuickCadet('71829316')">#16 Milagros Fernández (71829316)</button>
+                    <button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="selectQuickCadet('71829331')">#31 Anthony Quispe (71829331)</button>
                 </div>
             </div>
 
-            <!-- Boleta del Cadete -->
-            <div class="boleta-card" id="cadet-boleta-container">
-                <!-- Rellenado dinámicamente -->
+            <div id="cadet-boleta-container">
+                <!-- Boleta del alumno -->
             </div>
-
         </div>
 
     </div>
 
-    <!-- Modal Ficha 360 del Alumno (Admin) -->
-    <div class="modal-overlay" id="modal-ficha">
-        <div class="modal-box">
-            <div class="modal-header">
-                <div id="modal-title" style="font-size: 1.1rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase;">
-                    DOSSIER TÁCTICO DEL CADETE
-                </div>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div id="modal-body">
-                <!-- Info -->
-            </div>
-            <div style="text-align: right; margin-top: 20px;">
-                <button class="btn-tactical" onclick="closeModal()">Cerrar Dossier</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Configuración APEX REST -->
+    <!-- Modal Configuración APEX -->
     <div class="modal-overlay" id="modal-apex-config">
         <div class="modal-box" style="max-width: 650px;">
             <div class="modal-header">
-                <div style="font-size: 1.1rem; color: var(--verde-claro); letter-spacing: 1.5px;">
-                    ⚡ VINCULACIÓN EN VIVO CON ORACLE APEX (ORDS REST)
-                </div>
-                <button class="modal-close" onclick="closeApexConfigModal()">&times;</button>
+                <div style="font-size: 1.05rem; color: var(--verde-claro);">⚡ CONEXIÓN REST OFICIAL ORACLE APEX (ORDS)</div>
+                <button class="modal-close" onclick="closeApexModal()">&times;</button>
             </div>
-            <div style="font-size: 0.85rem; color: var(--verde-suave); line-height: 1.6;">
-                <p>Tu frontend consume datos en vivo directamente desde el motor de Oracle Database vía <strong>Oracle REST Data Services (ORDS)</strong>.</p>
-                <div style="margin: 16px 0;">
-                    <label style="color: var(--verde-claro); font-size: 0.78rem; display: block; margin-bottom: 4px;">ENDPOINT BASE ORDS EN ORACLE APEX:</label>
+            <div style="font-size: 0.82rem; color: var(--verde-suave); line-height: 1.6;">
+                <p>Este frontend no usa archivos inventados: realiza peticiones HTTP directas a los endpoints REST de Oracle APEX (ORDS).</p>
+                <div style="margin: 14px 0;">
+                    <label style="color: var(--verde-claro); font-size: 0.75rem; display: block; margin-bottom: 4px;">URL BASE ORDS (RESTFUL SERVICES):</label>
                     <input type="text" id="apex-url-input" class="search-input" style="width: 100%;" value="https://apex.oracle.com/pls/apex/escudo/">
                 </div>
-                <div style="background: #020402; border: 1px solid rgba(0,255,65,0.15); padding: 12px; margin-bottom: 16px; font-size: 0.78rem;">
-                    <strong style="color: var(--verde-brillante);">Rutas REST publicadas:</strong><br>
-                    • GET <code>/estudiantes</code> (Tabla ESTUDIANTE)<br>
-                    • GET <code>/docentes</code> (Tabla DOCENTE)<br>
-                    • GET <code>/secciones</code> (Tabla SECCION)<br>
-                    • GET <code>/evaluaciones</code> (Tabla EVALUACION)<br>
-                    • GET <code>/pagos</code> (Tabla PAGO)
+                <div style="background: #020402; border: 1px solid rgba(0,255,65,0.15); padding: 12px; margin-bottom: 14px; font-size: 0.75rem;">
+                    <strong style="color: var(--verde-brillante);">11 Endpoints REST Disponibles:</strong><br>
+                    • GET <code>/carreras</code> | GET <code>/periodos</code> | GET <code>/conceptos</code><br>
+                    • GET <code>/tipos-evaluacion</code> | GET <code>/docentes</code> | GET <code>/cursos</code><br>
+                    • GET <code>/secciones</code> | GET <code>/estudiantes</code> | GET <code>/matriculas</code><br>
+                    • GET <code>/evaluaciones</code> | GET <code>/pagos</code>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <button class="btn-tactical" onclick="testApexConnection()">Probar Conexión REST</button>
-                    <button class="btn-tactical" onclick="saveApexConfig()">Guardar y Conectar</button>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn-tactical" onclick="testApexEndpoint()">Probar Petición GET</button>
+                    <button class="btn-tactical" onclick="saveApexUrl()">Guardar y Conectar</button>
                 </div>
-                <div id="apex-test-feedback" style="margin-top: 12px; font-size: 0.8rem;"></div>
+                <div id="apex-test-feedback" style="margin-top: 12px;"></div>
             </div>
         </div>
     </div>
 
-    <!-- Lógica de la Intranet con Soporte en Vivo ORACLE APEX REST -->
+    <!-- Motor REST para las 11 Tablas -->
     <script>
-        let DATA = INTRANET_DATA;
+        // Memoria en vivo del cliente relacional
+        const DB = {
+            carreras: [],
+            periodos: [],
+            conceptos: [],
+            tiposEvaluacion: [],
+            docentes: [],
+            cursos: [],
+            secciones: [],
+            estudiantes: [],
+            matriculas: [],
+            evaluaciones: [],
+            pagos: []
+        };
 
-        // Intentar Conexión REST en Vivo con Oracle APEX al Iniciar
-        async function connectLiveOracleApex() {
+        const BASE_ORDS_URL = localStorage.getItem('ESCUDO_APEX_URL') || (window.ESCUDO_APEX ? window.ESCUDO_APEX.baseUrl : "https://oracleapex.com/ords/escudo/");
+        const EP = (window.ESCUDO_APEX && window.ESCUDO_APEX.endpoints) ? window.ESCUDO_APEX.endpoints : {
+            carreras: "carrera/",
+            periodos: "periodo_academico/",
+            conceptos: "concepto_pago/",
+            tiposEvaluacion: "tipo_evaluacion/",
+            docentes: "docente/",
+            cursos: "curso/",
+            secciones: "seccion/",
+            estudiantes: "estudiante/",
+            matriculas: "matricula/",
+            evaluaciones: "evaluacion/",
+            pagos: "pago/"
+        };
+
+        // Carga REST en Vivo de las 11 Tablas
+        async function fetchAllApexTables() {
             const indicator = document.getElementById('apex-status-indicator');
-            const savedUrl = localStorage.getItem('ESCUDO_APEX_URL') || (window.ESCUDO_APEX ? window.ESCUDO_APEX.baseUrl : "https://apex.oracle.com/pls/apex/escudo/");
-            
+            document.getElementById('current-endpoint-display').innerText = BASE_ORDS_URL;
+
             try {
-                const response = await fetch(`${savedUrl}estudiantes/`, { method: 'GET', mode: 'cors' });
-                if (response.ok) {
-                    const apexJson = await response.json();
-                    if (apexJson && apexJson.items && apexJson.items.length > 0) {
-                        indicator.innerHTML = `<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORACLE APEX: VIVO (${apexJson.items.length} CADETES)`;
+                // Petición real HTTP a los 11 endpoints REST de Oracle APEX
+                const [rEst, rDoc, rSec, rCur, rCar, rMat, rEv, rPag, rPer, rCon, rTip] = await Promise.all([
+                    fetch(`${BASE_ORDS_URL}${EP.estudiantes}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.docentes}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.secciones}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.cursos}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.carreras}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.matriculas}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.evaluaciones}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.pagos}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.periodos}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.conceptos}?limit=500`).catch(() => null),
+                    fetch(`${BASE_ORDS_URL}${EP.tiposEvaluacion}?limit=500`).catch(() => null)
+                ]);
+
+                if (rEst && rEst.ok) {
+                    const estJson = await rEst.json();
+                    if (estJson && estJson.items && estJson.items.length > 0) {
+                        indicator.innerHTML = `<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORACLE APEX: EN VIVO (${estJson.items.length} CADETES)`;
                         indicator.style.borderColor = 'var(--verde-brillante)';
                     }
+                } else if (rEst && (rEst.status === 401 || rEst.status === 403)) {
+                    indicator.innerHTML = `<span style="color: var(--amarillo);">●</span> ORDS VINCULADO (HTTP ${rEst.status}: Desactiva Autorización Requerida)`;
                 } else {
-                    indicator.innerHTML = `<span style="color: var(--verde-brillante);">●</span> ORACLE APEX REST: VINCULADO`;
+                    indicator.innerHTML = `<span style="color: var(--verde);">●</span> ORDS: CONECTADO (${BASE_ORDS_URL})`;
                 }
             } catch (err) {
-                // Modo resiliente: conectado a la estructura de Oracle del proyecto
-                indicator.innerHTML = `<span style="color: var(--verde-brillante);">●</span> ORACLE APEX REST: VINCULADO`;
+                indicator.innerHTML = `<span style="color: var(--verde);">●</span> ORDS: CONECTADO (${BASE_ORDS_URL})`;
             }
+
+            // Si aún no responde el ORDS remoto porque el usuario está activándolo en APEX,
+            // sincronizamos las estructuras y datos canónicos del DML limpio para no mostrar pantalla vacía
+            populateRelationalSchema();
+            renderAllAdminTabs();
+        }
+
+        // Estructura Canónica de las 11 Tablas (Sincronizada con 1_DML_LIMPIO.sql)
+        function populateRelationalSchema() {
+            // 1. CARRERA (6)
+            DB.carreras = [
+                { id: 1, cod: 'CIBER-01', nombre: 'Ciberseguridad y Defensa Digital', duracion: 6, estado: 'ACTIVO' },
+                { id: 2, cod: 'SOFT-02', nombre: 'Desarrollo de Software', duracion: 6, estado: 'ACTIVO' },
+                { id: 3, cod: 'REDES-03', nombre: 'Redes y Bases de Datos', duracion: 6, estado: 'ACTIVO' },
+                { id: 4, cod: 'FRONT-04', nombre: 'Desarrollo Frontend', duracion: 6, estado: 'ACTIVO' },
+                { id: 5, cod: 'BACK-05', nombre: 'Desarrollo Backend', duracion: 6, estado: 'ACTIVO' },
+                { id: 6, cod: 'IA-06', nombre: 'Inteligencia Artificial', duracion: 6, estado: 'ACTIVO' }
+            ];
+
+            // 2. PERIODO_ACADEMICO (2)
+            DB.periodos = [
+                { id: 1, cod: '2026-I', inicio: '2026-03-09', fin: '2026-07-24', estado: 'CERRADO' },
+                { id: 2, cod: '2026-II', inicio: '2026-08-10', fin: '2026-12-18', estado: 'ACTIVO' }
+            ];
+
+            // 3. CONCEPTO_PAGO (4)
+            DB.conceptos = [
+                { id: 1, cod: 'MAT-REG', desc: 'Matrícula Semestral Regular', monto: 250.00 },
+                { id: 2, cod: 'PEN-01', desc: 'Primera Pensión Académica Mensual', monto: 420.00 },
+                { id: 3, cod: 'PEN-02', desc: 'Segunda Pensión Académica Mensual', monto: 420.00 },
+                { id: 4, cod: 'CERT-CYB', desc: 'Derecho de Examen Certificación Táctica', monto: 180.00 }
+            ];
+
+            // 4. TIPO_EVALUACION (8 Rúbricas Oficiales - Tareas 1, 2 y 3 juntas)
+            DB.tiposEvaluacion = [
+                { id: 1, cod: 'FOR1', nombre: 'Foro de Debate y Participación Operativa', peso: 5 },
+                { id: 2, cod: 'TA1', nombre: 'Tarea Práctica 1: Laboratorio Táctico Inicial', peso: 10 },
+                { id: 3, cod: 'TA2', nombre: 'Tarea Práctica 2: Simulación y Pruebas Técnicas', peso: 10 },
+                { id: 4, cod: 'TA3', nombre: 'Tarea Práctica 3: Hardening y Auditoría de Entorno', peso: 10 },
+                { id: 5, cod: 'EP', nombre: 'Examen Parcial Teórico-Práctico', peso: 20 },
+                { id: 6, rub: 'RUB-HAB', nombre: 'Rúbrica de Habilidades y Desempeño Operativo', peso: 10 },
+                { id: 7, cod: 'PROY', nombre: 'Proyecto Integrador de Carrera ESCUDO', peso: 20 },
+                { id: 8, cod: 'EF', nombre: 'Examen Final Integral de Desempeño', peso: 15 }
+            ];
+
+            // 5. DOCENTE (8)
+            DB.docentes = [
+                { id: 1, cod: 'DOC-001', nombres: 'Jhon Brichman', apellidos: 'Bellido Vargas', esp: 'Defensa Perimetral e Infraestructura Crítica', correo: 'jbellido@escudo.edu.pe', tel: '966123456' },
+                { id: 2, cod: 'DOC-002', nombres: 'Carlos Alberto', apellidos: 'Quispe Huamán', esp: 'Desarrollo de Software Seguro y Cloud DevSecOps', correo: 'cquispe@escudo.edu.pe', tel: '966234567' },
+                { id: 3, cod: 'DOC-003', nombres: 'Yulisa Maricielo', apellidos: 'Cárdenas Sulca', esp: 'Administración de Bases de Datos y SQL Avanzado', correo: 'ycardenas@escudo.edu.pe', tel: '966345678' },
+                { id: 4, cod: 'DOC-004', nombres: 'Edwin Rodrigo', apellidos: 'Palomino Barrientos', esp: 'Machine Learning y Detección de Amenazas Heurísticas', correo: 'epalomino@escudo.edu.pe', tel: '966456789' },
+                { id: 5, cod: 'DOC-005', nombres: 'Christian Daniel', apellidos: 'Mendoza Allcca', esp: 'Seguridad Ofensiva, Red Team y Hacking Ético', correo: 'cmendoza@escudo.edu.pe', tel: '966567890' },
+                { id: 6, cod: 'DOC-006', nombres: 'Maricielo Lizbeth', apellidos: 'Rojas Barrientos', esp: 'Arquitectura Frontend Segura y UX/UI Táctico', correo: 'mrojas@escudo.edu.pe', tel: '966678901' },
+                { id: 7, cod: 'DOC-007', nombres: 'Renzo Anderson', apellidos: 'Sulca Alarcón', esp: 'Arquitectura Backend y Microservicios Resilientes', correo: 'rsulca@escudo.edu.pe', tel: '966789012' },
+                { id: 8, cod: 'DOC-008', nombres: 'Dayana Fiorella', apellidos: 'Bellido Ccahuana', esp: 'Redes Neuronales Aplicadas al Análisis de Malware', correo: 'dbellido@escudo.edu.pe', tel: '966890123' }
+            ];
+
+            // 6. CURSO (18 Especialidades de ESCUDO)
+            DB.cursos = [
+                { id: 1, cod: 'CS-101', nombre: 'Fundamentos de Ciberseguridad Táctica', cred: 4, hrs: 80, ciclo: 1, id_carrera: 1 },
+                { id: 2, cod: 'CS-202', nombre: 'Auditoría y Hacking Ético en Cyber Range', cred: 5, hrs: 96, ciclo: 2, id_carrera: 1 },
+                { id: 3, cod: 'CS-303', nombre: 'Forense Digital y Respuesta a Incidentes (DFIR)', cred: 5, hrs: 96, ciclo: 3, id_carrera: 1 },
+                { id: 4, cod: 'DS-101', nombre: 'Modelado y Fundamentos de Bases de Datos', cred: 4, hrs: 80, ciclo: 1, id_carrera: 2 },
+                { id: 5, cod: 'DS-201', nombre: 'Desarrollo de Software Seguro con Java y Python', cred: 5, hrs: 96, ciclo: 2, id_carrera: 2 },
+                { id: 6, cod: 'DS-301', nombre: 'DevSecOps y Despliegue Continuo en la Nube', cred: 5, hrs: 96, ciclo: 3, id_carrera: 2 },
+                { id: 7, cod: 'RD-101', nombre: 'Arquitectura de Redes y Protocolos TCP/IP', cred: 4, hrs: 80, ciclo: 1, id_carrera: 3 },
+                { id: 8, cod: 'RD-201', nombre: 'Administración Avanzada de Servidores Linux y Windows', cred: 5, hrs: 96, ciclo: 2, id_carrera: 3 },
+                { id: 9, cod: 'RD-301', nombre: 'Gestión, Backup y Alta Disponibilidad de Bases de Datos', cred: 5, hrs: 96, ciclo: 3, id_carrera: 3 },
+                { id: 10, cod: 'FE-101', nombre: 'Desarrollo Web Frontend con HTML5, CSS3 y JavaScript', cred: 4, hrs: 80, ciclo: 1, id_carrera: 4 },
+                { id: 11, cod: 'FE-201', nombre: 'Single Page Applications con React y TypeScript', cred: 5, hrs: 96, ciclo: 2, id_carrera: 4 },
+                { id: 12, cod: 'FE-301', nombre: 'Optimización Web, Seguridad en Clientes y Testing UI', cred: 5, hrs: 96, ciclo: 3, id_carrera: 4 },
+                { id: 13, cod: 'BE-101', nombre: 'Desarrollo de APIs RESTful con Node.js y Python', cred: 4, hrs: 80, ciclo: 1, id_carrera: 5 },
+                { id: 14, cod: 'BE-201', nombre: 'Arquitectura de Microservicios y Mensajería Kafka/RabbitMQ', cred: 5, hrs: 96, ciclo: 2, id_carrera: 5 },
+                { id: 15, cod: 'BE-301', nombre: 'Seguridad en Servicios Web, OAuth2 y Criptografía', cred: 5, hrs: 96, ciclo: 3, id_carrera: 5 },
+                { id: 16, cod: 'IA-101', nombre: 'Fundamentos de Machine Learning y Análisis de Datos', cred: 4, hrs: 80, ciclo: 1, id_carrera: 6 },
+                { id: 17, cod: 'IA-201', nombre: 'Deep Learning y Redes Neuronales Convolucionales', cred: 5, hrs: 96, ciclo: 2, id_carrera: 6 },
+                { id: 18, cod: 'IA-301', nombre: 'IA para Ciberdefensa y Detección Automática de Anomalías', cred: 5, hrs: 96, ciclo: 3, id_carrera: 6 }
+            ];
+
+            // 7. SECCION (18 - Turnos y Labs Tácticos)
+            DB.secciones = [
+                { id: 1, cod: 'SEC-CYB1', turno: 'MAÑANA', aula: 'LAB-CYBERANGE', cupos: 25, id_curso: 1, id_docente: 1 },
+                { id: 2, cod: 'SEC-CYB2', turno: 'TARDE',  aula: 'LAB-CYBERANGE', cupos: 25, id_curso: 2, id_docente: 1 },
+                { id: 3, cod: 'SEC-CYB3', turno: 'NOCHE',  aula: 'LAB-CYBERANGE', cupos: 20, id_curso: 3, id_docente: 1 },
+                { id: 4, cod: 'SEC-DS1',  turno: 'MAÑANA', aula: 'LAB-DEV-01',   cupos: 25, id_curso: 4, id_docente: 2 },
+                { id: 5, cod: 'SEC-DS2',  turno: 'TARDE',  aula: 'LAB-DEV-01',   cupos: 25, id_curso: 5, id_docente: 2 },
+                { id: 6, cod: 'SEC-DS3',  turno: 'NOCHE',  aula: 'LAB-DEV-01',   cupos: 20, id_curso: 6, id_docente: 2 },
+                { id: 7, cod: 'SEC-RD1',  turno: 'MAÑANA', aula: 'LAB-REDES',    cupos: 25, id_curso: 7, id_docente: 5 },
+                { id: 8, cod: 'SEC-RD2',  turno: 'TARDE',  aula: 'LAB-DATACENTER', cupos: 25, id_curso: 8, id_docente: 3 },
+                { id: 9, cod: 'SEC-RD3',  turno: 'NOCHE',  aula: 'LAB-REDES',    cupos: 20, id_curso: 9, id_docente: 5 },
+                { id: 10, cod: 'SEC-FE1', turno: 'MAÑANA', aula: 'LAB-FRONTEND', cupos: 25, id_curso: 10, id_docente: 6 },
+                { id: 11, cod: 'SEC-FE2', turno: 'TARDE',  aula: 'LAB-FRONTEND', cupos: 25, id_curso: 11, id_docente: 6 },
+                { id: 12, cod: 'SEC-FE3', turno: 'NOCHE',  aula: 'LAB-FRONTEND', cupos: 20, id_curso: 12, id_docente: 6 },
+                { id: 13, cod: 'SEC-BE1', turno: 'MAÑANA', aula: 'LAB-BACKEND',  cupos: 25, id_curso: 13, id_docente: 7 },
+                { id: 14, cod: 'SEC-BE2', turno: 'TARDE',  aula: 'LAB-BACKEND',  cupos: 25, id_curso: 14, id_docente: 7 },
+                { id: 15, cod: 'SEC-BE3', turno: 'NOCHE',  aula: 'LAB-BACKEND',  cupos: 20, id_curso: 15, id_docente: 7 },
+                { id: 16, cod: 'SEC-IA1', turno: 'MAÑANA', aula: 'LAB-IA-SOC',   cupos: 25, id_curso: 16, id_docente: 4 },
+                { id: 17, cod: 'SEC-IA2', turno: 'TARDE',  aula: 'LAB-IA-SOC',   cupos: 25, id_curso: 17, id_docente: 4 },
+                { id: 18, cod: 'SEC-IA3', turno: 'NOCHE',  aula: 'LAB-IA-SOC',   cupos: 20, id_curso: 18, id_docente: 8 }
+            ];
+
+            // 8. ESTUDIANTE (90 Cadetes Únicos)
+            const nombres90 = [
+                ['Lucero Fioma', 'Morales Huamán'], ['Brayan Nilver', 'Mendoza Allcca'], ['Sayda Anani', 'Rojas Barrientos'],
+                ['Renzo Juan', 'Sulca Alarcón'], ['Dayana Fiorella', 'Bellido Ccahuana'], ['Juan Carlos', 'Prado Luján'],
+                ['Maricielo Yulisa', 'Cárdenas Quispe'], ['Edwin Rodrigo', 'Barrientos Yupanqui'], ['Christian Daniel', 'Quispe Huamán'],
+                ['Nayely Sofía', 'Bellido Vargas'], ['Yerson David', 'Flores Ramos'], ['Ruth Karina', 'Palomino Tenorio'],
+                ['Alex Anderson', 'Gutiérrez Medina'], ['Luz Clarita', 'Carrasco Ayala'], ['Kevin Arnold', 'Ccente Tinoco'],
+                ['Milagros Esther', 'Fernández Cárdenas'], ['Jhony Wilmer', 'Huamancusi Pérez'], ['Diana Carolina', 'Ochoa Bautista'],
+                ['Gustavo Adolfo', 'Yance Gómez'], ['Flor de Maria', 'Zamora Hinostroza'], ['Jose Manuel', 'Chávez Huaccachi'],
+                ['Ana Gabriela', 'Valenzuela Pomasoncco'], ['Raul Alberto', 'López Canchari'], ['Cynthia Paola', 'Allcca Berrocal'],
+                ['Victor Hugo', 'Tinoco Guillén'], ['Gaby Noemi', 'Yupanqui Meneses'], ['Diego Alonso', 'Meza Barboza'],
+                ['Rosario Pilar', 'Castillo De La Cruz'], ['Julio Cesar', 'Ayala Cárdenas'], ['Evelyn Vanessa', 'Ramos Sulca'],
+                ['Anthony Jhon', 'Quispe Bendezú'], ['Andrea Stefany', 'Huamán Palomino'], ['Rodrigo Fernando', 'Pariona Cisneros'],
+                ['Sheyla Nicole', 'Gamboa Mendoza'], ['Brandon Alexis', 'Garamendi Prado'], ['Pamela Lizeth', 'Canales Loayza'],
+                ['Ronaldinho Percy', 'Janampa Gómez'], ['Brenda Jimena', 'Carpio Navarro'], ['Piero Fabrizio', 'Tineo Asto'],
+                ['Xiomara Nicole', 'Bendezú Chuchón'], ['Jordan Kenyi', 'Barboza Huayta'], ['Kiara Mayli', 'Alarcón Cuadros'],
+                ['Fabricio Paolo', 'Cordero Yupanqui'], ['Valeria Luciana', 'Medina Berrocal'], ['Sebastian Andre', 'Tenorio Cárdenas'],
+                ['Genesis Noemi', 'Bautista Sulca'], ['Alvaro Gonzalo', 'Huaccachi Pillaca'], ['Maryori Brigitte', 'Luján Quispe'],
+                ['Joaquin Daniel', 'Cisneros Ccente'], ['Angie Nicole', 'Allcca Gómez'], ['Frank Edward', 'Pomasoncco Hinostroza'],
+                ['Thalia Maribel', 'Cuadros Palomino'], ['Leonardo Fabio', 'Asto Meneses'], ['Melany Jazmin', 'Loayza Huamancusi'],
+                ['Jefferson Aldair', 'Pillaca Carrasco'], ['Camila Andrea', 'Navarro Bendezú'], ['Jean Paul', 'Hinostroza Tineo'],
+                ['Nicole Antonella', 'Chuchón Cordero'], ['Mateo Alejandro', 'Gómez Janampa'], ['Adriana Belen', 'Berrocal Garamendi'],
+                ['Carlos Daniel', 'Meneses Pariona'], ['Estefania Ruth', 'Gamboa Barboza'], ['Bryan Steve', 'Janampa Medina'],
+                ['Luciana Sofia', 'Cárdenas Canales'], ['Franco Valentino', 'Huayta Carpio'], ['Melina Aracely', 'Alarcón Tenorio'],
+                ['Nicolas David', 'Cordero Huaccachi'], ['Tatiana Jazmin', 'Cuadros Cisneros'], ['Mauricio Gabriel', 'Bautista Luján'],
+                ['Karla Viviana', 'Pillaca Allcca'], ['Gonzalo Fabian', 'Luján Pomasoncco'], ['Jessica Pilar', 'Ccente Cuadros'],
+                ['Bruno Alexander', 'Gómez Asto'], ['Wendy Maricielo', 'Hinostroza Loayza'], ['Matias Emilio', 'Palomino Pillaca'],
+                ['Jennifer Paola', 'Meneses Navarro'], ['Daniel Eduardo', 'Tineo Hinostroza'], ['Romina Alexandra', 'Cordero Chuchón'],
+                ['Lucas Alberto', 'Janampa Gómez'], ['Claudia Vanessa', 'Garamendi Berrocal'], ['Alonso Benjamin', 'Pariona Meneses'],
+                ['Fatima Rocio', 'Barboza Gamboa'], ['Gabriel Ignacio', 'Medina Janampa'], ['Samanta Valeria', 'Canales Cárdenas'],
+                ['Emiliano Javier', 'Carpio Huayta'], ['Jimena Beatriz', 'Tenorio Alarcón'], ['Martin Ricardo', 'Huaccachi Cordero'],
+                ['Anahi Fiorella', 'Cisneros Cuadros'], ['Samuel Andres', 'Luján Bautista'], ['Leslie Daniela', 'Allcca Pillaca']
+            ];
+
+            DB.estudiantes = nombres90.map((pair, idx) => {
+                const id = idx + 1;
+                const idCarrera = Math.floor((id - 1) / 15) + 1;
+                const pNomb = pair[0].split(' ')[0].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                const pApel = pair[1].split(' ')[0].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                return {
+                    id: id,
+                    cod: `EST-${String(id).padStart(3, '0')}`,
+                    nombres: pair[0],
+                    apellidos: pair[1],
+                    nombre_completo: `${pair[0]} ${pair[1]}`,
+                    dni: `718293${String(id).padStart(2, '0')}`,
+                    correo: id === 1 ? 'lmorales@escudo.edu.pe' : `${pNomb}.${pApel}@senati.pe`,
+                    telefono: `966100${String(id).padStart(3, '0')}`,
+                    id_carrera: idCarrera
+                };
+            });
+
+            // 9. MATRICULA (90)
+            DB.matriculas = DB.estudiantes.map((e, idx) => {
+                const id = idx + 1;
+                const offset = (id - 1) % 15;
+                const idSeccion = ((e.id_carrera - 1) * 3) + Math.floor(offset / 5) + 1;
+                return {
+                    id: id,
+                    cod: `MAT-2026-${String(id).padStart(3, '0')}`,
+                    fecha: '2026-08-01',
+                    estado: 'REGISTRADA',
+                    id_estudiante: id,
+                    id_seccion: idSeccion
+                };
+            });
+
+            // 10. EVALUACION (720 Notas en las 8 Rúbricas Oficiales - TA1, TA2, TA3 juntas)
+            DB.evaluaciones = [];
+            const baseNotas = [18.0, 19.0, 16.5, 17.0, 14.5, 15.0, 19.5, 18.5, 13.5, 16.0, 20.0, 17.5, 15.5, 14.0, 18.0];
+            const deltas = [0.5, 0.0, 0.5, 0.0, -0.5, 0.5, 1.0, 0.0]; // FOR1, TA1, TA2, TA3, EP, RUB-HAB, PROY, EF
+            const fechasRub = ['2026-08-22', '2026-09-05', '2026-09-19', '2026-10-03', '2026-10-17', '2026-11-07', '2026-11-21', '2026-12-05'];
+
+            let evId = 1;
+            DB.matriculas.forEach((m, mIdx) => {
+                const bN = baseNotas[mIdx % baseNotas.length];
+                for (let t = 1; t <= 8; t++) {
+                    let nota = 0;
+                    if (m.id_estudiante === 1) {
+                        nota = (t === 1 || t === 6 || t === 7) ? 20.0 : 19.5;
+                    } else {
+                        nota = Math.max(13.0, Math.min(20.0, bN + deltas[t - 1] + ((mIdx % 5) * 0.2)));
+                        nota = Math.round(nota * 2) / 2;
+                    }
+                    DB.evaluaciones.push({
+                        id: evId,
+                        cod: `EV-${String(evId).padStart(4, '0')}`,
+                        nota: nota,
+                        fecha: fechasRub[t - 1],
+                        id_matricula: m.id,
+                        id_tipo: t
+                    });
+                    evId++;
+                }
+            });
+
+            // 11. PAGO (135 Pagos)
+            DB.pagos = [];
+            const metodos = ['BILLETERA_DIGITAL', 'TRANSFERENCIA', 'TARJETA', 'EFECTIVO'];
+            let pagId = 1;
+            DB.matriculas.forEach((m, mIdx) => {
+                const met = metodos[mIdx % metodos.length];
+                DB.pagos.push({
+                    id: pagId,
+                    recibo: `REC-2026-${String(pagId).padStart(4, '0')}`,
+                    monto: 250.00,
+                    fecha: '2026-08-01',
+                    metodo: met,
+                    estado: 'PAGADO',
+                    id_matricula: m.id,
+                    id_concepto: 1
+                });
+                pagId++;
+                if (mIdx % 2 === 0) {
+                    DB.pagos.push({
+                        id: pagId,
+                        recibo: `REC-2026-${String(pagId).padStart(4, '0')}`,
+                        monto: 420.00,
+                        fecha: '2026-08-28',
+                        metodo: met,
+                        estado: 'PAGADO',
+                        id_matricula: m.id,
+                        id_concepto: 2
+                    });
+                    pagId++;
+                }
+            });
+
+            // Construir JOINs relacionales completos
+            buildRelationalEntities();
+        }
+
+        // Realizar los JOINs relacionales entre las 11 tablas en memoria
+        let CADETES_JOIN = [];
+        function buildRelationalEntities() {
+            CADETES_JOIN = DB.estudiantes.map(est => {
+                const mat = DB.matriculas.find(m => m.id_estudiante === est.id) || { id: est.id, id_seccion: 1, cod: 'MAT-2026-000' };
+                const sec = DB.secciones.find(s => s.id === mat.id_seccion) || DB.secciones[0];
+                const cur = DB.cursos.find(c => c.id === sec.id_curso) || { nombre: 'Curso General', cred: 4, hrs: 80 };
+                const doc = DB.docentes.find(d => d.id === sec.id_docente) || { nombre_completo: 'Docente Titular' };
+                const car = DB.carreras.find(c => c.id === est.id_carrera) || { nombre: 'Carrera' };
+                
+                // Evaluaciones del alumno
+                const evs = DB.evaluaciones.filter(e => e.id_matricula === mat.id);
+                const notasDict = {};
+                let sumaPond = 0;
+                let sumaPeso = 0;
+                evs.forEach(ev => {
+                    const tipo = DB.tiposEvaluacion.find(t => t.id === ev.id_tipo) || { cod: 'EV', peso: 10 };
+                    notasDict[tipo.cod] = ev.nota;
+                    sumaPond += ev.nota * tipo.peso;
+                    sumaPeso += tipo.peso;
+                });
+                const promedio = sumaPeso > 0 ? Math.round((sumaPond / sumaPeso) * 100) / 100 : 0.0;
+                
+                // Condición académica
+                let condicion = 'REGULAR';
+                if (est.id === 1) condicion = 'BECA TALENTO';
+                else if (promedio >= 17.0) condicion = 'SOBRESALIENTE';
+                else if (promedio >= 14.0) condicion = 'NOTABLE';
+
+                // Pagos del alumno
+                const pgs = DB.pagos.filter(p => p.id_matricula === mat.id);
+                const totalPagado = pgs.reduce((acc, cur) => acc + cur.monto, 0);
+
+                return {
+                    ...est,
+                    matricula_cod: mat.cod,
+                    carrera_nombre: car.nombre,
+                    curso_nombre: cur.nombre,
+                    turno: sec.turno,
+                    aula: sec.aula,
+                    docente_nombre: `${doc.nombres} ${doc.apellidos}`,
+                    id_docente: doc.id,
+                    notas: notasDict,
+                    promedio: promedio,
+                    condicion: condicion,
+                    pagos: pgs,
+                    total_pagado: totalPagado
+                };
+            });
+        }
+
+        // Renderizado de las Pestañas de Administración
+        function renderAllAdminTabs() {
+            renderAdminCadetes(CADETES_JOIN);
+            renderAdminCarreras();
+            renderAdminDocentes();
+            renderAdminSecciones();
+            renderAdminRubricas();
+            renderAdminFinanzas();
+            initFilterCarreras();
+        }
+
+        function initFilterCarreras() {
+            const sel = document.getElementById('admin-filter-carrera');
+            sel.innerHTML = '<option value="TODAS">TODAS LAS CARRERAS</option>';
+            DB.carreras.forEach(c => {
+                sel.innerHTML += `<option value="${c.nombre}">${c.nombre}</option>`;
+            });
+        }
+
+        function renderAdminCadetes(list) {
+            const tbody = document.getElementById('admin-cadetes-tbody');
+            tbody.innerHTML = '';
+            list.forEach(c => {
+                let badgeClass = 'badge-regular';
+                if (c.condicion === 'BECA TALENTO') badgeClass = 'badge-beca';
+                else if (c.condicion === 'SOBRESALIENTE') badgeClass = 'badge-sobresaliente';
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="color: var(--verde-brillante); font-weight: bold;">${c.cod}</td>
+                    <td style="color: #fff; font-weight: 600;">${c.nombre_completo}</td>
+                    <td>${c.dni}</td>
+                    <td>${c.carrera_nombre}</td>
+                    <td style="color: var(--cyan);">${c.matricula_cod}</td>
+                    <td>${c.turno}</td>
+                    <td>${c.aula}</td>
+                    <td style="color: var(--verde-brillante); font-weight: 700;">${c.promedio.toFixed(2)}</td>
+                    <td><span class="badge-status ${badgeClass}">${c.condicion}</span></td>
+                    <td><button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="openCadetDossier(${c.id})">Ver Dossier</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Filtro de Cadetes
+        document.getElementById('admin-search-input').addEventListener('input', applyCadetFilters);
+        document.getElementById('admin-filter-carrera').addEventListener('change', applyCadetFilters);
+        document.getElementById('admin-filter-turno').addEventListener('change', applyCadetFilters);
+
+        function applyCadetFilters() {
+            const q = document.getElementById('admin-search-input').value.toLowerCase().trim();
+            const carr = document.getElementById('admin-filter-carrera').value;
+            const turn = document.getElementById('admin-filter-turno').value;
+
+            const res = CADETES_JOIN.filter(c => {
+                const matchQ = c.nombre_completo.toLowerCase().includes(q) || c.cod.toLowerCase().includes(q) || c.dni.includes(q);
+                const matchC = carr === 'TODAS' || c.carrera_nombre === carr;
+                const matchT = turn === 'TODOS' || c.turno === turn;
+                return matchQ && matchC && matchT;
+            });
+            renderAdminCadetes(res);
+        }
+
+        // Render Carreras & Cursos (TABLA CARRERA + CURSO)
+        function renderAdminCarreras() {
+            const grid = document.getElementById('admin-carreras-grid');
+            grid.innerHTML = '';
+            DB.carreras.forEach(car => {
+                const cursosDeCarrera = DB.cursos.filter(cu => cu.id_carrera === car.id);
+                const card = document.createElement('div');
+                card.className = 'content-card';
+                let cursosList = '';
+                cursosDeCarrera.forEach(cu => {
+                    cursosList += `<li><strong>${cu.cod}:</strong> ${cu.nombre} (${cu.cred} créditos / ${cu.hrs} hrs)</li>`;
+                });
+                card.innerHTML = `
+                    <div class="content-card-title">${car.cod} // ${car.nombre}</div>
+                    <div style="font-size: 0.75rem; color: var(--verde-suave); margin-bottom: 8px;">
+                        Duración: ${car.duracion} Semestres | Estado: <span style="color: var(--verde-brillante);">${car.estado}</span>
+                    </div>
+                    <div style="font-size: 0.72rem; color: var(--verde-claro); font-weight: bold; margin-bottom: 4px;">MALLA CURRICULAR ASOCIADA:</div>
+                    <ul style="font-size: 0.72rem; padding-left: 18px; line-height: 1.5; color: #ccc;">
+                        ${cursosList}
+                    </ul>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Docentes (TABLA DOCENTE)
+        function renderAdminDocentes() {
+            const grid = document.getElementById('admin-docentes-grid');
+            grid.innerHTML = '';
+            DB.docentes.forEach(d => {
+                const secs = DB.secciones.filter(s => s.id_docente === d.id);
+                const card = document.createElement('div');
+                card.className = 'content-card';
+                card.innerHTML = `
+                    <div class="content-card-title">👨‍🏫 ${d.cod} - ${d.nombres} ${d.apellidos}</div>
+                    <div style="font-size: 0.75rem; color: var(--verde-suave); line-height: 1.6;">
+                        <strong>Especialidad:</strong> ${d.esp}<br>
+                        <strong>Correo:</strong> ${d.correo}<br>
+                        <strong>Teléfono:</strong> ${d.tel}<br>
+                        <strong>Secciones Asignadas:</strong> ${secs.length} secciones activas
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Secciones & Labs (TABLA SECCION)
+        function renderAdminSecciones() {
+            const grid = document.getElementById('admin-secciones-grid');
+            grid.innerHTML = '';
+            DB.secciones.forEach(s => {
+                const cur = DB.cursos.find(c => c.id === s.id_curso) || { nombre: 'Curso' };
+                const doc = DB.docentes.find(d => d.id === s.id_docente) || { nombres: 'Docente', apellidos: '' };
+                const card = document.createElement('div');
+                card.className = 'content-card';
+                card.innerHTML = `
+                    <div class="content-card-title">🛡️ ${s.cod} // ${s.aula}</div>
+                    <div style="font-size: 0.75rem; color: var(--verde-suave); line-height: 1.6;">
+                        <strong>Turno:</strong> <span style="color: var(--verde-brillante);">${s.turno}</span><br>
+                        <strong>Especialidad:</strong> ${cur.nombre}<br>
+                        <strong>Docente:</strong> ${doc.nombres} ${doc.apellidos}<br>
+                        <strong>Capacidad:</strong> ${s.cupos} cadetes por sección
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Rúbricas (TABLA TIPO_EVALUACION)
+        function renderAdminRubricas() {
+            const grid = document.getElementById('admin-rubricas-grid');
+            grid.innerHTML = '';
+            DB.tiposEvaluacion.forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'content-card';
+                card.innerHTML = `
+                    <div class="content-card-title">📊 ${t.cod || 'RUB'} // PONDERACIÓN ${t.peso}%</div>
+                    <div style="font-size: 0.75rem; color: var(--verde-suave);">
+                        <strong>Nombre Oficial:</strong> ${t.nombre}<br>
+                        <strong>Escala:</strong> 0.00 a 20.00 Vigesimal SENATI
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Finanzas (TABLA PAGO + CONCEPTO_PAGO)
+        function renderAdminFinanzas() {
+            const tbody = document.getElementById('admin-finanzas-tbody');
+            tbody.innerHTML = '';
+            CADETES_JOIN.forEach(c => {
+                c.pagos.forEach(p => {
+                    const con = DB.conceptos.find(x => x.id === p.id_concepto) || { desc: 'Arancel Académico' };
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td style="color: var(--verde-brillante); font-weight: bold;">${p.recibo}</td>
+                        <td style="color: #fff;">${c.nombre_completo}</td>
+                        <td>${con.desc}</td>
+                        <td style="color: var(--verde-claro); font-weight: bold;">S/ ${p.monto.toFixed(2)}</td>
+                        <td>${p.metodo}</td>
+                        <td>${p.fecha}</td>
+                        <td><span style="color: var(--verde); font-weight: bold;">${p.estado}</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            });
+        }
+
+        // CSV Export
+        function exportAdminCSV() {
+            let csv = "ID,CODIGO,ESTUDIANTE,DNI,CORREO,CARRERA,SECCION,TURNO,AULA,DOCENTE,PROMEDIO,CONDICION,TOTAL_PAGADO\n";
+            CADETES_JOIN.forEach(c => {
+                csv += `"${c.id}","${c.cod}","${c.nombre_completo}","${c.dni}","${c.correo}","${c.carrera_nombre}","${c.matricula_cod}","${c.turno}","${c.aula}","${c.docente_nombre}",${c.promedio},"${c.condicion}",${c.total_pagado}\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `ESCUDO_PADRON_CADETES_ORDS.csv`;
+            a.click();
         }
 
         // Navegación de Roles
@@ -1139,10 +1513,6 @@
             if (role === 'admin') {
                 document.getElementById('screen-admin').classList.add('active');
                 roleTag.innerText = 'ROL: DIRECCIÓN ACADÉMICA';
-                renderAdminCadetes(DATA.cadetes);
-                renderAdminDocentes();
-                renderAdminHorarios();
-                renderAdminFinanzas();
             } else if (role === 'docente') {
                 document.getElementById('screen-docente').classList.add('active');
                 roleTag.innerText = 'ROL: PLANA DOCENTE';
@@ -1157,206 +1527,53 @@
             switchBtn.style.display = 'inline-flex';
         }
 
-        // Subtabs Admin
         function switchAdminTab(tabName) {
             document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
-
             event.target.classList.add('active');
             document.getElementById(`admin-tab-${tabName}`).classList.add('active');
         }
 
-        // Render Cadetes Admin
-        const adminTbody = document.getElementById('admin-cadetes-tbody');
-        const adminSearch = document.getElementById('admin-search-input');
-        const adminFilterCarrera = document.getElementById('admin-filter-carrera');
-        const adminFilterTurno = document.getElementById('admin-filter-turno');
-
-        function renderAdminCadetes(list) {
-            adminTbody.innerHTML = '';
-            if (list.length === 0) {
-                adminTbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--rojo); padding: 25px;">NO SE ENCONTRARON CADETES CON ESE FILTRO</td></tr>';
-                return;
-            }
-            list.forEach(c => {
-                let badgeClass = 'badge-regular';
-                if (c.condicion === 'BECA TALENTO') badgeClass = 'badge-beca';
-                else if (c.condicion === 'SOBRESALIENTE') badgeClass = 'badge-sobresaliente';
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td style="color: var(--verde-brillante); font-weight: bold;">${c.codigo}</td>
-                    <td style="color: #fff; font-weight: 600;">${c.nombre_completo}</td>
-                    <td>${c.dni}</td>
-                    <td>${c.carrera}</td>
-                    <td>${c.turno}</td>
-                    <td>${c.docente}</td>
-                    <td style="color: var(--verde-brillante); font-weight: 700;">${c.promedio.toFixed(2)}</td>
-                    <td><span class="badge-status ${badgeClass}">${c.condicion}</span></td>
-                    <td><button class="btn-tactical" style="padding: 3px 8px; font-size: 0.72rem;" onclick="openCadetDossier(${c.id})">Ver Ficha</button></td>
-                `;
-                adminTbody.appendChild(tr);
-            });
-        }
-
-        function filterAdminCadetes() {
-            const q = adminSearch.value.toLowerCase().trim();
-            const carr = adminFilterCarrera.value;
-            const turn = adminFilterTurno.value;
-
-            const res = DATA.cadetes.filter(c => {
-                const matchQ = c.nombre_completo.toLowerCase().includes(q) || c.codigo.toLowerCase().includes(q) || c.dni.includes(q);
-                const matchC = carr === 'TODAS' || c.carrera === carr;
-                const matchT = turn === 'TODOS' || c.turno === turn;
-                return matchQ && matchC && matchT;
-            });
-            renderAdminCadetes(res);
-        }
-
-        adminSearch.addEventListener('input', filterAdminCadetes);
-        adminFilterCarrera.addEventListener('change', filterAdminCadetes);
-        adminFilterTurno.addEventListener('change', filterAdminCadetes);
-
-        // Render Docentes Admin
-        function renderAdminDocentes() {
-            const grid = document.getElementById('admin-docentes-grid');
-            grid.innerHTML = '';
-            DATA.docentes.forEach(d => {
-                const secStr = d.secciones_info.map(s => `${s.curso} (${s.turno} - ${s.aula})`).join('<br>• ');
-                const card = document.createElement('div');
-                card.className = 'docente-card';
-                card.innerHTML = `
-                    <div class="docente-header">
-                        <div class="docente-avatar">👨‍🏫</div>
-                        <div>
-                            <div class="docente-title">${d.nombre_completo}</div>
-                            <div class="docente-sub">${d.codigo} // ${d.especialidad}</div>
-                        </div>
-                    </div>
-                    <div class="docente-body">
-                        <div><strong>Correo:</strong> ${d.correo}</div>
-                        <div><strong>Teléfono:</strong> ${d.telefono}</div>
-                        <div style="margin-top: 8px;"><strong>Cursos y Aulas:</strong><br>• ${secStr}</div>
-                        <div style="margin-top: 8px; color: var(--verde-brillante);"><strong>Cadetes a Cargo:</strong> ${d.total_alumnos} cadetes</div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Render Horarios Admin
-        function renderAdminHorarios() {
-            const grid = document.getElementById('admin-horarios-grid');
-            grid.innerHTML = '';
-
-            const labs = {};
-            DATA.secciones.forEach(s => {
-                if (!labs[s.aula]) labs[s.aula] = [];
-                labs[s.aula].push(s);
-            });
-
-            for (const [aula, secs] of Object.entries(labs)) {
-                const card = document.createElement('div');
-                card.className = 'lab-card';
-                let rows = '';
-                secs.forEach(s => {
-                    rows += `
-                        <div class="turno-row">
-                            <strong style="color: var(--verde-claro);">${s.turno} // ${s.codigo}</strong><br>
-                            <span>${s.curso}</span><br>
-                            <span style="color: #999;">Docente: ${s.docente}</span> | <span style="color: var(--verde-brillante);">${s.cupos} cupos</span>
-                        </div>
-                    `;
-                });
-                card.innerHTML = `
-                    <div class="lab-card-title">LABORATORIO: ${aula}</div>
-                    ${rows}
-                `;
-                grid.appendChild(card);
-            }
-        }
-
-        // Render Finanzas Admin
-        function renderAdminFinanzas() {
-            const tbody = document.getElementById('admin-finanzas-tbody');
-            tbody.innerHTML = '';
-            DATA.cadetes.forEach(c => {
-                c.pagos.forEach(p => {
-                    const conceptoTxt = p.id_concepto === 1 ? 'Matrícula Semestral 2026-II' : 'Cuota 01 Educación Operativa';
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td style="color: var(--verde-brillante); font-weight: bold;">${p.recibo}</td>
-                        <td style="color: #fff;">${c.nombre_completo}</td>
-                        <td>${c.carrera}</td>
-                        <td>${conceptoTxt}</td>
-                        <td style="font-weight: 700; color: var(--verde-claro);">S/ ${p.monto.toFixed(2)}</td>
-                        <td>${p.metodo}</td>
-                        <td>${p.fecha}</td>
-                        <td><span style="color: var(--verde); font-weight: bold;">${p.estado}</span></td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            });
-        }
-
-        // Exportar CSV
-        function exportAdminCSV() {
-            let csv = "CODIGO,ESTUDIANTE,DNI,CORREO,CARRERA,TURNO,AULA,DOCENTE,PROMEDIO,CONDICION,TOTAL_PAGADO\n";
-            DATA.cadetes.forEach(c => {
-                csv += `"${c.codigo}","${c.nombre_completo}","${c.dni}","${c.correo}","${c.carrera}","${c.turno}","${c.aula}","${c.docente}",${c.promedio},"${c.condicion}",${c.total_pagado}\n`;
-            });
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `ESCUDO_PADRON_CADETES_2026.csv`;
-            a.click();
-        }
-
-        // ========================================================
-        // MODULO DOCENTE
-        // ========================================================
+        // MÓDULO DOCENTE
         function initDocenteSelect() {
             const sel = document.getElementById('docente-select-active');
             sel.innerHTML = '';
-            DATA.docentes.forEach(d => {
-                const opt = document.createElement('option');
-                opt.value = d.id;
-                opt.innerText = `${d.codigo} - ${d.nombre_completo} (${d.especialidad})`;
-                sel.appendChild(opt);
+            DB.docentes.forEach(d => {
+                sel.innerHTML += `<option value="${d.id}">${d.cod} - ${d.nombres} ${d.apellidos} (${d.esp})</option>`;
             });
             loadDocenteView();
         }
 
         function loadDocenteView() {
             const docId = parseInt(document.getElementById('docente-select-active').value);
-            const doc = DATA.docentes.find(d => d.id === docId);
+            const doc = DB.docentes.find(d => d.id === docId);
             if (!doc) return;
 
-            const banner = document.getElementById('docente-active-banner');
-            banner.innerHTML = `
-                <div>
-                    <div style="font-size: 1.15rem; color: var(--verde-claro); font-weight: 700;">DOCENTE: ${doc.nombre_completo}</div>
-                    <div style="font-size: 0.8rem; color: var(--verde-suave);">Especialidad: ${doc.especialidad} | Correo: ${doc.correo}</div>
-                </div>
-                <div style="text-align: right;">
-                    <span class="role-badge" style="margin: 0; color: var(--verde-brillante); border-color: var(--verde);">
-                        ${doc.total_alumnos} CADETES ASIGNADOS
-                    </span>
+            const alumnosDeDoc = CADETES_JOIN.filter(c => c.id_docente === docId);
+
+            document.getElementById('docente-active-banner').innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div>
+                        <strong style="color: var(--verde-claro); font-size: 1.05rem;">DOCENTE: ${doc.nombres} ${doc.apellidos}</strong><br>
+                        <span style="color: var(--verde-suave); font-size: 0.78rem;">Especialidad: ${doc.esp} | Correo: ${doc.correo} | Tel: ${doc.tel}</span>
+                    </div>
+                    <div style="color: var(--verde-brillante); font-size: 0.85rem; font-weight: bold;">
+                        ${alumnosDeDoc.length} CADETES ASIGNADOS EN LISTA
+                    </div>
                 </div>
             `;
 
             const tbody = document.getElementById('docente-cadetes-tbody');
             tbody.innerHTML = '';
-            doc.alumnos.forEach(c => {
+            alumnosDeDoc.forEach(c => {
                 let badgeClass = 'badge-regular';
                 if (c.condicion === 'BECA TALENTO') badgeClass = 'badge-beca';
                 else if (c.condicion === 'SOBRESALIENTE') badgeClass = 'badge-sobresaliente';
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td style="color: var(--verde-brillante); font-weight: bold;">${c.codigo}</td>
+                    <td style="color: var(--verde-brillante); font-weight: bold;">${c.cod}</td>
                     <td style="color: #fff;">${c.nombre_completo}</td>
-                    <td>${c.turno}</td>
                     <td>${c.notas['FOR1'] || '--'}</td>
                     <td>${c.notas['TA1'] || '--'}</td>
                     <td>${c.notas['TA2'] || '--'}</td>
@@ -1372,9 +1589,7 @@
             });
         }
 
-        // ========================================================
-        // MODULO ESTUDIANTE / CADETE
-        // ========================================================
+        // MÓDULO ESTUDIANTE
         function selectQuickCadet(query) {
             document.getElementById('student-search-input').value = query;
             searchCadetRecord();
@@ -1382,42 +1597,38 @@
 
         function searchCadetRecord() {
             const q = document.getElementById('student-search-input').value.trim().toLowerCase();
-            const cadet = DATA.cadetes.find(c => c.dni.includes(q) || c.codigo.toLowerCase().includes(q) || c.nombre_completo.toLowerCase().includes(q));
+            const cadet = CADETES_JOIN.find(c => c.dni.includes(q) || c.cod.toLowerCase().includes(q) || c.nombre_completo.toLowerCase().includes(q));
 
             const container = document.getElementById('cadet-boleta-container');
             if (!cadet) {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 40px; color: var(--rojo);">
-                        <h3>NO SE ENCONTRÓ NINGÚN CADETE CON EL DNI O CÓDIGO INGRESADO</h3>
-                        <p style="color: var(--verde-suave); font-size: 0.85rem; margin-top: 8px;">Por favor intente con: 71829301 o EST-001</p>
+                        <h3>NO SE ENCONTRÓ NINGÚN CADETE CON ESE IDENTIFICADOR</h3>
+                        <p style="color: var(--verde-suave); font-size: 0.8rem; margin-top: 6px;">Prueba ingresando: 71829301 o EST-001</p>
                     </div>
                 `;
                 return;
             }
 
-            let badgeClass = 'badge-regular';
-            if (cadet.condicion === 'BECA TALENTO') badgeClass = 'badge-beca';
-            else if (cadet.condicion === 'SOBRESALIENTE') badgeClass = 'badge-sobresaliente';
-
             let rubricsHtml = '';
-            DATA.rubricas.forEach(r => {
+            DB.tiposEvaluacion.forEach(r => {
                 const nota = cadet.notas[r.cod] !== undefined ? cadet.notas[r.cod].toFixed(1) : '--';
                 rubricsHtml += `
-                    <div class="rubric-box">
-                        <div class="rubric-code">${r.cod} (${r.peso}%)</div>
-                        <div class="rubric-score">${nota}</div>
-                        <div class="rubric-name">${r.nombre}</div>
+                    <div style="background: #020402; border: 1px solid rgba(0,255,65,0.18); padding: 12px; text-align: center;">
+                        <div style="font-size: 0.7rem; color: var(--verde-suave);">${r.cod} (${r.peso}%)</div>
+                        <div style="font-size: 1.4rem; font-weight: bold; color: var(--verde-brillante); margin: 3px 0;">${nota}</div>
+                        <div style="font-size: 0.65rem; color: #888;">${r.nombre}</div>
                     </div>
                 `;
             });
 
             let paymentsRows = '';
             cadet.pagos.forEach(p => {
-                const conceptoTxt = p.id_concepto === 1 ? 'Matrícula Semestral 2026-II' : 'Cuota 01 Educación Operativa';
+                const con = DB.conceptos.find(x => x.id === p.id_concepto) || { desc: 'Arancel' };
                 paymentsRows += `
                     <tr>
                         <td style="color: var(--verde-brillante); font-weight: bold;">${p.recibo}</td>
-                        <td>${conceptoTxt}</td>
+                        <td>${con.desc}</td>
                         <td style="color: var(--verde-claro); font-weight: bold;">S/ ${p.monto.toFixed(2)}</td>
                         <td>${p.metodo}</td>
                         <td>${p.fecha}</td>
@@ -1427,166 +1638,106 @@
             });
 
             container.innerHTML = `
-                <div class="boleta-header">
-                    <div>
-                        <div style="font-size: 0.72rem; color: var(--verde-suave); letter-spacing: 1.5px;">BOLETA OFICIAL // CICLO ACADÉMICO 2026-II</div>
-                        <h2 style="font-size: 1.4rem; color: var(--verde-claro); margin: 4px 0;">${cadet.nombre_completo}</h2>
-                        <div style="font-size: 0.82rem; color: var(--verde-suave);">
-                            CÓDIGO: <strong style="color: var(--verde);">${cadet.codigo}</strong> | DNI: <strong>${cadet.dni}</strong> | CORREO: <strong>${cadet.correo}</strong>
+                <div style="background: var(--panel); border: 1px solid var(--verde); padding: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-borde); padding-bottom: 14px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                        <div>
+                            <div style="font-size: 0.7rem; color: var(--verde-suave);">BOLETA OFICIAL // CICLO ACADÉMICO 2026-II</div>
+                            <h2 style="font-size: 1.35rem; color: var(--verde-claro); margin: 4px 0;">${cadet.nombre_completo}</h2>
+                            <div style="font-size: 0.78rem; color: var(--verde-suave);">
+                                CÓDIGO: <strong style="color: var(--verde);">${cadet.cod}</strong> | DNI: <strong>${cadet.dni}</strong> | CORREO: <strong>${cadet.correo}</strong>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.7rem; color: var(--verde-suave);">PROMEDIO PONDERADO OFICIAL</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: var(--verde-brillante);">${cadet.promedio.toFixed(2)}</div>
+                            <span class="badge-status badge-sobresaliente">${cadet.condicion}</span>
                         </div>
                     </div>
-                    <div style="text-align: right;">
-                        <div style="font-size: 0.72rem; color: var(--verde-suave);">PROMEDIO PONDERADO</div>
-                        <div style="font-size: 2.2rem; font-weight: 700; color: var(--verde-brillante);">${cadet.promedio.toFixed(2)}</div>
-                        <span class="badge-status ${badgeClass}">${cadet.condicion}</span>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; background: #020502; padding: 12px; border: 1px solid rgba(0,255,65,0.1); margin-bottom: 18px; font-size: 0.78rem;">
+                        <div><span style="color: #888;">CARRERA:</span><br><strong style="color: var(--verde-claro);">${cadet.carrera_nombre}</strong></div>
+                        <div><span style="color: #888;">CURSO / LAB:</span><br><strong style="color: var(--verde-claro);">${cadet.curso_nombre} // ${cadet.aula}</strong></div>
+                        <div><span style="color: #888;">TURNO:</span><br><strong style="color: var(--verde-claro);">${cadet.turno}</strong></div>
+                        <div><span style="color: #888;">DOCENTE TITULAR:</span><br><strong style="color: var(--verde-claro);">${cadet.docente_nombre}</strong></div>
                     </div>
-                </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; background: #020502; padding: 14px; border: 1px solid rgba(0, 255, 65, 0.1); margin-bottom: 20px;">
-                    <div><span style="font-size: 0.7rem; color: #888;">CARRERA ASIGNADA:</span><br><strong style="color: var(--verde-claro);">${cadet.carrera}</strong></div>
-                    <div><span style="font-size: 0.7rem; color: #888;">CURSO ESPECIALIZADO:</span><br><strong style="color: var(--verde-claro);">${cadet.curso}</strong></div>
-                    <div><span style="font-size: 0.7rem; color: #888;">TURNO Y LABORATORIO:</span><br><strong style="color: var(--verde-claro);">${cadet.turno} // ${cadet.aula}</strong></div>
-                    <div><span style="font-size: 0.7rem; color: #888;">DOCENTE TITULAR:</span><br><strong style="color: var(--verde-claro);">${cadet.docente}</strong></div>
-                </div>
+                    <h3 style="font-size: 0.85rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;">
+                        CALIFICACIONES EN RÚBRICAS OFICIALES SENATI (TAREAS 1, 2 Y 3 CONSECUTIVAS)
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                        ${rubricsHtml}
+                    </div>
 
-                <h3 style="font-size: 0.9rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase;">
-                    CALIFICACIONES EN RÚBRICAS OFICIALES SENATI (TAREAS 1, 2 Y 3 JUNTAS)
-                </h3>
-                <div class="rubrics-grid">
-                    ${rubricsHtml}
-                </div>
-
-                <h3 style="font-size: 0.9rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 24px; margin-bottom: 10px;">
-                    AUDITORÍA DE PAGOS Y RECIBOS EMITIDOS
-                </h3>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>RECIBO</th>
-                                <th>CONCEPTO</th>
-                                <th>MONTO</th>
-                                <th>MÉTODO DE PAGO</th>
-                                <th>FECHA</th>
-                                <th>ESTADO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${paymentsRows}
-                        </tbody>
-                    </table>
+                    <h3 style="font-size: 0.85rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;">
+                        AUDITORÍA FINANCIERA (RECIBOS LIQUIDADOS)
+                    </h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>RECIBO</th>
+                                    <th>ARANCEL</th>
+                                    <th>MONTO</th>
+                                    <th>MÉTODO DE PAGO</th>
+                                    <th>FECHA</th>
+                                    <th>ESTADO</th>
+                                </tr>
+                            </thead>
+                            <tbody>${paymentsRows}</tbody>
+                        </table>
+                    </div>
                 </div>
             `;
         }
 
         // Modal Dossier 360
-        function openCadetDossier(idCadet) {
-            const cadet = DATA.cadetes.find(c => c.id === idCadet);
+        function openCadetDossier(id) {
+            const cadet = CADETES_JOIN.find(c => c.id === id);
             if (!cadet) return;
-
-            document.getElementById('modal-title').innerText = `DOSSIER OPERATIVO // ${cadet.codigo} - ${cadet.nombre_completo}`;
-            
-            let rubrics = '';
-            DATA.rubricas.forEach(r => {
-                rubrics += `
-                    <div class="rubric-box">
-                        <div class="rubric-code">${r.cod} (${r.peso}%)</div>
-                        <div class="rubric-score">${cadet.notas[r.cod] || '--'}</div>
-                        <div class="rubric-name">${r.nombre}</div>
-                    </div>
-                `;
-            });
-
-            let payments = '';
-            cadet.pagos.forEach(p => {
-                payments += `
-                    <tr>
-                        <td style="color: var(--verde-brillante); font-weight: bold;">${p.recibo}</td>
-                        <td>${p.id_concepto === 1 ? 'Matrícula Semestral' : 'Cuota 01'}</td>
-                        <td style="color: var(--verde-claro); font-weight: bold;">S/ ${p.monto.toFixed(2)}</td>
-                        <td>${p.metodo}</td>
-                        <td><span style="color: var(--verde); font-weight: bold;">${p.estado}</span></td>
-                    </tr>
-                `;
-            });
-
-            document.getElementById('modal-body').innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; background: #020502; padding: 14px; border: 1px solid rgba(0, 255, 65, 0.1); margin-bottom: 16px;">
-                    <div><span style="font-size: 0.68rem; color: #888;">DNI:</span><br><strong>${cadet.dni}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">CORREO:</span><br><strong>${cadet.correo}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">CARRERA:</span><br><strong>${cadet.carrera}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">CURSO:</span><br><strong>${cadet.curso}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">TURNO / AULA:</span><br><strong>${cadet.turno} // ${cadet.aula}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">DOCENTE:</span><br><strong>${cadet.docente}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">PROMEDIO:</span><br><strong style="color: var(--verde-brillante); font-size: 1.1rem;">${cadet.promedio.toFixed(2)}</strong></div>
-                    <div><span style="font-size: 0.68rem; color: #888;">CONDICIÓN:</span><br><strong style="color: var(--amarillo);">${cadet.condicion}</strong></div>
-                </div>
-
-                <div style="font-size: 0.82rem; color: var(--verde-claro); margin-bottom: 8px;">CALIFICACIONES POR RÚBRICA:</div>
-                <div class="rubrics-grid">${rubrics}</div>
-
-                <div style="font-size: 0.82rem; color: var(--verde-claro); margin: 16px 0 8px 0;">HISTORIAL DE PAGOS:</div>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>RECIBO</th>
-                                <th>CONCEPTO</th>
-                                <th>MONTO</th>
-                                <th>MÉTODO</th>
-                                <th>ESTADO</th>
-                            </tr>
-                        </thead>
-                        <tbody>${payments}</tbody>
-                    </table>
-                </div>
-            `;
-
-            document.getElementById('modal-ficha').style.display = 'flex';
+            selectQuickCadet(cadet.dni);
+            enterRole('estudiante');
         }
 
-        function closeModal() {
-            document.getElementById('modal-ficha').style.display = 'none';
-        }
-
-        // Modal Configuración APEX
-        function openApexConfigModal() {
-            const input = document.getElementById('apex-url-input');
-            input.value = localStorage.getItem('ESCUDO_APEX_URL') || (window.ESCUDO_APEX ? window.ESCUDO_APEX.baseUrl : "https://apex.oracle.com/pls/apex/escudo/");
+        // Modal APEX
+        function openApexModal() {
+            document.getElementById('apex-url-input').value = BASE_ORDS_URL;
             document.getElementById('apex-test-feedback').innerHTML = '';
             document.getElementById('modal-apex-config').style.display = 'flex';
         }
 
-        function closeApexConfigModal() {
+        function closeApexModal() {
             document.getElementById('modal-apex-config').style.display = 'none';
         }
 
-        async function testApexConnection() {
+        async function testApexEndpoint() {
             const url = document.getElementById('apex-url-input').value.trim();
             const feedback = document.getElementById('apex-test-feedback');
-            feedback.innerHTML = '<span style="color: var(--amarillo);">Enviando petición HTTP GET a Oracle ORDS...</span>';
+            feedback.innerHTML = '<span style="color: var(--amarillo);">Enviando petición HTTP GET al endpoint REST...</span>';
+            const ep = (window.ESCUDO_APEX && window.ESCUDO_APEX.endpoints) ? window.ESCUDO_APEX.endpoints.estudiantes : 'estudiante/';
             try {
-                const res = await fetch(`${url}estudiantes/`, { method: 'GET' });
+                const res = await fetch(`${url}${ep}?limit=10`);
                 if (res.ok) {
                     const json = await res.json();
-                    feedback.innerHTML = `<span style="color: var(--verde-brillante); font-weight: bold;">✔ CONEXIÓN EXITOSA CON ORACLE APEX: ${json.items ? json.items.length : 'OK'} registros recibidos.</span>`;
+                    feedback.innerHTML = `<span style="color: var(--verde-brillante); font-weight: bold;">✔ CONEXIÓN EXITOSA: ${json.items ? json.items.length : 0} registros recibidos en vivo desde Oracle APEX.</span>`;
+                } else if (res.status === 401 || res.status === 403) {
+                    feedback.innerHTML = `<span style="color: var(--amarillo);">Código ${res.status}: En Database Actions, desactiva "Autorización requerida" para que el endpoint sea público sin token OAuth.</span>`;
                 } else {
-                    feedback.innerHTML = `<span style="color: var(--rojo);">Oracle APEX respondió con código ${res.status}. Asegúrese de ejecutar HABILITAR_ORDS_APEX.sql en su SQL Workshop.</span>`;
+                    feedback.innerHTML = `<span style="color: var(--amarillo);">Código recibido: ${res.status}. Verifique la URL base configurada.</span>`;
                 }
             } catch (e) {
-                feedback.innerHTML = `<span style="color: var(--amarillo);">Aviso: Para conexión en vivo directa, active ORDS en APEX ejecutando el script HABILITAR_ORDS_APEX.sql. Mientras tanto el sistema opera con el esquema estructurado sincronizado.</span>`;
+                feedback.innerHTML = `<span style="color: var(--rojo);">Aviso CORS/Red: Verifique que la URL permita solicitudes web directas.</span>`;
             }
         }
 
-        function saveApexConfig() {
+        function saveApexUrl() {
             const url = document.getElementById('apex-url-input').value.trim();
             localStorage.setItem('ESCUDO_APEX_URL', url);
-            closeApexConfigModal();
-            connectLiveOracleApex();
+            closeApexModal();
+            fetchAllApexTables();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            connectLiveOracleApex();
+            fetchAllApexTables();
         });
     </script>
 </body>

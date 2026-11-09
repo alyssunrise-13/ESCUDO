@@ -256,8 +256,15 @@
 
         .roles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 960px) {
+            .roles-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .role-card {
@@ -271,6 +278,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 100%;
+            align-self: stretch;
+            box-sizing: border-box;
         }
 
         .role-card:hover {
@@ -289,22 +299,31 @@
             background: var(--verde);
         }
 
+        .role-card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+        }
+
         .role-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             font-size: 0.7rem;
-            padding: 3px 8px;
+            padding: 4px 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
             border: 1px solid var(--panel-borde);
             margin-bottom: 14px;
             color: var(--verde-suave);
+            align-self: flex-start;
+            height: 26px;
+            box-sizing: border-box;
         }
 
         .role-icon {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
         .role-title {
@@ -312,8 +331,11 @@
             color: var(--verde-claro);
             font-weight: 700;
             letter-spacing: 1.5px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: uppercase;
+            min-height: 52px;
+            display: flex;
+            align-items: flex-start;
         }
 
         .role-desc {
@@ -321,11 +343,12 @@
             color: var(--verde-suave);
             line-height: 1.6;
             margin-bottom: 24px;
-            flex-grow: 1;
+            flex: 1 1 auto;
         }
 
         .role-btn {
             width: 100%;
+            margin-top: auto;
             background: rgba(0, 255, 65, 0.08);
             border: 1px solid var(--verde);
             color: var(--verde-brillante);
@@ -333,10 +356,15 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            padding: 10px;
+            padding: 12px 10px;
             cursor: pointer;
             transition: all 0.2s;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            box-sizing: border-box;
         }
 
         .role-card:hover .role-btn {
@@ -720,31 +748,31 @@
                 <div class="roles-grid">
                     
                     <div class="role-card" onclick="promptAdminLogin()" style="border-color: var(--verde); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);">
-                        <div>
+                        <div class="role-card-body">
                             <span class="role-badge" style="border-color: var(--verde-brillante); color: var(--verde-brillante); background: rgba(0, 255, 65, 0.1);">● ACTIVO // CONTRASEÑA REQUERIDA</span>
-                            <div class="role-icon" style="font-size: 2.2rem; margin-bottom: 8px;">🏛️</div>
+                            <div class="role-icon">🏛️</div>
                             <h3 class="role-title">Dirección y Administración</h3>
-                            <p class="role-desc">Gobierno completo de las 11 tablas relacionales: Padrón de 90 estudiantes, 6 carreras, 18 cursos, 8 docentes, secciones/laboratorios, periodos y auditoría financiera de pagos.</p>
+                            <p class="role-desc">Gobierno completo de las 11 tablas relacionales: Padrón de 90 estudiantes, 6 carreras, 18 cursos, 8 docentes, secciones tácticas y auditoría financiera de pagos.</p>
                         </div>
                         <button class="role-btn">Ingresar con Credencial ↗</button>
                     </div>
 
                     <div class="role-card" onclick="showDeniedRole('docente')" style="opacity: 0.6; border-color: rgba(255,255,255,0.12); cursor: not-allowed;">
-                        <div>
+                        <div class="role-card-body">
                             <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">🔒 INACCESIBLE // EN MANTENIMIENTO</span>
-                            <div class="role-icon" style="font-size: 2.2rem; margin-bottom: 8px;">👨‍🏫</div>
+                            <div class="role-icon">👨‍🏫</div>
                             <h3 class="role-title" style="color: #bbb;">Plana Docente</h3>
-                            <p class="role-desc">Acceso restringido temporalmente durante el periodo de auditoría de actas. Los 8 docentes no tienen acceso habilitado en esta fase.</p>
+                            <p class="role-desc">Acceso restringido temporalmente por auditoría semestral y cierre de actas. Los 8 docentes titulares no tienen acceso operativo en esta fase.</p>
                         </div>
                         <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Bloqueado 🔒</button>
                     </div>
 
                     <div class="role-card" onclick="showDeniedRole('estudiante')" style="opacity: 0.6; border-color: rgba(255,255,255,0.12); cursor: not-allowed;">
-                        <div>
+                        <div class="role-card-body">
                             <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">🔒 INACCESIBLE // EN MANTENIMIENTO</span>
-                            <div class="role-icon" style="font-size: 2.2rem; margin-bottom: 8px;">🎓</div>
+                            <div class="role-icon">🎓</div>
                             <h3 class="role-title" style="color: #bbb;">Portal del Estudiante</h3>
-                            <p class="role-desc">Acceso restringido temporalmente. La consulta de boletas oficiales y estado de pensiones se habilitará en la siguiente fase de matrícula.</p>
+                            <p class="role-desc">Acceso restringido temporalmente por auditoría institucional. La consulta de notas, horarios y boletas se habilitará en la siguiente fase.</p>
                         </div>
                         <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Bloqueado 🔒</button>
                     </div>

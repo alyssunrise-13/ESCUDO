@@ -701,12 +701,12 @@
 
         <div class="live-rest-banner">
             <div>
-                <span class="live-tag">⚡ ORACLE REST DATA SERVICES</span>
+                <span class="live-tag">ORACLE REST DATA SERVICES</span>
                 <span style="color: var(--verde-claro); margin-left: 8px;">MOTOR RELACIONAL VINCULADO:</span>
                 <code style="color: var(--cyan); margin-left: 4px;" id="current-endpoint-display">https://oracleapex.com/ords/escudo/</code>
             </div>
             <div>
-                <span style="color: var(--verde-suave);">🌐 Tablas del Modelo:</span>
+                <span style="color: var(--verde-suave);">Tablas del Modelo:</span>
                 <strong style="color: var(--verde-brillante);">11 TABLAS RELACIONALES INTEGRADAS</strong>
             </div>
         </div>
@@ -714,7 +714,7 @@
         <div class="screen-view active" id="screen-roles">
             <div class="roles-screen">
                 <div class="roles-header">
-                    <h2>🛡️ AUTORIZACIÓN DE ACCESO INSTITUCIONAL</h2>
+                    <h2>AUTORIZACIÓN DE ACCESO INSTITUCIONAL</h2>
                     <p>Seleccione su credencial operativa para ingresar directamente a los módulos que consumen la base de datos.</p>
                 </div>
                 <div class="roles-grid">
@@ -722,8 +722,8 @@
                     <div class="role-card" onclick="promptAdminLogin()" style="border-color: var(--verde); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);">
                         <div>
                             <span class="role-badge" style="border-color: var(--verde-brillante); color: var(--verde-brillante); background: rgba(0, 255, 65, 0.1);">● ACTIVO // CONTRASEÑA REQUERIDA</span>
-                            <div class="role-icon" style="color: var(--verde-brillante);">🏛️ [ DIR-01 ]</div>
-                            <h3 class="role-title">🛡️ Dirección y Administración</h3>
+                            <div class="role-icon" style="font-size: 2.2rem; margin-bottom: 8px;">🏛️</div>
+                            <h3 class="role-title">Dirección y Administración</h3>
                             <p class="role-desc">Gobierno completo de las 11 tablas relacionales: Padrón de 90 estudiantes, 6 carreras, 18 cursos, 8 docentes, secciones/laboratorios, periodos y auditoría financiera de pagos.</p>
                         </div>
                         <button class="role-btn">Ingresar con Credencial ↗</button>
@@ -731,22 +731,22 @@
 
                     <div class="role-card" onclick="showDeniedRole('docente')" style="opacity: 0.6; border-color: rgba(255,255,255,0.12); cursor: not-allowed;">
                         <div>
-                            <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">INACCESIBLE // EN MANTENIMIENTO</span>
-                            <div class="role-icon" style="color: #777;">👨‍🏫 [ DOC-02 ]</div>
-                            <h3 class="role-title" style="color: #bbb;">👨‍🏫 Plana Docente</h3>
+                            <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">🔒 INACCESIBLE // EN MANTENIMIENTO</span>
+                            <div class="role-icon" style="font-size: 2.2rem; margin-bottom: 8px;">👨‍🏫</div>
+                            <h3 class="role-title" style="color: #bbb;">Plana Docente</h3>
                             <p class="role-desc">Acceso restringido temporalmente durante el periodo de auditoría de actas. Los 8 docentes no tienen acceso habilitado en esta fase.</p>
                         </div>
-                        <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Restringido ⌁</button>
+                        <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Bloqueado 🔒</button>
                     </div>
 
                     <div class="role-card" onclick="showDeniedRole('estudiante')" style="opacity: 0.6; border-color: rgba(255,255,255,0.12); cursor: not-allowed;">
                         <div>
-                            <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">INACCESIBLE // EN MANTENIMIENTO</span>
-                            <div class="role-icon" style="color: #777;">🎓 [ EST-03 ]</div>
-                            <h3 class="role-title" style="color: #bbb;">🎓 Portal del Estudiante</h3>
+                            <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">🔒 INACCESIBLE // EN MANTENIMIENTO</span>
+                            <div class="role-icon" style="font-size: 2.2rem; margin-bottom: 8px;">🎓</div>
+                            <h3 class="role-title" style="color: #bbb;">Portal del Estudiante</h3>
                             <p class="role-desc">Acceso restringido temporalmente. La consulta de boletas oficiales y estado de pensiones se habilitará en la siguiente fase de matrícula.</p>
                         </div>
-                        <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Restringido ⌁</button>
+                        <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Bloqueado 🔒</button>
                     </div>
 
                 </div>
@@ -757,87 +757,75 @@
             
             <div class="tables-kpi-grid">
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">🎓 1. ESTUDIANTE</div>
+                    <div class="kpi-mini-lbl">1. ESTUDIANTE</div>
                     <div class="kpi-mini-val">90</div>
                     <div class="kpi-mini-sub">Estudiantes únicos</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">💼 2. CARRERA</div>
+                    <div class="kpi-mini-lbl">2. CARRERA</div>
                     <div class="kpi-mini-val">6</div>
                     <div class="kpi-mini-sub">Carreras técnicas</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">📚 3. CURSO</div>
+                    <div class="kpi-mini-lbl">3. CURSO</div>
                     <div class="kpi-mini-val">18</div>
                     <div class="kpi-mini-sub">Especialidades</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">🏛️ 4. SECCION</div>
+                    <div class="kpi-mini-lbl">4. SECCION</div>
                     <div class="kpi-mini-val">18</div>
                     <div class="kpi-mini-sub">Mañana/Tarde/Noche</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">👨‍🏫 5. DOCENTE</div>
+                    <div class="kpi-mini-lbl">5. DOCENTE</div>
                     <div class="kpi-mini-val">8</div>
                     <div class="kpi-mini-sub">Titulares de curso</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">📑 6. MATRICULA</div>
+                    <div class="kpi-mini-lbl">6. MATRICULA</div>
                     <div class="kpi-mini-val">90</div>
                     <div class="kpi-mini-sub">Inscripciones activas</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">📊 7. EVALUACION</div>
+                    <div class="kpi-mini-lbl">7. EVALUACION</div>
                     <div class="kpi-mini-val">720</div>
                     <div class="kpi-mini-sub">Notas en rúbricas</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">⚖️ 8. TIPO_EVALUACION</div>
+                    <div class="kpi-mini-lbl">8. TIPO_EVALUACION</div>
                     <div class="kpi-mini-val">8</div>
                     <div class="kpi-mini-sub">Rúbricas oficiales</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">💳 9. PAGO</div>
+                    <div class="kpi-mini-lbl">9. PAGO</div>
                     <div class="kpi-mini-val">135</div>
                     <div class="kpi-mini-sub">Recibos emitidos</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">🏷️ 10. CONCEPTO_PAGO</div>
+                    <div class="kpi-mini-lbl">10. CONCEPTO_PAGO</div>
                     <div class="kpi-mini-val">4</div>
                     <div class="kpi-mini-sub">Aranceles base</div>
                 </div>
                 <div class="kpi-mini">
-                    <div class="kpi-mini-lbl">⏳ 11. PERIODO</div>
+                    <div class="kpi-mini-lbl">11. PERIODO</div>
                     <div class="kpi-mini-val">2026-II</div>
                     <div class="kpi-mini-sub">Semestre activo</div>
                 </div>
             </div>
 
             <div class="admin-nav">
-                <button class="admin-tab-btn active" onclick="switchAdminTab('estudiantes', this)">
-                    <span class="tab-dot">●</span> 🎓 Estudiantes & Matrículas
-                </button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('carreras', this)">
-                    <span class="tab-dot">●</span> 💼 Carreras & Cursos
-                </button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('docentes', this)">
-                    <span class="tab-dot">●</span> 👨‍🏫 Plana Docente
-                </button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('secciones', this)">
-                    <span class="tab-dot">●</span> 🏛️ Secciones & Horarios
-                </button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('rubricas', this)">
-                    <span class="tab-dot">●</span> 📊 Rúbricas & Evaluaciones
-                </button>
-                <button class="admin-tab-btn" onclick="switchAdminTab('finanzas', this)">
-                    <span class="tab-dot">●</span> 💳 Auditoría de Pagos
-                </button>
+                <button class="admin-tab-btn active" onclick="switchAdminTab('estudiantes', this)">👥 Estudiantes & Matrículas</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('carreras', this)">🎓 Carreras & Cursos</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('docentes', this)">👨‍🏫 Plana Docente</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('secciones', this)">🕒 Secciones & Labs</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('rubricas', this)">📊 Rúbricas & Evaluaciones</button>
+                <button class="admin-tab-btn" onclick="switchAdminTab('finanzas', this)">💰 Finanzas & Aranceles</button>
             </div>
 
             <div class="admin-tab-content active" id="admin-tab-estudiantes">
                 <div class="controls-panel">
                     <div class="search-wrap">
-                        <span class="search-icon">⌕</span>
+                        <span class="search-icon">🔍</span>
                         <input type="text" id="admin-search-input" class="search-input" placeholder="Buscar por Nombre, DNI o Código (ej. EST-001)...">
                     </div>
                     <div class="filter-group" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
@@ -850,7 +838,7 @@
                             <option value="TARDE">TARDE</option>
                             <option value="NOCHE">NOCHE</option>
                         </select>
-                        <button class="btn-tactical" onclick="exportAdminCSV()">Exportar CSV ↗</button>
+                        <button class="btn-tactical" onclick="exportAdminCSV()">📥 Exportar CSV</button>
                     </div>
                 </div>
 
@@ -1427,11 +1415,11 @@ function populateRelationalSchema() {
                     cursosList += '<li><strong>' + cu.cod + ':</strong> ' + cu.nombre + ' (' + cu.cred + ' créditos / ' + cu.hrs + ' hrs)</li>';
                 });
                 card.innerHTML = 
-                    '<div class="content-card-title">💼 ' + car.cod + ' // ' + car.nombre + '</div>' +
+                    '<div class="content-card-title">🎓 ' + car.cod + ' // ' + car.nombre + '</div>' +
                     '<div style="font-size: 0.75rem; color: var(--verde-suave); margin-bottom: 8px;">' +
-                        '⏳ Duración: ' + car.duracion + ' Semestres | Estado: <span style="color: var(--verde-brillante);">' + car.estado + '</span>' +
+                        'Duración: ' + car.duracion + ' Semestres | Estado: <span style="color: var(--verde-brillante);">' + car.estado + '</span>' +
                     '</div>' +
-                    '<div style="font-size: 0.72rem; color: var(--verde-claro); font-weight: bold; margin-bottom: 4px;">📚 MALLA CURRICULAR ASOCIADA:</div>' +
+                    '<div style="font-size: 0.72rem; color: var(--verde-claro); font-weight: bold; margin-bottom: 4px;">MALLA CURRICULAR ASOCIADA:</div>' +
                     '<ul style="font-size: 0.72rem; padding-left: 18px; line-height: 1.5; color: #ccc;">' +
                         cursosList +
                     '</ul>';
@@ -1447,12 +1435,12 @@ function populateRelationalSchema() {
                 const card = document.createElement('div');
                 card.className = 'content-card';
                 card.innerHTML = 
-                    '<div class="content-card-title">👨‍🏫 ' + d.cod + ' — ' + d.nombres + ' ' + d.apellidos + '</div>' +
+                    '<div class="content-card-title">👨‍🏫 ' + d.cod + ' - ' + d.nombres + ' ' + d.apellidos + '</div>' +
                     '<div style="font-size: 0.75rem; color: var(--verde-suave); line-height: 1.6;">' +
-                        '<strong>🎯 Especialidad:</strong> ' + d.esp + '<br>' +
-                        '<strong>📧 Correo:</strong> ' + d.correo + '<br>' +
-                        '<strong>📱 Teléfono:</strong> ' + d.tel + '<br>' +
-                        '<strong>🏛️ Secciones Asignadas:</strong> ' + secs.length + ' secciones activas' +
+                        '<strong>Especialidad:</strong> ' + d.esp + '<br>' +
+                        '<strong>Correo:</strong> ' + d.correo + '<br>' +
+                        '<strong>Teléfono:</strong> ' + d.tel + '<br>' +
+                        '<strong>Secciones Asignadas:</strong> ' + secs.length + ' secciones activas' +
                     '</div>';
                 grid.appendChild(card);
             });
@@ -1467,12 +1455,12 @@ function populateRelationalSchema() {
                 const card = document.createElement('div');
                 card.className = 'content-card';
                 card.innerHTML = 
-                    '<div class="content-card-title">🏛️ ' + s.cod + ' // ' + s.aula + '</div>' +
+                    '<div class="content-card-title">🛡️ ' + s.cod + ' // ' + s.aula + '</div>' +
                     '<div style="font-size: 0.75rem; color: var(--verde-suave); line-height: 1.6;">' +
-                        '<strong>⏳ Turno:</strong> <span style="color: var(--verde-brillante);">' + s.turno + '</span><br>' +
-                        '<strong>📚 Especialidad:</strong> ' + cur.nombre + '<br>' +
-                        '<strong>👨‍🏫 Docente:</strong> ' + doc.nombres + ' ' + doc.apellidos + '<br>' +
-                        '<strong>👥 Capacidad:</strong> ' + s.cupos + ' estudiantes por sección' +
+                        '<strong>Turno:</strong> <span style="color: var(--verde-brillante);">' + s.turno + '</span><br>' +
+                        '<strong>Especialidad:</strong> ' + cur.nombre + '<br>' +
+                        '<strong>Docente:</strong> ' + doc.nombres + ' ' + doc.apellidos + '<br>' +
+                        '<strong>Capacidad:</strong> ' + s.cupos + ' estudiantes por sección' +
                     '</div>';
                 grid.appendChild(card);
             });
@@ -1485,10 +1473,10 @@ function populateRelationalSchema() {
                 const card = document.createElement('div');
                 card.className = 'content-card';
                 card.innerHTML = 
-                    '<div class="content-card-title">⚖️ ' + (t.cod || 'RUB') + ' // PONDERACIÓN ' + t.peso + '%</div>' +
+                    '<div class="content-card-title">📊 ' + (t.cod || 'RUB') + ' // PONDERACIÓN ' + t.peso + '%</div>' +
                     '<div style="font-size: 0.75rem; color: var(--verde-suave);">' +
-                        '<strong>🏷️ Nombre Oficial:</strong> ' + t.nombre + '<br>' +
-                        '<strong>📊 Escala:</strong> 0.00 a 20.00 Vigesimal SENATI' +
+                        '<strong>Nombre Oficial:</strong> ' + t.nombre + '<br>' +
+                        '<strong>Escala:</strong> 0.00 a 20.00 Vigesimal SENATI' +
                     '</div>';
                 grid.appendChild(card);
             });
@@ -1739,9 +1727,9 @@ function populateRelationalSchema() {
                 '</div>' +
                 '<div style="display: flex; justify-content: space-between; align-items: center; background: #020502; padding: 12px; border: 1px solid rgba(0,255,65,0.15); margin-bottom: 16px;">' +
                     '<div>' +
-                        '<span style="color: #888; font-size: 0.75rem;">💼 CARRERA:</span> <strong style="color: var(--verde-claro); font-size: 0.85rem;">' + student.carrera_nombre + '</strong><br>' +
-                        '<span style="color: #888; font-size: 0.75rem;">🏛️ CURSO/AULA:</span> <strong style="color: var(--verde-claro); font-size: 0.85rem;">' + student.curso_nombre + ' // ' + student.aula + '</strong> | ' +
-                        '<span style="color: #888; font-size: 0.75rem;">⏳ TURNO:</span> <strong style="color: var(--verde-claro); font-size: 0.85rem;">' + student.turno + '</strong>' +
+                        '<span style="color: #888; font-size: 0.75rem;">CARRERA:</span> <strong style="color: var(--verde-claro); font-size: 0.85rem;">' + student.carrera_nombre + '</strong><br>' +
+                        '<span style="color: #888; font-size: 0.75rem;">CURSO/AULA:</span> <strong style="color: var(--verde-claro); font-size: 0.85rem;">' + student.curso_nombre + ' // ' + student.aula + '</strong> | ' +
+                        '<span style="color: #888; font-size: 0.75rem;">TURNO:</span> <strong style="color: var(--verde-claro); font-size: 0.85rem;">' + student.turno + '</strong>' +
                     '</div>' +
                     '<div style="text-align: right;">' +
                         '<div style="font-size: 0.7rem; color: var(--verde-suave);">PROMEDIO PONDERADO</div>' +
@@ -1749,13 +1737,13 @@ function populateRelationalSchema() {
                     '</div>' +
                 '</div>' +
                 '<h3 style="font-size: 0.85rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;">' +
-                    '🎯 CALIFICACIONES EN RÚBRICAS OFICIALES SENATI' +
+                    'CALIFICACIONES EN RÚBRICAS OFICIALES SENATI' +
                 '</h3>' +
                 '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px;">' +
                     rubricsHtml +
                 '</div>' +
                 '<h3 style="font-size: 0.85rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;">' +
-                    '💳 HISTORIAL DE PAGOS Y ARANCELES REGISTRADOS' +
+                    'HISTORIAL DE PAGOS Y ARANCELES REGISTRADOS' +
                 '</h3>' +
                 '<div class="table-wrap">' +
                     '<table>' +

@@ -32,17 +32,29 @@
         }
 
         body {
-            background-color: var(--fondo);
+            margin: 0;
+            width: 100%;
             color: var(--verde);
-            font-family: var(--mono);
+            background:
+                radial-gradient(ellipse at 50% 0, rgba(0, 255, 65, .08), transparent 50%),
+                linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px),
+                var(--fondo);
+            background-size: 100% 100%, 32px 32px, 32px 32px, auto;
+            font: 16px/1.6 var(--mono);
             min-height: 100vh;
-            line-height: 1.5;
             padding-bottom: 60px;
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(0, 255, 65, 0.08) 0%, transparent 60%),
-                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 30px 30px, 30px 30px;
+            position: relative;
+        }
+
+        body::after {
+            position: fixed;
+            z-index: -1;
+            inset: 0;
+            pointer-events: none;
+            content: "";
+            opacity: .12;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
         }
 
         /* Header Táctico */
@@ -657,37 +669,37 @@
                 </div>
                 <div class="roles-grid">
                     
-                    <!-- Tarjeta 1: Administración -->
-                    <div class="role-card" onclick="enterRole('admin')">
+                    <!-- Tarjeta 1: Administración (ACTIVO CON CONTRASEÑA) -->
+                    <div class="role-card" onclick="promptAdminLogin()" style="border-color: var(--verde); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);">
                         <div>
-                            <span class="role-badge">CLEARANCE LVL-4 // FULL ACCESS</span>
+                            <span class="role-badge" style="border-color: var(--verde-brillante); color: var(--verde-brillante); background: rgba(0, 255, 65, 0.1);">● ACTIVO // CONTRASEÑA REQUERIDA</span>
                             <div class="role-icon">🏛️</div>
                             <h3 class="role-title">Dirección y Administración</h3>
-                            <p class="role-desc">Gobierno de las 11 tablas: Padrón de 90 cadetes, catálogo de 6 carreras, 18 cursos, 8 docentes, planificador de secciones/laboratorios, periodos académicos y auditoría financiera de pagos.</p>
+                            <p class="role-desc">Gobierno completo de las 11 tablas relacionales: Padrón de 90 estudiantes, 6 carreras, 18 cursos, 8 docentes, secciones/laboratorios, periodos y auditoría financiera de pagos.</p>
                         </div>
-                        <button class="role-btn">Ingresar como Administrativo ↗</button>
+                        <button class="role-btn">Ingresar con Credencial ↗</button>
                     </div>
 
-                    <!-- Tarjeta 2: Docente -->
-                    <div class="role-card" onclick="enterRole('docente')">
+                    <!-- Tarjeta 2: Docente (INACCESIBLE / BLOQUEADO) -->
+                    <div class="role-card" onclick="showDeniedRole('docente')" style="opacity: 0.6; border-color: rgba(255,255,255,0.12); cursor: not-allowed;">
                         <div>
-                            <span class="role-badge">CLEARANCE LVL-2 // ACADEMIC STAFF</span>
+                            <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">🔒 INACCESIBLE // EN MANTENIMIENTO</span>
                             <div class="role-icon">👨‍🏫</div>
-                            <h3 class="role-title">Plana Docente</h3>
-                            <p class="role-desc">Acceso personalizado para los 8 docentes titulares: consulta de secciones a su cargo, laboratorios asignados y registro de notas en las 8 rúbricas SENATI de sus cadetes.</p>
+                            <h3 class="role-title" style="color: #bbb;">Plana Docente</h3>
+                            <p class="role-desc">Acceso restringido temporalmente durante el periodo de auditoría de actas. Los 8 docentes no tienen acceso habilitado en esta fase.</p>
                         </div>
-                        <button class="role-btn">Ingresar como Docente ↗</button>
+                        <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Bloqueado 🔒</button>
                     </div>
 
-                    <!-- Tarjeta 3: Estudiante -->
-                    <div class="role-card" onclick="enterRole('estudiante')">
+                    <!-- Tarjeta 3: Estudiante (INACCESIBLE / BLOQUEADO) -->
+                    <div class="role-card" onclick="showDeniedRole('estudiante')" style="opacity: 0.6; border-color: rgba(255,255,255,0.12); cursor: not-allowed;">
                         <div>
-                            <span class="role-badge">CLEARANCE LVL-1 // CADET PORTAL</span>
+                            <span class="role-badge" style="border-color: var(--rojo); color: var(--rojo); background: rgba(255, 51, 102, 0.08);">🔒 INACCESIBLE // EN MANTENIMIENTO</span>
                             <div class="role-icon">🎓</div>
-                            <h3 class="role-title">Portal del Cadete</h3>
-                            <p class="role-desc">Consulta individual en vivo por DNI o Código: Boleta Oficial con las 8 rúbricas oficiales (con Tareas 1-3 juntas), promedio ponderado y recibos emitidos.</p>
+                            <h3 class="role-title" style="color: #bbb;">Portal del Estudiante</h3>
+                            <p class="role-desc">Acceso restringido temporalmente. La consulta de boletas oficiales y estado de pensiones se habilitará en la siguiente fase de matrícula.</p>
                         </div>
-                        <button class="role-btn">Ingresar como Estudiante ↗</button>
+                        <button class="role-btn" style="border-color: #555; color: #888; background: transparent; cursor: not-allowed;">Acceso Bloqueado 🔒</button>
                     </div>
 
                 </div>
@@ -704,7 +716,7 @@
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">1. ESTUDIANTE</div>
                     <div class="kpi-mini-val" id="cnt-estudiantes">90</div>
-                    <div class="kpi-mini-sub">Cadetes únicos</div>
+                    <div class="kpi-mini-sub">Estudiantes únicos</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">2. CARRERA</div>
@@ -760,7 +772,7 @@
 
             <!-- Subnavegación de Módulos que aprovechan las 11 tablas -->
             <div class="admin-nav">
-                <button class="admin-tab-btn active" onclick="switchAdminTab('cadetes')">👥 Cadetes & Matrículas</button>
+                <button class="admin-tab-btn active" onclick="switchAdminTab('estudiantes')">👥 Estudiantes & Matrículas</button>
                 <button class="admin-tab-btn" onclick="switchAdminTab('carreras')">🎓 Carreras & Cursos</button>
                 <button class="admin-tab-btn" onclick="switchAdminTab('docentes')">👨‍🏫 Plana Docente</button>
                 <button class="admin-tab-btn" onclick="switchAdminTab('secciones')">🕒 Secciones & Labs</button>
@@ -768,8 +780,8 @@
                 <button class="admin-tab-btn" onclick="switchAdminTab('finanzas')">💰 Finanzas & Aranceles</button>
             </div>
 
-            <!-- TAB 1: Cadetes & Matrículas (ESTUDIANTE + MATRICULA) -->
-            <div class="admin-tab-content active" id="admin-tab-cadetes">
+            <!-- TAB 1: Estudiantes & Matrículas (ESTUDIANTE + MATRICULA) -->
+            <div class="admin-tab-content active" id="admin-tab-estudiantes">
                 <div class="controls-panel">
                     <div class="search-wrap">
                         <span class="search-icon">🔍</span>
@@ -805,7 +817,7 @@
                                 <th>ACCIONES</th>
                             </tr>
                         </thead>
-                        <tbody id="admin-cadetes-tbody">
+                        <tbody id="admin-estudiantes-tbody">
                             <tr><td colspan="10" style="text-align: center; padding: 25px;">Consultando API REST de Oracle APEX...</td></tr>
                         </tbody>
                     </table>
@@ -877,7 +889,7 @@
                     <!-- Banner docente -->
                 </div>
                 <h3 style="font-size: 0.95rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin: 20px 0 10px 0;">
-                    PLANILLA DE NOTAS DE CADETES EN LAS 8 RÚBRICAS OFICIALES
+                    PLANILLA DE NOTAS DE ESTUDIANTES EN LAS 8 RÚBRICAS OFICIALES
                 </h3>
                 <div class="table-wrap">
                     <table>
@@ -897,7 +909,7 @@
                                 <th>CONDICIÓN</th>
                             </tr>
                         </thead>
-                        <tbody id="docente-cadetes-tbody">
+                        <tbody id="docente-estudiantes-tbody">
                             <!-- Alumnos del docente -->
                         </tbody>
                     </table>
@@ -930,6 +942,59 @@
             </div>
         </div>
 
+    </div>
+
+
+    <!-- Modal Autenticación Administrador -->
+    <div class="modal-overlay" id="modal-auth-admin">
+        <div class="modal-box" style="max-width: 480px;">
+            <div class="modal-header">
+                <div style="font-size: 1rem; color: var(--verde-claro); font-weight: bold;">
+                    🔐 AUTORIZACIÓN // DIRECCIÓN ADMINISTRATIVA
+                </div>
+                <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--verde-suave); line-height: 1.6;">
+                <p>Este módulo permite el gobierno y modificación de las 11 tablas de la base de datos institucional. Ingrese su contraseña de acceso:</p>
+                <div style="margin: 16px 0;">
+                    <label style="color: var(--verde-claro); font-size: 0.75rem; display: block; margin-bottom: 6px;">CONTRASEÑA DE ADMINISTRADOR:</label>
+                    <input type="password" id="admin-pass-input" class="search-input" style="width: 100%; letter-spacing: 2px;" placeholder="Ingrese contraseña..." onkeydown="if(event.key==='Enter') verifyAdminPass()">
+                    <div style="font-size: 0.72rem; color: var(--verde-suave); margin-top: 8px;">
+                        Clave predeterminada: <code style="color: var(--amarillo); font-weight: bold;">admin2026</code> o <code style="color: var(--cyan); font-weight: bold;">escudo2026</code>
+                    </div>
+                </div>
+                <div id="admin-auth-error" style="color: var(--rojo); font-size: 0.75rem; min-height: 20px; margin-bottom: 10px;"></div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <button class="btn-tactical" onclick="closeAuthModal()">Cancelar</button>
+                    <button class="btn-tactical" style="background: rgba(0,255,65,0.15); border-color: var(--verde-brillante); font-weight: bold;" onclick="verifyAdminPass()">Desbloquear Panel ↗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Acceso Denegado (Docente / Estudiante Inaccesibles) -->
+    <div class="modal-overlay" id="modal-access-denied">
+        <div class="modal-box" style="max-width: 500px; border-color: var(--rojo); box-shadow: 0 0 25px rgba(255, 51, 102, 0.3);">
+            <div class="modal-header" style="border-bottom-color: rgba(255, 51, 102, 0.3);">
+                <div style="font-size: 1rem; color: var(--rojo); font-weight: bold;" id="denied-modal-title">
+                    ⛔ ACCESO DENEGADO // MÓDULO BLOQUEADO
+                </div>
+                <button class="modal-close" onclick="closeDeniedModal()">&times;</button>
+            </div>
+            <div style="font-size: 0.82rem; color: #ffb4c2; line-height: 1.6;">
+                <p id="denied-modal-message">
+                    El acceso a este módulo se encuentra restringido por mantenimiento institucional.
+                </p>
+                <div style="margin: 16px 0; background: rgba(255, 51, 102, 0.08); border: 1px solid rgba(255, 51, 102, 0.3); padding: 12px; font-size: 0.75rem;">
+                    <strong>ESTADO DEL ROL:</strong> <span id="denied-modal-status" style="color: #fff;">INACCESIBLE</span><br>
+                    <strong>DIRECTIVA:</strong> Solo Dirección Administrativa tiene clearance activo.<br>
+                    <strong>ACCIÓN:</strong> Ingrese por el portal de Administración con su clave asignada.
+                </div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button class="btn-tactical" style="border-color: var(--rojo); color: var(--rojo);" onclick="closeDeniedModal()">Entendido</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal Configuración APEX -->
@@ -1017,7 +1082,7 @@
                 if (rEst && rEst.ok) {
                     const estJson = await rEst.json();
                     if (estJson && estJson.items && estJson.items.length > 0) {
-                        indicator.innerHTML = `<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORACLE APEX: EN VIVO (${estJson.items.length} CADETES)`;
+                        indicator.innerHTML = `<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORACLE APEX: EN VIVO (${estJson.items.length} ESTUDIANTES)`;
                         indicator.style.borderColor = 'var(--verde-brillante)';
                     }
                 } else if (rEst && (rEst.status === 401 || rEst.status === 403)) {
@@ -1129,7 +1194,7 @@
                 { id: 18, cod: 'SEC-IA3', turno: 'NOCHE',  aula: 'LAB-IA-SOC',   cupos: 20, id_curso: 18, id_docente: 8 }
             ];
 
-            // 8. ESTUDIANTE (90 Cadetes Únicos)
+            // 8. ESTUDIANTE (90 Estudiantes Únicos)
             const nombres90 = [
                 ['Lucero Fioma', 'Morales Huamán'], ['Brayan Nilver', 'Mendoza Allcca'], ['Sayda Anani', 'Rojas Barrientos'],
                 ['Renzo Juan', 'Sulca Alarcón'], ['Dayana Fiorella', 'Bellido Ccahuana'], ['Juan Carlos', 'Prado Luján'],
@@ -1262,9 +1327,9 @@
         }
 
         // Realizar los JOINs relacionales entre las 11 tablas en memoria
-        let CADETES_JOIN = [];
+        let ESTUDIANTES_JOIN = [];
         function buildRelationalEntities() {
-            CADETES_JOIN = DB.estudiantes.map(est => {
+            ESTUDIANTES_JOIN = DB.estudiantes.map(est => {
                 const mat = DB.matriculas.find(m => m.id_estudiante === est.id) || { id: est.id, id_seccion: 1, cod: 'MAT-2026-000' };
                 const sec = DB.secciones.find(s => s.id === mat.id_seccion) || DB.secciones[0];
                 const cur = DB.cursos.find(c => c.id === sec.id_curso) || { nombre: 'Curso General', cred: 4, hrs: 80 };
@@ -1314,7 +1379,7 @@
 
         // Renderizado de las Pestañas de Administración
         function renderAllAdminTabs() {
-            renderAdminCadetes(CADETES_JOIN);
+            renderAdminEstudiantes(ESTUDIANTES_JOIN);
             renderAdminCarreras();
             renderAdminDocentes();
             renderAdminSecciones();
@@ -1331,8 +1396,8 @@
             });
         }
 
-        function renderAdminCadetes(list) {
-            const tbody = document.getElementById('admin-cadetes-tbody');
+        function renderAdminEstudiantes(list) {
+            const tbody = document.getElementById('admin-estudiantes-tbody');
             tbody.innerHTML = '';
             list.forEach(c => {
                 let badgeClass = 'badge-regular';
@@ -1356,7 +1421,7 @@
             });
         }
 
-        // Filtro de Cadetes
+        // Filtro de Estudiantes
         document.getElementById('admin-search-input').addEventListener('input', applyCadetFilters);
         document.getElementById('admin-filter-carrera').addEventListener('change', applyCadetFilters);
         document.getElementById('admin-filter-turno').addEventListener('change', applyCadetFilters);
@@ -1366,13 +1431,13 @@
             const carr = document.getElementById('admin-filter-carrera').value;
             const turn = document.getElementById('admin-filter-turno').value;
 
-            const res = CADETES_JOIN.filter(c => {
+            const res = ESTUDIANTES_JOIN.filter(c => {
                 const matchQ = c.nombre_completo.toLowerCase().includes(q) || c.cod.toLowerCase().includes(q) || c.dni.includes(q);
                 const matchC = carr === 'TODAS' || c.carrera_nombre === carr;
                 const matchT = turn === 'TODOS' || c.turno === turn;
                 return matchQ && matchC && matchT;
             });
-            renderAdminCadetes(res);
+            renderAdminEstudiantes(res);
         }
 
         // Render Carreras & Cursos (TABLA CARRERA + CURSO)
@@ -1437,7 +1502,7 @@
                         <strong>Turno:</strong> <span style="color: var(--verde-brillante);">${s.turno}</span><br>
                         <strong>Especialidad:</strong> ${cur.nombre}<br>
                         <strong>Docente:</strong> ${doc.nombres} ${doc.apellidos}<br>
-                        <strong>Capacidad:</strong> ${s.cupos} cadetes por sección
+                        <strong>Capacidad:</strong> ${s.cupos} estudiantes por sección
                     </div>
                 `;
                 grid.appendChild(card);
@@ -1466,7 +1531,7 @@
         function renderAdminFinanzas() {
             const tbody = document.getElementById('admin-finanzas-tbody');
             tbody.innerHTML = '';
-            CADETES_JOIN.forEach(c => {
+            ESTUDIANTES_JOIN.forEach(c => {
                 c.pagos.forEach(p => {
                     const con = DB.conceptos.find(x => x.id === p.id_concepto) || { desc: 'Arancel Académico' };
                     const tr = document.createElement('tr');
@@ -1487,14 +1552,58 @@
         // CSV Export
         function exportAdminCSV() {
             let csv = "ID,CODIGO,ESTUDIANTE,DNI,CORREO,CARRERA,SECCION,TURNO,AULA,DOCENTE,PROMEDIO,CONDICION,TOTAL_PAGADO\n";
-            CADETES_JOIN.forEach(c => {
+            ESTUDIANTES_JOIN.forEach(c => {
                 csv += `"${c.id}","${c.cod}","${c.nombre_completo}","${c.dni}","${c.correo}","${c.carrera_nombre}","${c.matricula_cod}","${c.turno}","${c.aula}","${c.docente_nombre}",${c.promedio},"${c.condicion}",${c.total_pagado}\n`;
             });
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `ESCUDO_PADRON_CADETES_ORDS.csv`;
+            a.download = `ESCUDO_PADRON_ESTUDIANTES_ORDS.csv`;
             a.click();
+        }
+
+
+        // --- CONTROL DE ACCESO INSTITUCIONAL (AUTENTICACIÓN) ---
+        function promptAdminLogin() {
+            document.getElementById('admin-pass-input').value = '';
+            document.getElementById('admin-auth-error').innerText = '';
+            document.getElementById('modal-auth-admin').style.display = 'flex';
+            setTimeout(() => document.getElementById('admin-pass-input').focus(), 150);
+        }
+
+        function closeAuthModal() {
+            document.getElementById('modal-auth-admin').style.display = 'none';
+        }
+
+        function verifyAdminPass() {
+            const val = document.getElementById('admin-pass-input').value.trim();
+            if (val === 'admin2026' || val === 'escudo2026' || val === 'admin') {
+                closeAuthModal();
+                enterRole('admin');
+            } else {
+                document.getElementById('admin-auth-error').innerText = '⛔ CONTRASEÑA INCORRECTA. Pruebe con: admin2026 o escudo2026';
+            }
+        }
+
+        function showDeniedRole(role) {
+            const title = document.getElementById('denied-modal-title');
+            const msg = document.getElementById('denied-modal-message');
+            const status = document.getElementById('denied-modal-status');
+
+            if (role === 'docente') {
+                title.innerText = '⛔ ACCESO RESTRINGIDO // PLANA DOCENTE';
+                msg.innerText = 'El módulo para los 8 docentes titulares está temporalmente inaccesible por auditoría de actas de fin de ciclo. Consulte a la Dirección Académica.';
+                status.innerText = 'PORTAL DOCENTE BLOQUEADO';
+            } else if (role === 'estudiante') {
+                title.innerText = '⛔ ACCESO RESTRINGIDO // PORTAL DEL ESTUDIANTE';
+                msg.innerText = 'El autoservicio estudiantil está temporalmente fuera de línea por actualización de matrículas y cálculo de pensiones. Ingrese con clave de Administración para revisar la nómina completa.';
+                status.innerText = 'AUTOSERVICIO ESTUDIANTIL BLOQUEADO';
+            }
+            document.getElementById('modal-access-denied').style.display = 'flex';
+        }
+
+        function closeDeniedModal() {
+            document.getElementById('modal-access-denied').style.display = 'none';
         }
 
         // Navegación de Roles
@@ -1549,7 +1658,7 @@
             const doc = DB.docentes.find(d => d.id === docId);
             if (!doc) return;
 
-            const alumnosDeDoc = CADETES_JOIN.filter(c => c.id_docente === docId);
+            const alumnosDeDoc = ESTUDIANTES_JOIN.filter(c => c.id_docente === docId);
 
             document.getElementById('docente-active-banner').innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -1558,12 +1667,12 @@
                         <span style="color: var(--verde-suave); font-size: 0.78rem;">Especialidad: ${doc.esp} | Correo: ${doc.correo} | Tel: ${doc.tel}</span>
                     </div>
                     <div style="color: var(--verde-brillante); font-size: 0.85rem; font-weight: bold;">
-                        ${alumnosDeDoc.length} CADETES ASIGNADOS EN LISTA
+                        ${alumnosDeDoc.length} ESTUDIANTES ASIGNADOS EN LISTA
                     </div>
                 </div>
             `;
 
-            const tbody = document.getElementById('docente-cadetes-tbody');
+            const tbody = document.getElementById('docente-estudiantes-tbody');
             tbody.innerHTML = '';
             alumnosDeDoc.forEach(c => {
                 let badgeClass = 'badge-regular';
@@ -1597,7 +1706,7 @@
 
         function searchCadetRecord() {
             const q = document.getElementById('student-search-input').value.trim().toLowerCase();
-            const cadet = CADETES_JOIN.find(c => c.dni.includes(q) || c.cod.toLowerCase().includes(q) || c.nombre_completo.toLowerCase().includes(q));
+            const cadet = ESTUDIANTES_JOIN.find(c => c.dni.includes(q) || c.cod.toLowerCase().includes(q) || c.nombre_completo.toLowerCase().includes(q));
 
             const container = document.getElementById('cadet-boleta-container');
             if (!cadet) {
@@ -1692,7 +1801,7 @@
 
         // Modal Dossier 360
         function openCadetDossier(id) {
-            const cadet = CADETES_JOIN.find(c => c.id === id);
+            const cadet = ESTUDIANTES_JOIN.find(c => c.id === id);
             if (!cadet) return;
             selectQuickCadet(cadet.dni);
             enterRole('estudiante');

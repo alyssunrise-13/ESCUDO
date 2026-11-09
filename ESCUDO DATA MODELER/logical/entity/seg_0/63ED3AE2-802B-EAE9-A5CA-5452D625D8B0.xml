@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="63ED3AE2-802B-EAE9-A5CA-5452D625D8B0" name="DOCENTE">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>B0921B8D-0FCD-1D70-FB8A-B87DAFEBD6B8</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id docente" id="95353F49-0AED-6E73-A312-79814F047C51">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>D8A4A78C-59D7-0C95-AA06-F0DE15B9E826</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cod docente" id="0E670C9B-7F24-4631-E7D8-BAC3E9E2B3FC">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>F984E522-9C41-3FFF-34E8-1F6B9633DAA3</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>637CE2E5-A1DE-BEE0-094B-AA7A664F42E0</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombres" id="282EC95B-9498-8383-D6D3-FEFF3335B98F">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>B33780B9-3238-8411-22A2-6FF4A7FCE569</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>63F165FE-34A5-08E7-3DA7-222617C61EE2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellidos" id="7CA50508-F785-C75C-B41E-5E860BFCFBF9">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>40A39EC7-BA9A-7E4E-D2F9-7A6FCAC4275A</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>63F165FE-34A5-08E7-3DA7-222617C61EE2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="especialidad" id="6F3431B3-0AF7-183E-6B03-ED5EB6B2E279">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>48AD27CE-1D79-77DA-A7FE-9C6F8517C95E</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8B3BE442-8386-D57B-C0A9-F20D081C77E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="correo" id="693DE117-0664-C89D-EB5F-AAEA1E712F9B">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>718D346C-036F-0A94-6667-BE32029895B1</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>8B3BE442-8386-D57B-C0A9-F20D081C77E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefono" id="8124748E-2DEC-79C1-75DD-985BD517D027">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>BD59CAD1-0B7D-B16A-9ABE-A153C9A55897</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDA82702-9F4F-62EE-6295-93D83C69544E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="51CE5F11-C06A-DF76-3B94-1604362F5D1C" name="PK DOCENTE">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>74F4E787-0BC3-87F4-34E8-DD1FD26CBB9E</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>95353F49-0AED-6E73-A312-79814F047C51</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="B81D07F3-4B9B-603F-1F1F-3653E9C223A7" name="UK DOCENTE COD">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>28E84894-212E-464F-93CA-C6D00B7FEA04</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>0E670C9B-7F24-4631-E7D8-BAC3E9E2B3FC</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="7A0798E0-39C1-7E58-DFD5-B38AB2BB42B5" name="UK DOCENTE CORREO">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>E3FB61EC-14BC-3871-1A0F-4FA90FDA8C5A</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>693DE117-0664-C89D-EB5F-AAEA1E712F9B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

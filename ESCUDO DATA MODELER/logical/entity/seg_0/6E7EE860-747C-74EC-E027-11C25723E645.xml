@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6E7EE860-747C-74EC-E027-11C25723E645" name="SECCION">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>BD71D75D-9F28-8951-22D5-F3D69BDE5E23</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id seccion" id="D5F46404-657F-81D9-2611-E8718F8A639F">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>587BD331-6968-5A60-325A-EE7C000F60F9</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cod seccion" id="650C3864-B6A3-3029-037F-F07156FA0BBB">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>1E311862-2D88-2818-13D1-3E0C097538F7</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="turno" id="ACBAE664-033E-5357-062F-3858F1F4FFB9">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>3CDBFF0E-66AE-1FE4-7585-25D3A8130C63</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDA82702-9F4F-62EE-6295-93D83C69544E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="aula" id="AC7BB6CA-2A4B-ED51-6650-F28B729E7DBF">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>EE0B4700-3AC5-09EE-A4BB-03F0D7B8145E</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cupos totales" id="1EA4A140-BDF3-C2B7-D0FB-4D922372320E">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>50A7EFCD-3CD1-A264-39B4-0BD5084EF68D</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>85BEEB90-1C57-3351-8176-BF73E1676E99</domain>
+<defaultValue>30</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id curso" id="00E4810C-CD36-2D0D-C447-1DF2C9D0343C">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>71BB4DBD-1C9A-9B03-C7DF-69955105FDFA</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<referedAttribute>846F7330-A21B-0E3B-3643-EB10926F655B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id docente" id="C451BC36-D713-7BB0-B198-1AE94B9EBFC9">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>697A0B17-5E99-1F8A-926F-3516FD07C3B4</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<referedAttribute>95353F49-0AED-6E73-A312-79814F047C51</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id periodo" id="F1B1024A-3AFC-43DC-03D7-3C361D139AF5">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>A54BB739-21AE-333F-37CF-D2D4E3122564</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<referedAttribute>17A8A4E5-0D11-7077-2C18-8D3B1380DA84</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2FADC01D-9849-B64F-065C-A593B63D2719" name="PK SECCION">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>37383939-56D6-FAEB-8AE5-F11DA223AE04</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D5F46404-657F-81D9-2611-E8718F8A639F</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="ADEB2B43-3EB7-FDBB-F644-5B0D81A01F63" name="UK SECCION COD">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>3D1BCE14-2C3C-90AA-0116-7A54894E4AF9</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>650C3864-B6A3-3029-037F-F07156FA0BBB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

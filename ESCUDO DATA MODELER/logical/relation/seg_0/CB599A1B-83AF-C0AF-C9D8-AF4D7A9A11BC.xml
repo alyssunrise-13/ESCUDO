@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_EVAL_TIPO" directorySegmentName="seg_0" id="CB599A1B-83AF-C0AF-C9D8-AF4D7A9A11BC">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>0F70F54C-0386-984F-248E-82CFEF879861</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<sourcePk>08C24B44-198D-F038-87D6-5468CAA08613</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>C09B0597-230A-1DBE-5C69-89EBF407A508</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>DA1E0E57-50D1-34A0-A8D6-1994C5368496</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

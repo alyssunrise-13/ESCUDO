@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_CURSO_CARRERA" directorySegmentName="seg_0" id="7308BCA8-85EC-F80B-327C-E38442752764">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>5525DAF3-3C34-5DD7-D2BF-D83C80875CC6</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<sourcePk>3CDCA27C-C699-CBDE-CE72-8D4C6B751C31</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>EF41CAD4-4D0B-96D7-347F-67504854F56F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>25C2E1A2-2B0F-1552-7D67-C12FA37C83AA</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

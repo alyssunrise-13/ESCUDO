@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E3246409-9F36-B22D-FB68-9EB5BB912B03" name="PERIODO_ACADEMICO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>EA2AFF86-0768-6557-192C-F9FDD80AA5E9</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_periodo" id="260156CE-1B6A-89B5-2EB2-B45F10BA5470">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>3DE36111-F231-AF5B-5F60-C3E03F792AAE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_periodo" id="2BB70012-B49B-62F4-FBE9-39C3DAA8F647">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>5E981B57-D2DA-63DE-8827-8B9CF1222A2D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>637CE2E5-A1DE-BEE0-094B-AA7A664F42E0</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicio" id="490F0DF4-D141-1CDC-3F8F-37BB1F7A8A6C">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>3CBD6388-BCD3-A8BF-A7A7-1516B6673592</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F874EF78-397D-F7B4-AC5C-3570930D9756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_fin" id="160849B7-738D-0DCD-D7EA-480326715505">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>5ABBF5E3-F4E5-B900-644A-077B26A09C8F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F874EF78-397D-F7B4-AC5C-3570930D9756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="E93C430C-6765-92CC-CC7F-D4F281FD7CCD">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>93B40C96-7798-36CF-ADBD-89C5D67B9A23</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDA82702-9F4F-62EE-6295-93D83C69544E</domain>
+<defaultValue>&apos;ACTIVO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="57DF69C9-B9F9-8A0B-D217-126FBB18F5C0" name="PK_PERIODO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>7CE70E9C-B9DF-828D-1D12-E3E4F191EE1F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="260156CE-1B6A-89B5-2EB2-B45F10BA5470"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53C447C9-56D4-F9AF-AC07-010A4F716913" name="UK_PERIODO_COD">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>99FD7EA5-557F-9093-0886-9B82D6BB9344</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BB70012-B49B-62F4-FBE9-39C3DAA8F647"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_PERIODO_FECHAS" directorySegmentName="seg_0" id="1180E587-E96A-F3B5-AF6F-064B76093CE2">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>44AB9626-8D0C-A282-C8A3-E700D43C3227</importedID>
+<rule><![CDATA[fecha_fin > fecha_inicio]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="CK_PERIODO_ESTADO" directorySegmentName="seg_0" id="AA24D109-ED21-573F-82C2-3A3FAB3391F3">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>3FCB811D-2D34-2076-50A1-61E4E436D80C</importedID>
+<rule><![CDATA[estado IN ('ACTIVO', 'CERRADO', 'PLANIFICADO')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

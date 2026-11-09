@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="CARRERA" directorySegmentName="seg_0" id="72F3DF22-6CC5-3C42-EFB8-67D6B8C007D7">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="cod_carrera" id="10825921-6CD7-2C40-7739-2978A7D44667">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="estado" id="5598FDB7-240A-1683-9DBD-0EF56F9182E2">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<defaultValue>&apos;ACTIVO&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="nombre_carrera" id="6076F9DB-2700-2207-4723-A404859C4058">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="duracion_semestres" id="800661DC-AE65-FCC8-ECA9-EF907A5AE8C8">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<defaultValue>6</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="id_carrera" id="EAA25BE8-ECE4-E11C-DB99-07E557A394D0">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_CARRERA" id="E776A62A-14BC-CDCB-7310-C15805FE592A">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="CK_CARRERA_ESTADO" id="96CAAB83-38FB-A613-B3F1-786EDC76C98E">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_CARRERA_COD" id="BDBD0187-9DDB-5082-C80B-3F41250A1179">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

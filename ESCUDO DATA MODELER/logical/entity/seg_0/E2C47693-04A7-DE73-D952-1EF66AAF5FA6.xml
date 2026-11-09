@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E2C47693-04A7-DE73-D952-1EF66AAF5FA6" name="PERIODO ACADEMICO">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>E3246409-9F36-B22D-FB68-9EB5BB912B03</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id periodo" id="17A8A4E5-0D11-7077-2C18-8D3B1380DA84">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>260156CE-1B6A-89B5-2EB2-B45F10BA5470</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cod periodo" id="DA927AF1-53EE-6D1B-8A43-902AE35D4EBB">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>2BB70012-B49B-62F4-FBE9-39C3DAA8F647</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>637CE2E5-A1DE-BEE0-094B-AA7A664F42E0</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha inicio" id="520FD50F-7344-E468-1B88-C0928B4A281C">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>490F0DF4-D141-1CDC-3F8F-37BB1F7A8A6C</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F874EF78-397D-F7B4-AC5C-3570930D9756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha fin" id="7E24F0C1-63E6-66CE-AD89-B48108DC06EA">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>160849B7-738D-0DCD-D7EA-480326715505</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F874EF78-397D-F7B4-AC5C-3570930D9756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado" id="8C973264-D690-93DC-0EE1-11D1D1F038F4">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>E93C430C-6765-92CC-CC7F-D4F281FD7CCD</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDA82702-9F4F-62EE-6295-93D83C69544E</domain>
+<defaultValue>&apos;ACTIVO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4FC5A104-038A-5D92-2BF7-9514CCD16108" name="PK PERIODO">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>57DF69C9-B9F9-8A0B-D217-126FBB18F5C0</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>17A8A4E5-0D11-7077-2C18-8D3B1380DA84</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F0EDBA63-E76A-D70B-E891-206C537FE708" name="UK PERIODO COD">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>53C447C9-56D4-F9AF-AC07-010A4F716913</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>DA927AF1-53EE-6D1B-8A43-902AE35D4EBB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

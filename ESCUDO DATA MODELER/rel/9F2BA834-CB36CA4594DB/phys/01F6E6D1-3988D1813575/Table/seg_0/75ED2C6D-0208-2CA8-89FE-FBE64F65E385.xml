@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="EVALUACION" directorySegmentName="seg_0" id="75ED2C6D-0208-2CA8-89FE-FBE64F65E385">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="fecha_evaluacion" id="05648553-9F42-0FC8-0BC6-699AB6159C9A">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<defaultValue>SYSDATE</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="id_evaluacion" id="67BF58E3-6DDF-FC45-D243-D8F46921B0A5">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="cod_evaluacion" id="70540526-CA3B-4DE2-B103-770671E65028">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nota_obtenida" id="A0FE60DF-8B3F-53DF-553F-3C5F7B895038">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_tipo_eval" id="E250E26E-E4A0-3456-1463-DD82AF341BDF">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_matricula" id="ED89CEE6-DB34-A56C-2034-2EE2A47B7B05">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_EVAL_TIPO" id="15110FF8-7573-08CF-4C51-5C3CD04F76EF">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_EVAL_MATRICULA" id="67720314-94AD-BC62-F381-D630DA185D42">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_EVALUACION" id="85E6F4F5-52FA-C995-83B9-85E491E02AE7">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="CK_EVAL_NOTA" id="7B421610-6A83-F171-66A1-DD83FC2BC9B4">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_EVALUACION_COD" id="B0BA0467-48FD-C740-CCED-29C0DBAD36D9">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

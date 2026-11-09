@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3786DB21-2F0A-F5EF-4823-4C01967F1601" containerWithKeyObject="2F199C64-F312-3E46-2D2C-25F4CDDC43A4" localFKIndex="A973F95C-50CE-BD1A-6448-22A546A84D7E" name="FK_PAGO_CONCEPTO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>75EB0A19-2B23-6F81-5712-3FEB2F42A85E</importedID>
+<referredTableLongName>CONCEPTO_PAGO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3C85373A-C422-E45E-8419-D1DD97E00AB7</referredTableID>
+<keyObject>26886F76-D353-22AF-F315-51EC3F003B0A</keyObject>
+<referredKeyID>26886F76-D353-22AF-F315-51EC3F003B0A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_concepto</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,190 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2F199C64-F312-3E46-2D2C-25F4CDDC43A4" name="PAGO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>D837E340-4A75-EB40-76C1-67309CB5A52C</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_pago" id="DA10181B-28CA-FBA2-B51F-3D3BA5A523F1">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>89A1C50D-3AE5-20F8-99A2-223CC8A9FE21</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_recibo" id="D07217BE-551F-F3FC-8322-7A02178112CA">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>FD7C8C7D-FCCC-5D98-9B68-403DEA020FB3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="monto_pagado" id="EA783279-A203-46BC-A9EB-4F7A80F34B42">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>BD3EF241-521D-15CC-9058-FC1C6488EDED</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>0B2DF26E-476C-2205-ED93-D21D63B3FDF7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_pago" id="22BD9759-689E-2E63-BA54-E761237FCD80">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>1C8284A0-80D1-A43E-4BAD-67A478971868</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F874EF78-397D-F7B4-AC5C-3570930D9756</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="metodo_pago" id="4ADD654C-6574-301D-0B31-0C63D0F892B2">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>DF8C9741-C74A-ABC8-6C38-E200534EAEA2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>AC1C220D-5B97-A9A9-2F6C-59DFD988063B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado_pago" id="1B1B58B9-C95E-ABBD-EF1F-D20CB3149556">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>4DF621E9-F8B0-DFDD-3496-B45BFACDB495</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDA82702-9F4F-62EE-6295-93D83C69544E</domain>
+<defaultValue>&apos;PAGADO&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_matricula" id="135A6E01-9133-BA96-D8BC-5F285E0CE29A">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>7E2781E6-5854-311F-655E-30202877A441</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0A4D3034-23A3-23AF-F325-BC2D4DA6E023" referredColumn="03F1A25E-6730-6AA5-C59B-D189B6AAA4A9"/>
+</associations>
+</Column>
+<Column name="id_concepto" id="8DCB5E0D-E6C2-05C4-1181-19A6A11D3B69">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>F70C725C-C5FB-306B-6EBD-E3A5B7187F83</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3786DB21-2F0A-F5EF-4823-4C01967F1601" referredColumn="BCF6F87E-EDA4-ECBD-6B17-0386C591D5B2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7C5B967F-A8C6-2782-4F03-C1A19DE00674" name="PK_PAGO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>DAE871C0-6D74-B709-A162-5D6626EB3CB7</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DA10181B-28CA-FBA2-B51F-3D3BA5A523F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1B69DB99-56A0-5C07-97D5-32220328AFFC" name="UK_PAGO_RECIBO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>5A1302D2-A0D4-877F-1210-B65A129418EC</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D07217BE-551F-F3FC-8322-7A02178112CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A973F95C-50CE-BD1A-6448-22A546A84D7E" name="FK_PAGO_CONCEPTO">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8DCB5E0D-E6C2-05C4-1181-19A6A11D3B69"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="60F38F12-9AC3-7A33-F3A5-3B80E2EFF70F" name="FK_PAGO_MATRICULA">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="135A6E01-9133-BA96-D8BC-5F285E0CE29A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_PAGO_MONTO" directorySegmentName="seg_0" id="1ECC6FDD-D8F0-94C5-5A0A-72C2BC8DBCB5">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>134C8739-6ED4-365A-3306-5B1BA927CA7D</importedID>
+<rule><![CDATA[monto_pagado > 0]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="CK_PAGO_METODO" directorySegmentName="seg_0" id="25734CC3-8BA9-EC58-3CB5-A5B1869EE8EE">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>66FE4324-F774-95C7-8D75-01F2AD193A29</importedID>
+<rule><![CDATA[metodo_pago IN ('TRANSFERENCIA', 'TARJETA', 'BILLETERA_DIGITAL', 'EFECTIVO')]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="CK_PAGO_ESTADO" directorySegmentName="seg_0" id="36455E70-CDD5-AC4C-EAA0-B196643BF9FE">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>B8026211-5029-02B3-96A9-033AF3DBABB7</importedID>
+<rule><![CDATA[estado_pago IN ('PAGADO', 'PENDIENTE', 'ANULADO')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

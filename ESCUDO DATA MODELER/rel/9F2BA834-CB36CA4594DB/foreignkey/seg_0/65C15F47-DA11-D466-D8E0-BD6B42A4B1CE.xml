@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="65C15F47-DA11-D466-D8E0-BD6B42A4B1CE" containerWithKeyObject="0A06EDAE-B09D-4814-613C-60B65EDA735A" localFKIndex="10910042-45A3-8914-08E8-13F2654ED2FF" name="FK_MATRICULA_ESTUDIANTE">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>91BD85F8-76BF-51F4-AF2E-629A7E3EC2F2</importedID>
+<referredTableLongName>ESTUDIANTE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F5DF78D4-CFFA-2566-CE0E-76675A8A7A67</referredTableID>
+<keyObject>003AFD68-6489-4B9E-B4DF-CB72C5584873</keyObject>
+<referredKeyID>003AFD68-6489-4B9E-B4DF-CB72C5584873</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_estudiante</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

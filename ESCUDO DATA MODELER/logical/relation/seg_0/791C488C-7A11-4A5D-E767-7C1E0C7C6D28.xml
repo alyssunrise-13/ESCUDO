@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_PAGO_CONCEPTO" directorySegmentName="seg_0" id="791C488C-7A11-4A5D-E767-7C1E0C7C6D28">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>3786DB21-2F0A-F5EF-4823-4C01967F1601</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<sourcePk>EA3AFF09-5026-F2ED-7016-98B35973DA07</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4D68C3C3-B0D7-8DA4-DC5F-202B26CAC01A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1886ED09-0EC6-59E3-4B42-2F12374579A1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

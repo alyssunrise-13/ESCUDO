@@ -1,0 +1,194 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BD71D75D-9F28-8951-22D5-F3D69BDE5E23" name="SECCION">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>4405348F-1D4F-3587-7D95-CDA3C8DBD495</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_seccion" id="587BD331-6968-5A60-325A-EE7C000F60F9">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>BC5E9609-D34F-51F7-A5B1-776F5B50B3A3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_seccion" id="1E311862-2D88-2818-13D1-3E0C097538F7">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>066BC3E0-674F-198F-B7E8-28F8B6A744ED</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="turno" id="3CDBFF0E-66AE-1FE4-7585-25D3A8130C63">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>1369B60C-E7C5-68FB-B771-43F35A2E8F58</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CDA82702-9F4F-62EE-6295-93D83C69544E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="aula" id="EE0B4700-3AC5-09EE-A4BB-03F0D7B8145E">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>73203658-F51E-A840-5E2D-B741BAE7F3C4</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cupos_totales" id="50A7EFCD-3CD1-A264-39B4-0BD5084EF68D">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>586DAD0E-14B0-B62F-562A-9CA9B969400F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>85BEEB90-1C57-3351-8176-BF73E1676E99</domain>
+<defaultValue>30</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_curso" id="1B35DA95-82BC-731A-1DCF-913D4F607D53">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>44EB655B-AB48-71FD-8DFF-879069AE468E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="474EEF40-CF7E-2BF5-E1DC-3AF10B9C03D8" referredColumn="A748CEC9-6A49-CC73-7E50-2E1A29C693DA"/>
+</associations>
+</Column>
+<Column name="id_docente" id="DE9200F8-91AF-B751-55D7-4EF1D769E5E4">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>DB13B82B-3E50-F6C4-866A-D00C6BEF9211</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B2E80857-85DD-5BF1-25C6-60060DD71678" referredColumn="D8A4A78C-59D7-0C95-AA06-F0DE15B9E826"/>
+</associations>
+</Column>
+<Column name="id_periodo" id="39F7941A-07F1-5300-76B2-81AFE8ABA133">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>0A44CC5F-90C4-F191-4587-CB5DD5D90816</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E8785DA3-40D9-A7BD-20F8-95D71A4787AF" referredColumn="260156CE-1B6A-89B5-2EB2-B45F10BA5470"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37383939-56D6-FAEB-8AE5-F11DA223AE04" name="PK_SECCION">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>6E01BA11-A195-0265-D168-AFE0739F8918</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="587BD331-6968-5A60-325A-EE7C000F60F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D1BCE14-2C3C-90AA-0116-7A54894E4AF9" name="UK_SECCION_COD">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>5BF6AFA4-E956-97D3-EFB0-2EBA5A0A9CD7</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E311862-2D88-2818-13D1-3E0C097538F7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FF0AD488-AC74-4BA3-993B-0504282D19F9" name="FK_SECCION_CURSO">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B35DA95-82BC-731A-1DCF-913D4F607D53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="87A64E11-2701-E85F-A01F-2DE9C3CEDB10" name="FK_SECCION_DOCENTE">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE9200F8-91AF-B751-55D7-4EF1D769E5E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D12C56F9-E542-08E4-B63F-F03804CCCDA5" name="FK_SECCION_PERIODO">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39F7941A-07F1-5300-76B2-81AFE8ABA133"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_SECCION_TURNO" directorySegmentName="seg_0" id="064F8486-1391-8CA9-E507-D86BC7180733">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>E1EAEF8E-C8B1-FC60-0F93-373D03A4F1D4</importedID>
+<rule><![CDATA[turno IN ('MAÑANA', 'TARDE', 'NOCHE')]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="CK_SECCION_CUPOS" directorySegmentName="seg_0" id="467AB7BC-3A02-48BC-CD3C-85306C4484E6">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>6F3F7638-9A5A-EFEC-E2A7-E03DE3FE4409</importedID>
+<rule><![CDATA[cupos_totales > 0]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="9F2BA834-4A3B-A026-064C-CB36CA4594DB" mainViewID="BEE0B6DF-D8C6-89F7-3745-6E97F88594AF">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:40:07 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>01F6E6D1-21D0-CFBD-ABDD-3988D1813575</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>ESCUDO.ddl</fileName>
+<pathName>D:\</pathName>
+<dbType>17</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

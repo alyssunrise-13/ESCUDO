@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E8785DA3-40D9-A7BD-20F8-95D71A4787AF" containerWithKeyObject="BD71D75D-9F28-8951-22D5-F3D69BDE5E23" localFKIndex="D12C56F9-E542-08E4-B63F-F03804CCCDA5" name="FK_SECCION_PERIODO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>1EA73547-0E31-FAAB-41FF-4D822B80AF86</importedID>
+<referredTableLongName>PERIODO_ACADEMICO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E3246409-9F36-B22D-FB68-9EB5BB912B03</referredTableID>
+<keyObject>57DF69C9-B9F9-8A0B-D217-126FBB18F5C0</keyObject>
+<referredKeyID>57DF69C9-B9F9-8A0B-D217-126FBB18F5C0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_periodo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

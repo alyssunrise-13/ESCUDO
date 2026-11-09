@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ESCUDO" id="A11428BB-8308-CF15-325C-A69CBA425A21" version="3.5">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:40:07 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>A11428BB-8308-CF15-325C-A69CBA425A21</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="79D15174-5AED-1249-1A96-5982FB653015">
+<designStoragePath>C:\ESCUDO</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

@@ -1,0 +1,163 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0A06EDAE-B09D-4814-613C-60B65EDA735A" name="MATRICULA">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>79DBECF3-B5EF-8EA1-7710-BCA5C50C51C4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_matricula" id="03F1A25E-6730-6AA5-C59B-D189B6AAA4A9">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>CD2C0B30-5D1B-F825-3D30-45C90C815E2C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_matricula" id="8D2F588C-59B1-87B0-031F-01217A9EDED1">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>E0F98CA8-18AA-3366-F233-2F009DA03A64</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_matricula" id="DDF01E5E-9DB7-1F31-2DDF-FCEED2F1A951">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>E95CAA89-2D9B-A54A-37D8-6F78A0BE0C63</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F874EF78-397D-F7B4-AC5C-3570930D9756</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado_matricula" id="FE9B4903-7B19-FAB0-8960-3D5B8AA0FBDB">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>E1E85421-028E-96D5-D846-B70D256FECAC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>59A11F81-B35E-13C5-0686-8AEFD896DF02</domain>
+<defaultValue>&apos;REGISTRADA&apos;</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_estudiante" id="341A0FC8-3C70-E105-82F5-2E66A265419F">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>86B1E02E-9D7D-D3B8-90DD-E9527534BC53</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="65C15F47-DA11-D466-D8E0-BD6B42A4B1CE" referredColumn="C2540FD7-1D85-BBDB-F9D2-EF404B3E7408"/>
+</associations>
+</Column>
+<Column name="id_seccion" id="E9BE4DAF-7882-86D3-4924-75F2905389C6">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>52157B4A-C03D-7661-E199-9D536E36FCEE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5D7D422B-B784-ED9D-F545-E7818EBA636A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="775986E7-D573-8989-EE43-A0ECEC453110" referredColumn="587BD331-6968-5A60-325A-EE7C000F60F9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="99A9FC6E-44DE-C102-A17A-8A82B4385D26" name="PK_MATRICULA">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>FB0DD599-9610-70F9-F5BB-DC0621F7164C</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03F1A25E-6730-6AA5-C59B-D189B6AAA4A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4CA6A506-874B-9556-F9D7-AD98A5B7AE45" name="UK_MATRICULA_COD">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>F60F5947-9E11-0EAC-824D-59BC1D5979CD</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D2F588C-59B1-87B0-031F-01217A9EDED1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49AB7150-8BA3-258C-330E-62146956CD81" name="UK_MATRICULA_UNICA">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>ADEBC22F-FCE0-DA1A-D78F-9F28A2CE4201</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="341A0FC8-3C70-E105-82F5-2E66A265419F"/>
+<colUsage columnID="E9BE4DAF-7882-86D3-4924-75F2905389C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="10910042-45A3-8914-08E8-13F2654ED2FF" name="FK_MATRICULA_ESTUDIANTE">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="341A0FC8-3C70-E105-82F5-2E66A265419F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0E3A0268-D89F-9901-6EB1-18DA7A06B122" name="FK_MATRICULA_SECCION">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9BE4DAF-7882-86D3-4924-75F2905389C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CK_MATRICULA_ESTADO" directorySegmentName="seg_0" id="394FDCFB-43DA-F268-D065-55F090C2B0C2">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>5E34DB61-7CFC-6EEC-F077-E7E74C306E8B</importedID>
+<rule><![CDATA[estado_matricula IN ('REGISTRADA', 'RETIRADO', 'CULMINADO')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

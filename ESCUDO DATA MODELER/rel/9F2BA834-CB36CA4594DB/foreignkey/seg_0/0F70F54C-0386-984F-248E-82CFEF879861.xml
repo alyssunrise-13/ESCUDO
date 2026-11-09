@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0F70F54C-0386-984F-248E-82CFEF879861" containerWithKeyObject="75ED2C6D-0208-2CA8-89FE-FBE64F65E385" localFKIndex="15110FF8-7573-08CF-4C51-5C3CD04F76EF" name="FK_EVAL_TIPO">
+<sourceDDLFile>ESCUDO.ddl</sourceDDLFile>
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:42:47 UTC</createdTime>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<importedID>687685CD-9BD8-3DEE-05B5-BDB2D10C9907</importedID>
+<referredTableLongName>TIPO_EVALUACION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>06C47EBE-5C30-9892-5F35-AB02321AE148</referredTableID>
+<keyObject>CE779D5F-A8A1-987A-F011-5285DA981FA7</keyObject>
+<referredKeyID>CE779D5F-A8A1-987A-F011-5285DA981FA7</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_tipo_eval</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

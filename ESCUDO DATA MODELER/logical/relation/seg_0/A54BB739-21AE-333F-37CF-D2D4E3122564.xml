@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_SECCION_PERIODO" directorySegmentName="seg_0" id="A54BB739-21AE-333F-37CF-D2D4E3122564">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>E8785DA3-40D9-A7BD-20F8-95D71A4787AF</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<sourcePk>4FC5A104-038A-5D92-2BF7-9514CCD16108</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E2C47693-04A7-DE73-D952-1EF66AAF5FA6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6E7EE860-747C-74EC-E027-11C25723E645</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

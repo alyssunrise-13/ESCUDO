@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MATRICULA_SECCION" directorySegmentName="seg_0" id="2D50C369-AFF0-B495-FC88-5EEA73434D19">
+<createdBy>Lucero Alyssa</createdBy>
+<createdTime>2026-11-08 21:43:57 UTC</createdTime>
+<generatorID>775986E7-D573-8989-EE43-A0ECEC453110</generatorID>
+<ownerDesignName>ESCUDO</ownerDesignName>
+<engineerTo>
+<item key="9F2BA834-4A3B-A026-064C-CB36CA4594DB" value="true"/>
+</engineerTo>
+<sourcePk>2FADC01D-9849-B64F-065C-A593B63D2719</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6E7EE860-747C-74EC-E027-11C25723E645</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B021616E-F2F6-39F6-E286-926A6FFF330C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

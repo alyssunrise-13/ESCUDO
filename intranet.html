@@ -62,14 +62,6 @@
             background-attachment: fixed;
         }
 
-        .btn-header-compact {
-            padding: 5px 12px;
-            font-size: 0.74rem;
-            white-space: nowrap;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
         body::after {
             position: fixed;
             z-index: -1;
@@ -144,20 +136,36 @@
             flex-shrink: 0;
         }
 
+        /* LOCKED EQUAL HEIGHT FOR ALL HEADER BUTTONS/PILLS (PC & LAPTOP: EXACTLY 34PX) */
+        .soc-header-right > * {
+            height: 34px !important;
+            min-height: 34px !important;
+            max-height: 34px !important;
+            line-height: 32px !important;
+            padding: 0 14px !important;
+            box-sizing: border-box !important;
+            font-size: 0.74rem !important;
+            font-family: var(--mono) !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            border-width: 1px !important;
+            border-style: solid !important;
+            white-space: nowrap !important;
+            vertical-align: middle !important;
+            text-decoration: none !important;
+            margin: 0 !important;
+        }
+
         .apex-status-pill {
             background: rgba(0, 255, 65, 0.08);
-            border: 1px solid var(--panel-borde);
+            border-color: var(--panel-borde);
             color: var(--verde-suave);
-            padding: 5px 12px;
-            font-size: 0.74rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
+            transition: all 0.2s ease;
         }
 
         .apex-status-pill:hover {
@@ -168,14 +176,25 @@
 
         .active-role-tag {
             background: rgba(0, 255, 65, 0.1);
-            border: 1px solid var(--verde);
+            border-color: var(--verde);
             color: var(--verde-claro);
-            padding: 5px 10px;
-            font-size: 0.74rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            white-space: nowrap;
             display: none;
+            cursor: default !important;
+        }
+
+        .btn-header-action {
+            background: transparent;
+            color: var(--verde);
+            border-color: var(--verde);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-header-action:hover {
+            background: var(--verde);
+            color: var(--fondo);
+            font-weight: 700;
+            box-shadow: 0 0 12px rgba(0, 255, 65, 0.4);
         }
 
         .btn-tactical {
@@ -719,12 +738,13 @@
                 gap: 8px;
             }
 
-            .apex-status-pill,
-            .btn-header-compact,
-            .active-role-tag {
-                font-size: 0.7rem;
-                padding: 0 10px;
-                height: 30px;
+            .soc-header-right > * {
+                height: 32px !important;
+                min-height: 32px !important;
+                max-height: 32px !important;
+                line-height: 30px !important;
+                padding: 0 10px !important;
+                font-size: 0.7rem !important;
             }
 
             .live-rest-banner {
@@ -912,8 +932,8 @@
                 <span style="color: var(--verde-brillante);">●</span> ORDS VIVO
             </div>
             <div class="active-role-tag" id="header-role-tag">DIRECCIÓN // LVL-4</div>
-            <button class="btn-tactical btn-header-compact" id="btn-switch-role" style="display: none;" onclick="showRoleScreen()">Cerrar Sesión ↗</button>
-            <a href="index.html" class="btn-tactical btn-header-compact" id="btn-back-home">Volver al Sitio</a>
+            <button class="btn-header-action" id="btn-switch-role" style="display: none;" onclick="showRoleScreen()">Cerrar Sesión ↗</button>
+            <a href="index.html" class="btn-header-action" id="btn-back-home">Volver al Sitio</a>
         </div>
     </header>
 

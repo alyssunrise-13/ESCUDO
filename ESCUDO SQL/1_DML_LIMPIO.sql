@@ -1,3 +1,20 @@
+-- ============================================================================
+-- INSTITUTO TECNOLÓGICO ESCUDO - DML DE CARGA LIMPIA
+-- Limpieza previa en orden referencial (permite re-ejecutar sin ORA-00001)
+-- ============================================================================
+DELETE FROM EVALUACION;
+DELETE FROM PAGO;
+DELETE FROM MATRICULA;
+DELETE FROM ESTUDIANTE;
+DELETE FROM SECCION;
+DELETE FROM CURSO;
+DELETE FROM DOCENTE;
+DELETE FROM PERIODO_ACADEMICO;
+DELETE FROM TIPO_EVALUACION;
+DELETE FROM CONCEPTO_PAGO;
+DELETE FROM CARRERA;
+COMMIT;
+
 INSERT INTO CARRERA (id_carrera, cod_carrera, nombre_carrera, duracion_semestres, estado) VALUES (1, 'CIBER-01', 'Ciberseguridad y Defensa Digital', 6, 'ACTIVO');
 INSERT INTO CARRERA (id_carrera, cod_carrera, nombre_carrera, duracion_semestres, estado) VALUES (2, 'SOFT-02', 'Desarrollo de Software', 6, 'ACTIVO');
 INSERT INTO CARRERA (id_carrera, cod_carrera, nombre_carrera, duracion_semestres, estado) VALUES (3, 'REDES-03', 'Redes y Bases de Datos', 6, 'ACTIVO');
@@ -56,22 +73,22 @@ INSERT INTO CURSO (id_curso, cod_curso, nombre_curso, creditos, horas, ciclo_niv
 INSERT INTO CURSO (id_curso, cod_curso, nombre_curso, creditos, horas, ciclo_nivel, estado, id_carrera) VALUES (18, 'IA-301', 'IA para Ciberdefensa y Detección Automática de Anomalías', 5, 96, 3, 'ACTIVO', 6);
 
 
-INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (1, 'SEC-CYB1', 'MANANA', 'LAB-CYBERANGE', 25, 1, 1, 2);
+INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (1, 'SEC-CYB1', 'MAÑANA', 'LAB-CYBERANGE', 25, 1, 1, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (2, 'SEC-CYB2', 'TARDE', 'LAB-CYBERANGE', 25, 2, 1, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (3, 'SEC-CYB3', 'NOCHE', 'LAB-CYBERANGE', 20, 3, 1, 2);
-INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (4, 'SEC-DS1', 'MANANA', 'LAB-DEV-01', 25, 4, 2, 2);
+INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (4, 'SEC-DS1', 'MAÑANA', 'LAB-DEV-01', 25, 4, 2, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (5, 'SEC-DS2', 'TARDE', 'LAB-DEV-01', 25, 5, 2, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (6, 'SEC-DS3', 'NOCHE', 'LAB-DEV-01', 20, 6, 2, 2);
-INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (7, 'SEC-RD1', 'MANANA', 'LAB-REDES', 25, 7, 5, 2);
+INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (7, 'SEC-RD1', 'MAÑANA', 'LAB-REDES', 25, 7, 5, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (8, 'SEC-RD2', 'TARDE', 'LAB-DATACENTER', 25, 8, 3, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (9, 'SEC-RD3', 'NOCHE', 'LAB-REDES', 20, 9, 5, 2);
-INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (10, 'SEC-FE1', 'MANANA', 'LAB-FRONTEND', 25, 10, 6, 2);
+INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (10, 'SEC-FE1', 'MAÑANA', 'LAB-FRONTEND', 25, 10, 6, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (11, 'SEC-FE2', 'TARDE', 'LAB-FRONTEND', 25, 11, 6, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (12, 'SEC-FE3', 'NOCHE', 'LAB-FRONTEND', 20, 12, 6, 2);
-INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (13, 'SEC-BE1', 'MANANA', 'LAB-BACKEND', 25, 13, 7, 2);
+INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (13, 'SEC-BE1', 'MAÑANA', 'LAB-BACKEND', 25, 13, 7, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (14, 'SEC-BE2', 'TARDE', 'LAB-BACKEND', 25, 14, 7, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (15, 'SEC-BE3', 'NOCHE', 'LAB-BACKEND', 20, 15, 7, 2);
-INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (16, 'SEC-IA1', 'MANANA', 'LAB-IA-SOC', 25, 16, 4, 2);
+INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (16, 'SEC-IA1', 'MAÑANA', 'LAB-IA-SOC', 25, 16, 4, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (17, 'SEC-IA2', 'TARDE', 'LAB-IA-SOC', 25, 17, 4, 2);
 INSERT INTO SECCION (id_seccion, cod_seccion, turno, aula, cupos_totales, id_curso, id_docente, id_periodo) VALUES (18, 'SEC-IA3', 'NOCHE', 'LAB-IA-SOC', 20, 18, 8, 2);
 

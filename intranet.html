@@ -964,7 +964,7 @@
                             <span class="role-badge" style="border-color: var(--verde-brillante); color: var(--verde-brillante); background: rgba(0, 255, 65, 0.1);">● ACTIVO // CONTRASEÑA REQUERIDA</span>
                             <div class="role-icon">🏛️</div>
                             <h3 class="role-title">Dirección y Administración</h3>
-                            <p class="role-desc">Gobierno completo de las 11 tablas relacionales: Padrón de 90 estudiantes, 6 carreras, 18 cursos, 8 docentes, secciones tácticas y auditoría financiera de pagos.</p>
+                            <p class="role-desc" id="role-admin-desc">Gobierno completo de las 11 tablas relacionales en tiempo real desde Oracle APEX ORDS: Padrón de estudiantes, carreras, cursos, docentes, secciones tácticas y auditoría financiera.</p>
                         </div>
                         <button class="role-btn">Ingresar con Credencial ↗</button>
                     </div>
@@ -998,57 +998,57 @@
             <div class="tables-kpi-grid">
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">1. ESTUDIANTE</div>
-                    <div class="kpi-mini-val">90</div>
+                    <div class="kpi-mini-val" id="kpi-val-estudiantes">--</div>
                     <div class="kpi-mini-sub">Estudiantes únicos</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">2. CARRERA</div>
-                    <div class="kpi-mini-val">6</div>
+                    <div class="kpi-mini-val" id="kpi-val-carreras">--</div>
                     <div class="kpi-mini-sub">Carreras técnicas</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">3. CURSO</div>
-                    <div class="kpi-mini-val">18</div>
+                    <div class="kpi-mini-val" id="kpi-val-cursos">--</div>
                     <div class="kpi-mini-sub">Especialidades</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">4. SECCION</div>
-                    <div class="kpi-mini-val">18</div>
+                    <div class="kpi-mini-val" id="kpi-val-secciones">--</div>
                     <div class="kpi-mini-sub">Mañana/Tarde/Noche</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">5. DOCENTE</div>
-                    <div class="kpi-mini-val">8</div>
+                    <div class="kpi-mini-val" id="kpi-val-docentes">--</div>
                     <div class="kpi-mini-sub">Titulares de curso</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">6. MATRICULA</div>
-                    <div class="kpi-mini-val">90</div>
+                    <div class="kpi-mini-val" id="kpi-val-matriculas">--</div>
                     <div class="kpi-mini-sub">Inscripciones activas</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">7. EVALUACION</div>
-                    <div class="kpi-mini-val">720</div>
+                    <div class="kpi-mini-val" id="kpi-val-evaluaciones">--</div>
                     <div class="kpi-mini-sub">Notas en rúbricas</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">8. TIPO_EVALUACION</div>
-                    <div class="kpi-mini-val">8</div>
+                    <div class="kpi-mini-val" id="kpi-val-tipos">--</div>
                     <div class="kpi-mini-sub">Rúbricas oficiales</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">9. PAGO</div>
-                    <div class="kpi-mini-val">135</div>
+                    <div class="kpi-mini-val" id="kpi-val-pagos">--</div>
                     <div class="kpi-mini-sub">Recibos emitidos</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">10. CONCEPTO_PAGO</div>
-                    <div class="kpi-mini-val">4</div>
+                    <div class="kpi-mini-val" id="kpi-val-conceptos">--</div>
                     <div class="kpi-mini-sub">Aranceles base</div>
                 </div>
                 <div class="kpi-mini">
                     <div class="kpi-mini-lbl">11. PERIODO</div>
-                    <div class="kpi-mini-val">2026-II</div>
+                    <div class="kpi-mini-val" id="kpi-val-periodo">2026-II</div>
                     <div class="kpi-mini-sub">Semestre activo</div>
                 </div>
             </div>
@@ -1078,6 +1078,7 @@
                             <option value="TARDE">TARDE</option>
                             <option value="NOCHE">NOCHE</option>
                         </select>
+                        <button class="btn-tactical" id="btn-sync-ords" onclick="fetchAllApexTables(true)">🔄 Sincronizar ORDS</button>
                         <button class="btn-tactical" onclick="exportAdminCSV()">📥 Exportar CSV</button>
                     </div>
                 </div>
@@ -1264,36 +1265,198 @@
             pagos: "pago/"
         };
 
-        async function fetchAllApexTables() {
-            const indicator = document.getElementById('apex-status-indicator');
-            document.getElementById('current-endpoint-display').innerText = BASE_ORDS_URL;
-
-            try {
-                const [rEst] = await Promise.all([
-                    fetch(`${BASE_ORDS_URL}${EP.estudiantes}?limit=500`).catch(() => null)
-                ]);
-
-                if (rEst && rEst.ok) {
-                    const estJson = await rEst.json();
-                    if (estJson && estJson.items && estJson.items.length > 0) {
-                        indicator.innerHTML = '<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORDS EN VIVO';
-                        indicator.title = 'Oracle APEX ORDS: Conexión activa (' + estJson.items.length + ' estudiantes recibidos)';
-                        indicator.style.borderColor = 'var(--verde-brillante)';
-                    }
-                } else if (rEst && (rEst.status === 401 || rEst.status === 403)) {
-                    indicator.innerHTML = '<span style="color: var(--amarillo);">●</span> ORDS PROTEGIDO';
-                    indicator.title = 'HTTP ' + rEst.status + ': Requiere desactivar autorización en APEX';
-                } else {
-                    indicator.innerHTML = '<span style="color: var(--verde-brillante);">●</span> ORDS VIVO';
-                    indicator.title = 'ORDS enlazado a ' + BASE_ORDS_URL;
+        async function fetchOrdsAllPages(baseUrl, endpointPath) {
+            let allItems = [];
+            let nextUrl = `${baseUrl}${endpointPath}?limit=500`;
+            let guard = 0;
+            while (nextUrl && guard < 20) {
+                guard++;
+                const res = await fetch(nextUrl, { cache: 'no-store' });
+                if (!res.ok) throw new Error(`HTTP ${res.status} en ${endpointPath}`);
+                const json = await res.json();
+                if (json && Array.isArray(json.items)) {
+                    allItems = allItems.concat(json.items);
                 }
-            } catch (err) {
-                indicator.innerHTML = '<span style="color: var(--verde-brillante);">●</span> ORDS VIVO';
-                indicator.title = 'ORDS configurado en ' + BASE_ORDS_URL;
+                const nextLink = json && Array.isArray(json.links)
+                    ? json.links.find(l => l.rel === 'next')
+                    : null;
+                nextUrl = nextLink ? nextLink.href : null;
+            }
+            return allItems;
+        }
+
+        function mapOrdsToDB(data) {
+            DB.carreras = (data.carreras || []).map(x => ({
+                id: x.id_carrera,
+                cod: x.cod_carrera,
+                nombre: x.nombre_carrera,
+                duracion: Number(x.duracion_semestres || 6),
+                estado: x.estado || 'ACTIVO'
+            })).sort((a, b) => a.id - b.id);
+
+            DB.periodos = (data.periodos || []).map(x => ({
+                id: x.id_periodo,
+                cod: x.cod_periodo,
+                inicio: (x.fecha_inicio || '').slice(0, 10),
+                fin: (x.fecha_fin || '').slice(0, 10),
+                estado: x.estado || 'ACTIVO'
+            })).sort((a, b) => a.id - b.id);
+
+            DB.conceptos = (data.conceptos || []).map(x => ({
+                id: x.id_concepto,
+                cod: x.cod_concepto,
+                desc: x.descripcion,
+                monto: Number(x.monto_base || 0)
+            })).sort((a, b) => a.id - b.id);
+
+            DB.tiposEvaluacion = (data.tipos || []).map(x => ({
+                id: x.id_tipo_eval,
+                cod: x.codigo_tipo,
+                nombre: x.nombre_tipo,
+                peso: Number(x.peso_porcentaje || 0)
+            })).sort((a, b) => a.id - b.id);
+
+            DB.docentes = (data.docentes || []).map(x => ({
+                id: x.id_docente,
+                cod: x.cod_docente,
+                nombres: x.nombres || '',
+                apellidos: x.apellidos || '',
+                esp: x.especialidad || '',
+                correo: x.correo || '',
+                tel: x.telefono || ''
+            })).sort((a, b) => a.id - b.id);
+
+            DB.cursos = (data.cursos || []).map(x => ({
+                id: x.id_curso,
+                cod: x.cod_curso,
+                nombre: x.nombre_curso,
+                cred: Number(x.creditos || 0),
+                hrs: Number(x.horas || 0),
+                ciclo: Number(x.ciclo_nivel || 1),
+                id_carrera: x.id_carrera
+            })).sort((a, b) => a.id - b.id);
+
+            DB.secciones = (data.secciones || []).map(x => {
+                const turnoRaw = (x.turno || 'MAÑANA').toUpperCase();
+                return {
+                    id: x.id_seccion,
+                    cod: x.cod_seccion,
+                    turno: turnoRaw === 'MANANA' ? 'MAÑANA' : turnoRaw,
+                    aula: x.aula || '',
+                    cupos: Number(x.cupos_totales || 0),
+                    id_curso: x.id_curso,
+                    id_docente: x.id_docente,
+                    id_periodo: x.id_periodo
+                };
+            }).sort((a, b) => a.id - b.id);
+
+            DB.estudiantes = (data.estudiantes || []).map(x => ({
+                id: x.id_estudiante,
+                cod: x.cod_estudiante,
+                nombres: x.nombres || '',
+                apellidos: x.apellidos || '',
+                nombre_completo: `${x.nombres || ''} ${x.apellidos || ''}`.trim(),
+                dni: x.dni || '',
+                correo: x.correo || '',
+                telefono: x.telefono || '',
+                fecha_registro: (x.fecha_registro || '').slice(0, 10),
+                id_carrera: x.id_carrera
+            })).sort((a, b) => a.id - b.id);
+
+            DB.matriculas = (data.matriculas || []).map(x => ({
+                id: x.id_matricula,
+                cod: x.cod_matricula,
+                fecha: (x.fecha_matricula || '').slice(0, 10),
+                estado: x.estado_matricula || 'REGISTRADA',
+                id_estudiante: x.id_estudiante,
+                id_seccion: x.id_seccion
+            })).sort((a, b) => a.id - b.id);
+
+            DB.evaluaciones = (data.evaluaciones || []).map(x => ({
+                id: x.id_evaluacion,
+                cod: x.cod_evaluacion,
+                nota: Number(x.nota_obtenida || 0),
+                fecha: (x.fecha_evaluacion || '').slice(0, 10),
+                id_matricula: x.id_matricula,
+                id_tipo: x.id_tipo_eval
+            })).sort((a, b) => a.id - b.id);
+
+            DB.pagos = (data.pagos || []).map(x => ({
+                id: x.id_pago,
+                recibo: x.cod_recibo,
+                monto: Number(x.monto_pagado || 0),
+                fecha: (x.fecha_pago || '').slice(0, 10),
+                metodo: x.metodo_pago || '',
+                estado: x.estado_pago || 'PAGADO',
+                id_matricula: x.id_matricula,
+                id_concepto: x.id_concepto
+            })).sort((a, b) => a.id - b.id);
+        }
+
+        async function fetchAllApexTables(isManualSync = false) {
+            const indicator = document.getElementById('apex-status-indicator');
+            const syncBtn = document.getElementById('btn-sync-ords');
+            const baseUrl = BASE_ORDS_URL.endsWith('/') ? BASE_ORDS_URL : BASE_ORDS_URL + '/';
+            document.getElementById('current-endpoint-display').innerText = baseUrl;
+
+            indicator.innerHTML = '<span style="color: var(--amarillo); animation: pulse 1s infinite;">●</span> SINCRONIZANDO ORDS...';
+            if (syncBtn) {
+                syncBtn.disabled = true;
+                syncBtn.innerText = '⏳ Sincronizando...';
             }
 
-            populateRelationalSchema();
+            try {
+                const [
+                    carreras, periodos, conceptos, tipos,
+                    docentes, cursos, secciones, estudiantes,
+                    matriculas, evaluaciones, pagos
+                ] = await Promise.all([
+                    fetchOrdsAllPages(baseUrl, EP.carreras),
+                    fetchOrdsAllPages(baseUrl, EP.periodos),
+                    fetchOrdsAllPages(baseUrl, EP.conceptos),
+                    fetchOrdsAllPages(baseUrl, EP.tiposEvaluacion),
+                    fetchOrdsAllPages(baseUrl, EP.docentes),
+                    fetchOrdsAllPages(baseUrl, EP.cursos),
+                    fetchOrdsAllPages(baseUrl, EP.secciones),
+                    fetchOrdsAllPages(baseUrl, EP.estudiantes),
+                    fetchOrdsAllPages(baseUrl, EP.matriculas),
+                    fetchOrdsAllPages(baseUrl, EP.evaluaciones),
+                    fetchOrdsAllPages(baseUrl, EP.pagos)
+                ]);
+
+                if (!estudiantes || estudiantes.length === 0) {
+                    throw new Error('Respuesta ORDS sin registros de estudiantes');
+                }
+
+                mapOrdsToDB({
+                    carreras, periodos, conceptos, tipos,
+                    docentes, cursos, secciones, estudiantes,
+                    matriculas, evaluaciones, pagos
+                });
+
+                indicator.innerHTML = '<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORDS EN VIVO (' + DB.estudiantes.length + ')';
+                indicator.title = `Tiempo real Oracle APEX ORDS: ${DB.estudiantes.length} estudiantes, ${DB.matriculas.length} matrículas, ${DB.evaluaciones.length} evaluaciones, ${DB.pagos.length} pagos`;
+                indicator.style.borderColor = 'var(--verde-brillante)';
+            } catch (err) {
+                console.warn('ORDS no disponible, activando respaldo local:', err);
+                populateRelationalSchema();
+                if (String(err.message).includes('401') || String(err.message).includes('403')) {
+                    indicator.innerHTML = '<span style="color: var(--amarillo);">●</span> ORDS PROTEGIDO (LOCAL)';
+                    indicator.title = err.message + ': Requiere acceso público sin auth en APEX';
+                } else {
+                    indicator.innerHTML = '<span style="color: var(--amarillo);">●</span> RESPALDO LOCAL';
+                    indicator.title = 'Sin conexión con APEX (' + err.message + '). Mostrando caché local.';
+                }
+                indicator.style.borderColor = 'var(--amarillo)';
+            } finally {
+                if (syncBtn) {
+                    syncBtn.disabled = false;
+                    syncBtn.innerText = '🔄 Sincronizar ORDS';
+                }
+            }
+
             renderAllAdminTabs();
+            if (isManualSync) applyStudentFilters();
         }
 
 function populateRelationalSchema() {
@@ -1328,7 +1491,7 @@ function populateRelationalSchema() {
                 { id: 3, cod: 'TA2', nombre: 'Tarea Práctica 2: Simulación y Pruebas Técnicas', peso: 10 },
                 { id: 4, cod: 'TA3', nombre: 'Tarea Práctica 3: Hardening y Auditoría de Entorno', peso: 10 },
                 { id: 5, cod: 'EP', nombre: 'Examen Parcial Teórico-Práctico', peso: 20 },
-                { id: 6, rub: 'RUB-HAB', nombre: 'Rúbrica de Habilidades y Desempeño Operativo', peso: 10 },
+                { id: 6, cod: 'RUB-HAB', nombre: 'Rúbrica de Habilidades y Desempeño Operativo', peso: 10 },
                 { id: 7, cod: 'PROY', nombre: 'Proyecto Integrador de Carrera ESCUDO', peso: 20 },
                 { id: 8, cod: 'EF', nombre: 'Examen Final Integral de Desempeño', peso: 15 }
             ];
@@ -1525,46 +1688,51 @@ function populateRelationalSchema() {
         ESTUDIANTES_JOIN = [];
         function buildRelationalEntities() {
             ESTUDIANTES_JOIN = DB.estudiantes.map(est => {
-                const mat = DB.matriculas.find(m => m.id_estudiante === est.id) || { id: est.id, id_seccion: 1, cod: 'MAT-2026-000' };
-                const sec = DB.secciones.find(s => s.id === mat.id_seccion) || DB.secciones[0];
-                const cur = DB.cursos.find(c => c.id === sec.id_curso) || { nombre: 'Curso General', cred: 4, hrs: 80 };
-                const doc = DB.docentes.find(d => d.id === sec.id_docente) || { nombre_completo: 'Docente Titular' };
-                const car = DB.carreras.find(c => c.id === est.id_carrera) || { nombre: 'Carrera' };
-                
-                
-                const evs = DB.evaluaciones.filter(e => e.id_matricula === mat.id);
+                const mats = DB.matriculas.filter(m => m.id_estudiante === est.id);
+                const mat = mats.length > 0 ? mats[mats.length - 1] : null;
+                const matIds = new Set(mats.map(m => m.id));
+                const sec = mat ? DB.secciones.find(s => s.id === mat.id_seccion) : null;
+                const cur = sec ? DB.cursos.find(c => c.id === sec.id_curso) : null;
+                const doc = sec ? DB.docentes.find(d => d.id === sec.id_docente) : null;
+                const car = DB.carreras.find(c => c.id === est.id_carrera);
+
+                const evs = mats.length > 0 ? DB.evaluaciones.filter(e => matIds.has(e.id_matricula)) : [];
                 const notasDict = {};
                 let sumaPond = 0;
                 let sumaPeso = 0;
                 evs.forEach(ev => {
-                    const tipo = DB.tiposEvaluacion.find(t => t.id === ev.id_tipo) || { cod: 'EV', peso: 10 };
-                    notasDict[tipo.cod] = ev.nota;
-                    sumaPond += ev.nota * tipo.peso;
-                    sumaPeso += tipo.peso;
+                    const tipo = DB.tiposEvaluacion.find(t => t.id === ev.id_tipo);
+                    const codTipo = tipo ? (tipo.cod || tipo.rub) : 'EV';
+                    const pesoTipo = tipo ? Number(tipo.peso) : 10;
+                    notasDict[codTipo] = Number(ev.nota);
+                    sumaPond += Number(ev.nota) * pesoTipo;
+                    sumaPeso += pesoTipo;
                 });
                 const promedio = sumaPeso > 0 ? Math.round((sumaPond / sumaPeso) * 100) / 100 : 0.0;
-                
-                
+                const sinNotas = evs.length === 0;
+
                 let condicion = 'REGULAR';
-                if (est.id === 1) condicion = 'BECA TALENTO';
+                if (!mat) condicion = 'SIN MATRÍCULA';
+                else if (sinNotas) condicion = 'EN CURSO';
+                else if (est.id === 1) condicion = 'BECA TALENTO';
                 else if (promedio >= 17.0) condicion = 'SOBRESALIENTE';
                 else if (promedio >= 14.0) condicion = 'NOTABLE';
 
-                
-                const pgs = DB.pagos.filter(p => p.id_matricula === mat.id);
-                const totalPagado = pgs.reduce((acc, cur) => acc + cur.monto, 0);
+                const pgs = mats.length > 0 ? DB.pagos.filter(p => matIds.has(p.id_matricula)) : [];
+                const totalPagado = pgs.reduce((acc, p) => acc + Number(p.monto || 0), 0);
 
                 return {
                     ...est,
-                    matricula_cod: mat.cod,
-                    carrera_nombre: car.nombre,
-                    curso_nombre: cur.nombre,
-                    turno: sec.turno,
-                    aula: sec.aula,
-                    docente_nombre: `${doc.nombres} ${doc.apellidos}`,
-                    id_docente: doc.id,
+                    matricula_cod: mat ? mat.cod : 'PENDIENTE',
+                    carrera_nombre: car ? car.nombre : 'Sin Carrera',
+                    curso_nombre: cur ? cur.nombre : 'Sin Curso Asignado',
+                    turno: sec ? sec.turno : '--',
+                    aula: sec ? sec.aula : '--',
+                    docente_nombre: doc ? `${doc.nombres} ${doc.apellidos}`.trim() : 'Por Asignar',
+                    id_docente: doc ? doc.id : null,
                     notas: notasDict,
                     promedio: promedio,
+                    sinNotas: sinNotas,
                     condicion: condicion,
                     pagos: pgs,
                     total_pagado: totalPagado
@@ -1572,13 +1740,34 @@ function populateRelationalSchema() {
             });
         }
 
-        
-        
+        function updateKpiCounters() {
+            const setTxt = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.innerText = val;
+            };
+            setTxt('kpi-val-estudiantes', DB.estudiantes.length);
+            setTxt('kpi-val-carreras', DB.carreras.length);
+            setTxt('kpi-val-cursos', DB.cursos.length);
+            setTxt('kpi-val-secciones', DB.secciones.length);
+            setTxt('kpi-val-docentes', DB.docentes.length);
+            setTxt('kpi-val-matriculas', DB.matriculas.length);
+            setTxt('kpi-val-evaluaciones', DB.evaluaciones.length);
+            setTxt('kpi-val-tipos', DB.tiposEvaluacion.length);
+            setTxt('kpi-val-pagos', DB.pagos.length);
+            setTxt('kpi-val-conceptos', DB.conceptos.length);
 
-        
+            const perActivo = DB.periodos.find(p => p.estado === 'ACTIVO') || DB.periodos[DB.periodos.length - 1];
+            if (perActivo) setTxt('kpi-val-periodo', perActivo.cod);
+
+            const roleDesc = document.getElementById('role-admin-desc');
+            if (roleDesc) {
+                roleDesc.innerText = `Gobierno completo de las 11 tablas relacionales en tiempo real: Padrón de ${DB.estudiantes.length} estudiantes, ${DB.carreras.length} carreras, ${DB.cursos.length} cursos, ${DB.docentes.length} docentes, ${DB.secciones.length} secciones y auditoría financiera (${DB.pagos.length} pagos).`;
+            }
+        }
 
         function renderAllAdminTabs() {
             buildRelationalEntities();
+            updateKpiCounters();
             initFilterCarreras();
             renderAdminEstudiantes(ESTUDIANTES_JOIN);
             renderAdminCarreras();
@@ -1590,10 +1779,14 @@ function populateRelationalSchema() {
 
         function initFilterCarreras() {
             const sel = document.getElementById('admin-filter-carrera');
+            const prevVal = sel.value;
             sel.innerHTML = '<option value="TODAS">TODAS LAS CARRERAS</option>';
             DB.carreras.forEach(c => {
                 sel.innerHTML += '<option value="' + c.nombre + '">' + c.nombre + '</option>';
             });
+            if (prevVal && [...sel.options].some(o => o.value === prevVal)) {
+                sel.value = prevVal;
+            }
         }
 
         function renderAdminEstudiantes(lista) {
@@ -1606,8 +1799,10 @@ function populateRelationalSchema() {
 
             lista.forEach(c => {
                 let badgeClass = 'badge-regular';
-                if (c.condicion === 'BECA TALENTO') badgeClass = 'badge-beca';
+                if (c.condicion === 'BECA TALENTO' || c.condicion === 'EN CURSO') badgeClass = 'badge-beca';
                 else if (c.condicion === 'SOBRESALIENTE') badgeClass = 'badge-sobresaliente';
+
+                const promTexto = c.sinNotas ? '--' : c.promedio.toFixed(2);
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = 
@@ -1618,7 +1813,7 @@ function populateRelationalSchema() {
                     '<td>' + c.matricula_cod + '</td>' +
                     '<td>' + c.turno + '</td>' +
                     '<td>' + c.aula + '</td>' +
-                    '<td style="color: var(--verde-brillante); font-weight: 700;">' + c.promedio.toFixed(2) + '</td>' +
+                    '<td style="color: var(--verde-brillante); font-weight: 700;">' + promTexto + '</td>' +
                     '<td><span class="badge-status ' + badgeClass + '">' + c.condicion + '</span></td>' +
                     '<td style="text-align: center;"><button class="btn-tactical" style="padding: 2px 8px; font-size: 0.7rem;" onclick="openStudentDossier(' + c.id + ')">Ver Ficha ↗</button></td>';
                 tbody.appendChild(tr);
@@ -1930,10 +2125,11 @@ function populateRelationalSchema() {
 
             let rubricsHtml = '';
             DB.tiposEvaluacion.forEach(r => {
-                const nota = student.notas[r.cod] !== undefined ? student.notas[r.cod].toFixed(1) : '--';
+                const codKey = r.cod || r.rub;
+                const nota = student.notas[codKey] !== undefined ? student.notas[codKey].toFixed(1) : '--';
                 rubricsHtml += 
                     '<div style="background: #020402; border: 1px solid rgba(0,255,65,0.18); padding: 12px; text-align: center;">' +
-                        '<div style="font-size: 0.7rem; color: var(--verde-suave);">' + r.cod + ' (' + r.peso + '%)</div>' +
+                        '<div style="font-size: 0.7rem; color: var(--verde-suave);">' + codKey + ' (' + r.peso + '%)</div>' +
                         '<div style="font-size: 1.4rem; font-weight: bold; color: var(--verde-brillante); margin: 3px 0;">' + nota + '</div>' +
                         '<div style="font-size: 0.65rem; color: #888;">' + r.nombre + '</div>' +
                     '</div>';
@@ -1952,7 +2148,11 @@ function populateRelationalSchema() {
                         '<td><span style="color: var(--verde); font-weight: bold;">' + p.estado + '</span></td>' +
                     '</tr>';
             });
+            if (!paymentsRows) {
+                paymentsRows = '<tr><td colspan="6" style="text-align: center; color: #888; padding: 14px;">Sin pagos registrados aún.</td></tr>';
+            }
 
+            const promDisplay = student.sinNotas ? '--' : student.promedio.toFixed(2);
             const content = document.getElementById('student-dossier-modal-content');
             content.innerHTML = 
                 '<div class="modal-header">' +
@@ -1973,7 +2173,7 @@ function populateRelationalSchema() {
                     '</div>' +
                     '<div style="text-align: right;">' +
                         '<div style="font-size: 0.7rem; color: var(--verde-suave);">PROMEDIO PONDERADO</div>' +
-                        '<div style="font-size: 1.8rem; font-weight: bold; color: var(--verde-brillante);">' + student.promedio.toFixed(2) + '</div>' +
+                        '<div style="font-size: 1.8rem; font-weight: bold; color: var(--verde-brillante);">' + promDisplay + '</div>' +
                     '</div>' +
                 '</div>' +
                 '<h3 style="font-size: 0.85rem; color: var(--verde-claro); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;">' +
@@ -2022,15 +2222,16 @@ function populateRelationalSchema() {
         }
 
         async function testApexEndpoint() {
-            const url = document.getElementById('apex-url-input').value.trim();
+            const rawUrl = document.getElementById('apex-url-input').value.trim();
+            const url = rawUrl.endsWith('/') ? rawUrl : rawUrl + '/';
             const feedback = document.getElementById('apex-test-feedback');
             feedback.innerHTML = '<span style="color: var(--amarillo);">Enviando petición HTTP GET al endpoint REST...</span>';
             const ep = (window.ESCUDO_APEX && window.ESCUDO_APEX.endpoints) ? window.ESCUDO_APEX.endpoints.estudiantes : 'estudiante/';
             try {
-                const res = await fetch(url + ep + '?limit=10');
+                const res = await fetch(url + ep + '?limit=10', { cache: 'no-store' });
                 if (res.ok) {
                     const json = await res.json();
-                    feedback.innerHTML = '<span style="color: var(--verde-brillante); font-weight: bold;">[OK] CONEXIÓN EXITOSA: ' + (json.items ? json.items.length : 0) + ' registros recibidos en vivo desde Oracle APEX.</span>';
+                    feedback.innerHTML = '<span style="color: var(--verde-brillante); font-weight: bold;">[OK] CONEXIÓN EXITOSA: ' + (json.items ? json.items.length : 0) + ' registros de muestra recibidos en vivo desde Oracle APEX.</span>';
                 } else if (res.status === 401 || res.status === 403) {
                     feedback.innerHTML = '<span style="color: var(--amarillo);">Código ' + res.status + ': En Database Actions, desactiva "Autorización requerida" para que el endpoint sea público sin token OAuth.</span>';
                 } else {
@@ -2042,8 +2243,9 @@ function populateRelationalSchema() {
         }
 
         function saveApexUrl() {
-            const url = document.getElementById('apex-url-input').value.trim();
-            if (url) {
+            const rawUrl = document.getElementById('apex-url-input').value.trim();
+            if (rawUrl) {
+                const url = rawUrl.endsWith('/') ? rawUrl : rawUrl + '/';
                 localStorage.setItem('ESCUDO_ORDS_URL', url);
                 location.reload();
             }

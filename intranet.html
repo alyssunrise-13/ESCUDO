@@ -1265,13 +1265,38 @@
             pagos: "pago/"
         };
 
+        const sleepMs = ms => new Promise(ok => setTimeout(ok, ms));
+
+        async function fetchWithRetry(url, retries = 1) {
+            let lastErr;
+            for (let attempt = 0; attempt <= retries; attempt++) {
+                try {
+                    const res = await fetch(url, { cache: 'no-store' });
+                    if (res.ok) return res;
+                    if (attempt < retries && (res.status === 403 || res.status === 429 || res.status >= 500)) {
+                        await sleepMs(600);
+                        continue;
+                    }
+                    return res;
+                } catch (err) {
+                    lastErr = err;
+                    if (attempt < retries) {
+                        await sleepMs(600);
+                        continue;
+                    }
+                    throw err;
+                }
+            }
+            throw lastErr;
+        }
+
         async function fetchOrdsAllPages(baseUrl, endpointPath) {
             let allItems = [];
             let nextUrl = `${baseUrl}${endpointPath}?limit=500`;
             let guard = 0;
             while (nextUrl && guard < 20) {
                 guard++;
-                const res = await fetch(nextUrl, { cache: 'no-store' });
+                const res = await fetchWithRetry(nextUrl, 1);
                 if (!res.ok) throw new Error(`HTTP ${res.status} en ${endpointPath}`);
                 const json = await res.json();
                 if (json && Array.isArray(json.items)) {
@@ -1406,33 +1431,32 @@
             }
 
             try {
-                const [
-                    carreras, periodos, conceptos, tipos,
-                    docentes, cursos, secciones, estudiantes,
-                    matriculas, evaluaciones, pagos
-                ] = await Promise.all([
-                    fetchOrdsAllPages(baseUrl, EP.carreras),
-                    fetchOrdsAllPages(baseUrl, EP.periodos),
-                    fetchOrdsAllPages(baseUrl, EP.conceptos),
-                    fetchOrdsAllPages(baseUrl, EP.tiposEvaluacion),
-                    fetchOrdsAllPages(baseUrl, EP.docentes),
-                    fetchOrdsAllPages(baseUrl, EP.cursos),
-                    fetchOrdsAllPages(baseUrl, EP.secciones),
-                    fetchOrdsAllPages(baseUrl, EP.estudiantes),
-                    fetchOrdsAllPages(baseUrl, EP.matriculas),
-                    fetchOrdsAllPages(baseUrl, EP.evaluaciones),
-                    fetchOrdsAllPages(baseUrl, EP.pagos)
-                ]);
+                // Secuencial con pausa breve para evitar bloqueos 403/rate-limit del WAF de Oracle
+                const tablaDefs = [
+                    ['carreras', EP.carreras],
+                    ['periodos', EP.periodos],
+                    ['conceptos', EP.conceptos],
+                    ['tipos', EP.tiposEvaluacion],
+                    ['docentes', EP.docentes],
+                    ['cursos', EP.cursos],
+                    ['secciones', EP.secciones],
+                    ['estudiantes', EP.estudiantes],
+                    ['matriculas', EP.matriculas],
+                    ['evaluaciones', EP.evaluaciones],
+                    ['pagos', EP.pagos]
+                ];
+                const loaded = {};
+                for (let i = 0; i < tablaDefs.length; i++) {
+                    const [key, ep] = tablaDefs[i];
+                    loaded[key] = await fetchOrdsAllPages(baseUrl, ep);
+                    if (i < tablaDefs.length - 1) await sleepMs(150);
+                }
 
-                if (!estudiantes || estudiantes.length === 0) {
+                if (!loaded.estudiantes || loaded.estudiantes.length === 0) {
                     throw new Error('Respuesta ORDS sin registros de estudiantes');
                 }
 
-                mapOrdsToDB({
-                    carreras, periodos, conceptos, tipos,
-                    docentes, cursos, secciones, estudiantes,
-                    matriculas, evaluaciones, pagos
-                });
+                mapOrdsToDB(loaded);
 
                 indicator.innerHTML = '<span style="color: var(--verde-brillante); animation: pulse 1s infinite;">●</span> ORDS EN VIVO (' + DB.estudiantes.length + ')';
                 indicator.title = `Tiempo real Oracle APEX ORDS: ${DB.estudiantes.length} estudiantes, ${DB.matriculas.length} matrículas, ${DB.evaluaciones.length} evaluaciones, ${DB.pagos.length} pagos`;
